@@ -12,7 +12,7 @@ aren.unix@yandex.com
 
 ## DESCRIPTION:
 
-![]
+![agent maze searcher animated gif](agent-maze-searcher-0.2.gif)
 
 Screencast above demonstrates the program running and structure of data files.
 

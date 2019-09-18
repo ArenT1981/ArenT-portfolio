@@ -1,5 +1,5 @@
 # PROJECT NAME:
-Traffic Light System for PIC Microcontroller  
+Maze searching program implemented in Scheme/Racket. 
 
 ## DATE:
 Spring 2019  
@@ -12,10 +12,16 @@ aren.unix@yandex.com
 
 ## DESCRIPTION:
 
-A traffic light simulator written in embedded C for the PIC 16F84A Microcontroller and Millennium board.  
+Originally written in Scheme and then ported to Racket (only minor adjustments needed), this program implements a maze/path searching algorithm that simulates a robot reaching a destination goal.
 
-It produces an appropriate simulation on the board using its inbuilt lights and buttons. It implements the standard light sequence used by British traffic lights, and listens for a button interrupt to appropriately trigger the "crossing" sequence, with the appropriate light sequence and a buzzer to simulate the audible warning heard on British pedestrian crossings.  
+It reads input from a data file which defines the following properties:
 
-The project makes use of a full test case scenario, structured program design with modelled data flows and state transitions, together with subsequent iterations of the source code.
+- The size of the maze/2D world
+- The quantity of obstacles/obstructions (i.e. walls)
+- The grid of obstacles/navigable space
 
-Complete documentation (overview; design; testing; codebase) is provided in [PIC-traffic-light.pdf](./PIC-traffic-light.pdf) and the source code is in the [src](./src/) directory.
+After parsing the file, it displays it an ASCII visual depiction of the maze/world. It then implements a recursive breadth-first search algorithm to locate the path from the robot's starting destination to the goal, if one exists. This path is then shown as a list of tuples specifying the path. The maze data structure is stored internally as a matrix. 
+
+Source code is in the [src](./src/) directory. Documentation pending.
+
+See the [CHANGELOG](./src/CHANGELOG.md) for release notes.

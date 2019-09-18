@@ -1,5 +1,5 @@
 # PROJECT NAME:
-Maze searching program implemented in Scheme/Racket. 
+Maze searching program implemented in Scheme/Racket.
 
 ## DATE:
 Spring 2019  
@@ -12,6 +12,10 @@ aren.unix@yandex.com
 
 ## DESCRIPTION:
 
+![]
+
+Screencast above demonstrates the program running and structure of data files.
+
 Originally written in Scheme and then ported to Racket (only minor adjustments needed), this program implements a maze/path searching algorithm that simulates a robot reaching a destination goal.
 
 It reads input from a data file which defines the following properties:
@@ -20,7 +24,7 @@ It reads input from a data file which defines the following properties:
 - The quantity of obstacles/obstructions (i.e. walls)
 - The grid of obstacles/navigable space
 
-After parsing the file, it displays it an ASCII visual depiction of the maze/world. It then implements a recursive breadth-first search algorithm to locate the path from the robot's starting destination to the goal, if one exists. This path is then shown as a list of tuples specifying the path. The maze data structure is stored internally as a matrix. 
+After parsing the file, it displays it an ASCII visual depiction of the maze/world. It then implements a recursive breadth-first search algorithm to locate the path from the robot's starting destination to the goal, if one exists. This path is then shown as a list of tuples specifying the path. The maze data structure is stored internally as a matrix.
 
 Source code is in the [src](./src/) directory. Documentation pending.
 

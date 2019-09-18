@@ -208,6 +208,7 @@
     (display "= : The goal our robot seeks")
     (newline)
     (display "Number[1-9] = An obstacle of difficultly (cost) n[1-9]")
+    (newline)
     (display "-----")
     (newline)
     (newline))))
@@ -741,19 +742,18 @@
 (define goal-state-found
   (lambda ()
     (begin
-    (display "-> Yippee, I've found the goal!")
-    (newline)
+    (display "-> Path found.")
     (newline)
     (display "-> A valid path to the goal is: ")
     (if (eq? search-type 'bf) (begin 
-				(display (reverse-all search-path-list))
-				       (display "goal cost:")
-				       (display goal-cost))
+				(display (reverse-all search-path-list)))
+				       ;(display "goal cost:")
+				       ;(display goal-cost))
         (begin 
           (display search-path-list)
-          (newline)
-          (display "-> Cost to goal is: ")
-          (display goal-cost)))
+          (newline)))
+          ;(display "-> Cost to goal is: ")
+          ;(display goal-cost)))
     (newline)
     (newline))))
 

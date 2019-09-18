@@ -11,7 +11,6 @@
  *  served - e.g. "video/mpeg".
  *
  */
-gsgsgf sf sfs
 
 //import the necessary Java packages
 import java.net.*;

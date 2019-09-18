@@ -6,6 +6,10 @@ Portfolio of my projects and work.
 
 A program written in Scheme/Racket that reads in a maze/2D world input from a file, and then presents a valid solution path to the destination/treasure (if it exists).
 
+- [Java Web Server](./java-mt-webserver)
+
+A rudimentary but functioning multithreaded Java based web-server.
+
 - [PIC Microcontroller Traffic Light Simulator](./PIC-traffic-light)
 
 Simulates a rudimentary traffic light simulation on the Millennium board using the LEDs and button. Written in embedded C.

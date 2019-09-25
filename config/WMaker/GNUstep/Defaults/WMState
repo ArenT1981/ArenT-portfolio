@@ -1,0 +1,361 @@
+{
+  Dock = {
+    Applications2160 = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = Yes;
+        Command = "/usr/bin/WPrefs";
+      },
+      {
+        Forced = No;
+        Name = "Falkon Browser.Falkon";
+        DropCommand = "falkon %u %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,1";
+        Lock = No;
+        PasteCommand = "falkon %u %s";
+        Command = "falkon %u";
+      },
+      {
+        Forced = No;
+        Name = spectacle.spectacle;
+        DropCommand = "spectacle %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,6";
+        Lock = No;
+        PasteCommand = "spectacle %s";
+        Command = spectacle;
+      },
+      {
+        Forced = No;
+        Name = yakuake.yakuake;
+        DropCommand = "yakuake %d";
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,11";
+        Lock = Yes;
+        PasteCommand = "yakuake %s";
+        Command = yakuake;
+      },
+      {
+        Forced = No;
+        Name = mindforger.MindForger;
+        DropCommand = "mindforger %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,2";
+        Lock = Yes;
+        PasteCommand = "mindforger %s";
+        Command = mindforger;
+      },
+      {
+        Forced = No;
+        Name = keepassxc.keepassxc;
+        DropCommand = "keepassxc %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,7";
+        Lock = No;
+        PasteCommand = "keepassxc %s";
+        Command = keepassxc;
+      },
+      {
+        Forced = No;
+        Name = Worker.Worker;
+        DropCommand = "worker %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,10";
+        Lock = Yes;
+        PasteCommand = "worker %s";
+        Command = worker;
+      },
+      {
+        Forced = No;
+        Name = Telegram.TelegramDesktop;
+        DropCommand = "/home/aren/Opt/Telegram/Telegram %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,4";
+        Lock = No;
+        PasteCommand = "/home/aren/Opt/Telegram/Telegram %s";
+        Command = "/home/aren/Opt/Telegram/Telegram";
+      },
+      {
+        Forced = No;
+        Name = atom.Atom;
+        DropCommand = "atom %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,3";
+        Lock = No;
+        PasteCommand = atom;
+        Command = atom;
+      },
+      {
+        Forced = No;
+        Name = kate.kate;
+        DropCommand = "kate %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,8";
+        Lock = No;
+        PasteCommand = "kate %s";
+        Command = kate;
+      },
+      {
+        Forced = No;
+        Name = "taskcoach\\.py.Taskcoach\\.py";
+        DropCommand = "taskcoach.py %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,9";
+        Lock = No;
+        PasteCommand = "taskcoach.py %s";
+        Command = taskcoach.py;
+      },
+      {
+        Forced = No;
+        Name = thunderbird.Thunderbird;
+        DropCommand = "thunderbird %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,5";
+        Lock = Yes;
+        PasteCommand = "thunderbird %s";
+        Command = thunderbird;
+      },
+      {
+        Forced = No;
+        Name = xfe.Xfe;
+        DropCommand = "xfe /usr/share/menu/ %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,12";
+        Lock = No;
+        PasteCommand = "xfe /usr/share/menu/ %s";
+        Command = "xfe /usr/share/menu/";
+      }
+    );
+    AutoRaiseLower = No;
+    Applications = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = Yes;
+        Command = "/usr/bin/WPrefs";
+      },
+      {
+        Forced = No;
+        Name = "Falkon Browser.Falkon";
+        DropCommand = "falkon %u %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,1";
+        Lock = No;
+        PasteCommand = "falkon %u %s";
+        Command = "falkon %u";
+      },
+      {
+        Forced = No;
+        Name = spectacle.spectacle;
+        DropCommand = "spectacle %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,6";
+        Lock = No;
+        PasteCommand = "spectacle %s";
+        Command = spectacle;
+      },
+      {
+        Forced = No;
+        Name = yakuake.yakuake;
+        DropCommand = "yakuake %d";
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,11";
+        Lock = Yes;
+        PasteCommand = "yakuake %s";
+        Command = yakuake;
+      },
+      {
+        Forced = No;
+        Name = mindforger.MindForger;
+        DropCommand = "mindforger %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,2";
+        Lock = Yes;
+        PasteCommand = "mindforger %s";
+        Command = mindforger;
+      },
+      {
+        Forced = No;
+        Name = keepassxc.keepassxc;
+        DropCommand = "keepassxc %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,7";
+        Lock = No;
+        PasteCommand = "keepassxc %s";
+        Command = keepassxc;
+      },
+      {
+        Forced = No;
+        Name = Worker.Worker;
+        DropCommand = "worker %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,10";
+        Lock = Yes;
+        PasteCommand = "worker %s";
+        Command = worker;
+      },
+      {
+        Forced = No;
+        Name = Telegram.TelegramDesktop;
+        DropCommand = "/home/aren/Opt/Telegram/Telegram %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,4";
+        Lock = No;
+        PasteCommand = "/home/aren/Opt/Telegram/Telegram %s";
+        Command = "/home/aren/Opt/Telegram/Telegram";
+      },
+      {
+        Forced = No;
+        Name = atom.Atom;
+        DropCommand = "atom %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,3";
+        Lock = No;
+        PasteCommand = atom;
+        Command = atom;
+      },
+      {
+        Forced = No;
+        Name = kate.kate;
+        DropCommand = "kate %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,8";
+        Lock = No;
+        PasteCommand = "kate %s";
+        Command = kate;
+      },
+      {
+        Forced = No;
+        Name = "taskcoach\\.py.Taskcoach\\.py";
+        DropCommand = "taskcoach.py %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,9";
+        Lock = No;
+        PasteCommand = "taskcoach.py %s";
+        Command = taskcoach.py;
+      },
+      {
+        Forced = No;
+        Name = thunderbird.Thunderbird;
+        DropCommand = "thunderbird %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,5";
+        Lock = Yes;
+        PasteCommand = "thunderbird %s";
+        Command = thunderbird;
+      },
+      {
+        Forced = No;
+        Name = xfe.Xfe;
+        DropCommand = "xfe /usr/share/menu/ %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,12";
+        Lock = No;
+        PasteCommand = "xfe /usr/share/menu/ %s";
+        Command = "xfe /usr/share/menu/";
+      }
+    );
+    Lowered = No;
+    Position = "-64,0";
+  };
+  Clip = {
+    Forced = No;
+    Name = Logo.WMClip;
+    DropCommand = "wmsetbg -u -t %d";
+    BuggyApplication = No;
+    AutoLaunch = No;
+    Position = "0,0";
+    Lock = No;
+    Command = "-";
+  };
+  Drawers = ();
+  Workspaces = (
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = ();
+        Collapsed = Yes;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = Main;
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = ();
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = Study;
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = ();
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = Devel;
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = ();
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = System;
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = ();
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = "Workspace 5";
+    }
+  );
+}

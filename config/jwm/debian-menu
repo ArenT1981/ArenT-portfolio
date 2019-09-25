@@ -1,0 +1,113 @@
+<JWM>
+<!-- Automatically generated and updated. Do not touch -->
+    <Menu label="Debian">
+      <Menu label="Applications">
+        <Menu label="Accessibility">
+          <Program label="Xmag">xmag</Program>
+        </Menu>
+        <Menu label="Editors">
+          <Program label="Xedit">xedit</Program>
+        </Menu>
+        <Menu label="Emulators">
+          <Program label="VirtualBox">/usr/bin/virtualbox</Program>
+        </Menu>
+        <Menu label="File Management">
+          <Program label="K3b">/usr/bin/k3b</Program>
+          <Program label="X file manager">/usr/bin/xfm</Program>
+        </Menu>
+        <Menu label="Graphics">
+          <Program label="X Window Snapshot">xwd | xwud</Program>
+        </Menu>
+        <Menu label="Network">
+          <Menu label="Communication">
+            <Program label="Manhole Twisted Client">/usr/bin/manhole</Program>
+            <Program label="Pidgin">/usr/bin/pidgin</Program>
+            <Program label="Telnet">x-terminal-emulator  -T &quot;Telnet&quot; -e sh -c &quot;/usr/bin/telnet.netkit&quot;</Program>
+            <Program label="Xbiff">xbiff</Program>
+          </Menu>
+          <Menu label="File Transfer">
+            <Program label="Transmission BitTorrent Client (GTK)">/usr/bin/transmission-gtk</Program>
+          </Menu>
+          <Menu label="Web Browsing">
+            <Program label="Dillo">/usr/bin/dillo</Program>
+          </Menu>
+        </Menu>
+        <Menu label="Office">
+          <Program label="Task Coach">/usr/bin/taskcoach.py</Program>
+          <Program label="Vym">/usr/bin/vym</Program>
+        </Menu>
+        <Menu label="Programming">
+          <Program label="GDB">x-terminal-emulator  -T &quot;GDB&quot; -e sh -c &quot;/usr/bin/gdb&quot;</Program>
+          <Program label="Tclsh8.6">x-terminal-emulator  -T &quot;Tclsh8.6&quot; -e sh -c &quot;/usr/bin/tclsh8.6&quot;</Program>
+          <Program label="TkWish8.6">x-terminal-emulator -e /usr/bin/wish8.6</Program>
+        </Menu>
+        <Menu label="Project Management">
+          <Program label="GTimer">/usr/bin/gtimer</Program>
+        </Menu>
+        <Menu label="Science">
+          <Menu label="Mathematics">
+            <Program label="Bc">x-terminal-emulator  -T &quot;Bc&quot; -e sh -c &quot;/usr/bin/bc&quot;</Program>
+            <Program label="Dc">x-terminal-emulator  -T &quot;Dc&quot; -e sh -c &quot;/usr/bin/dc&quot;</Program>
+            <Program label="Xcalc">xcalc</Program>
+          </Menu>
+        </Menu>
+        <Menu label="Shells">
+          <Program label="Bash">x-terminal-emulator  -T &quot;Bash&quot; -e sh -c &quot;/bin/bash --login&quot;</Program>
+          <Program label="Dash">x-terminal-emulator  -T &quot;Dash&quot; -e sh -c &quot;/bin/dash -i&quot;</Program>
+          <Program label="Sh">x-terminal-emulator  -T &quot;Sh&quot; -e sh -c &quot;/bin/sh --login&quot;</Program>
+        </Menu>
+        <Menu label="Sound">
+          <Program label="Amarok">/usr/bin/amarok</Program>
+          <Program label="Spek">/usr/bin/spek</Program>
+        </Menu>
+        <Menu label="System">
+          <Menu label="Administration">
+            <Program label="Editres">editres</Program>
+            <Program label="gtklp">/usr/bin/gtklp</Program>
+            <Program label="gtklpq">/usr/bin/gtklpq</Program>
+            <Program label="Xclipboard">xclipboard</Program>
+            <Program label="Xfontsel">xfontsel</Program>
+            <Program label="Xkill">xkill</Program>
+            <Program label="Xrefresh">xrefresh</Program>
+          </Menu>
+          <Menu label="Hardware">
+            <Program label="Xvidtune">xvidtune</Program>
+          </Menu>
+          <Menu label="Monitoring">
+            <Program label="Pstree">x-terminal-emulator  -T &quot;Pstree&quot; -e sh -c &quot;/usr/bin/pstree.x11&quot;</Program>
+            <Program label="Top">x-terminal-emulator  -T &quot;Top&quot; -e sh -c &quot;/usr/bin/top&quot;</Program>
+            <Program label="WMtime">/usr/bin/wmtime</Program>
+            <Program label="Xconsole">xconsole -file /dev/xconsole</Program>
+            <Program label="Xev">x-terminal-emulator -e xev</Program>
+            <Program label="Xload">xload</Program>
+          </Menu>
+          <Menu label="Package Management">
+            <Program label="Synaptic Package Manager">x-terminal-emulator -e synaptic-pkexec</Program>
+          </Menu>
+          <Program label="Y PPA Manager">y-pkexec</Program>
+        </Menu>
+        <Menu label="Viewers">
+          <Program label="wmsystemtray">/usr/bin/wmsystemtray</Program>
+          <Program label="Wordview">/usr/bin/wordview</Program>
+          <Program label="Xditview">xditview</Program>
+        </Menu>
+      </Menu>
+      <Menu label="Games">
+        <Menu label="Toys">
+          <Program label="Oclock">oclock</Program>
+          <Program label="Redshift">redshift-gtk</Program>
+          <Program label="Xclock (analog)">xclock -analog</Program>
+          <Program label="Xclock (digital)">xclock -digital -update 1</Program>
+          <Program label="Xeyes">xeyes</Program>
+          <Program label="Xlogo">xlogo</Program>
+        </Menu>
+      </Menu>
+      <Menu label="Help">
+        <Program label="Info">x-terminal-emulator  -T &quot;Info&quot; -e sh -c &quot;info&quot;</Program>
+        <Program label="Xman">xman</Program>
+      </Menu>
+      <Menu label="Utility">
+        <Program label="Rofi">/usr/bin/rofi</Program>
+      </Menu>
+    </Menu>
+</JWM>

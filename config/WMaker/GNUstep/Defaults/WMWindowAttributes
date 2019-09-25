@@ -1,0 +1,47 @@
+{
+  yakuake.yakuake = {
+    Icon = yakuake.yakuake.xpm;
+  };
+  thunderbird.Thunderbird = {
+    Icon = thunderbird.Thunderbird.xpm;
+  };
+  "Falkon Browser.Falkon" = {
+    Icon = "Falkon Browser.Falkon.xpm";
+  };
+  Telegram.TelegramDesktop = {
+    AlwaysUserIcon = Yes;
+    Icon = telegram.png;
+  };
+  spectacle.spectacle = {
+    Icon = spectacle.spectacle.xpm;
+  };
+  mindforger.MindForger = {
+    Icon = mindforger128x128.png;
+  };
+  muon.muon = {
+    Icon = muon.muon.xpm;
+  };
+  taskcoach.py.Taskcoach.py = {
+    Icon = taskcoach.png;
+  };
+  keepassxc.keepassxc = {
+    Icon = keepassxc.keepassxc.xpm;
+  };
+  Worker.Worker = {
+    Icon = Worker.png;
+  };
+  kate.kate = {
+    Icon = kate.kate.xpm;
+  };
+  atom.Atom = {
+    AlwaysUserIcon = No;
+    EmulateAppIcon = Yes;
+    Icon = atom.png;
+  };
+  xfe.Xfe = {
+    Icon = xfe.Xfe.xpm;
+  };
+  Logo.WMClip = {
+    Icon = "wmaker-prompt.tif";
+  };
+}

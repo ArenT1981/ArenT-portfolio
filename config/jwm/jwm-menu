@@ -1,0 +1,27 @@
+<JWM>
+  <Menu label="Applications">
+    <Program label="Calculator" icon="kcalc.png">kcalc</Program>
+    <Program label="Falkon" icon="falkon.png">falkon</Program>
+    <Program label="Firefox" icon="firefox.png">firefox</Program>
+    <Program label="Kate" icon="kate.png">kate</Program>
+    <Program label="LibreOffice" icon="/home/aren/.jwm/libre32.png">loffice</Program>
+    <Program label="Mplayer" icon="mplayer.png">gmplayer -nolirc</Program>
+    <Program icon="terminal.png" label="Terminal">xterm -rightbar -sb -fn 10x20</Program>
+    <Program label="Telegram" icon="/home/aren/.jwm/telegram32.png">/home/aren/Opt/Telegram/Telegram</Program>
+    <Program label="Worker" icon="/usr/share/icons/hicolor/64x64/apps/Worker.png">worker</Program>
+    <Program label="Xfe" icon="xfe.xpm">xfe</Program>
+  </Menu>
+</JWM>
+
+<!--
+<JWM>
+  <Menu label="Applications">
+        <Menu label="Editors/Devel">
+          <Program label="Atom">atom</Program>
+        </Menu>
+        <Menu label="Internet">
+          <Program label="Falkon">falkon</Program>
+        </Menu>
+    </Menu>
+</JWM>
+-->

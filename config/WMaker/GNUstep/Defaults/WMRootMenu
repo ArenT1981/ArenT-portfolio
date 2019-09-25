@@ -1,0 +1,13 @@
+(
+  Applications,
+  (Hegel, OPEN_MENU, "/usr/share/WindowMaker/menu.hook"),
+  (
+    Rofi,
+    SHORTCUT,
+    "Mod1+F2",
+    EXEC,
+    "/usr/bin/rofi -show run -theme gruvbox-light"
+  ),
+  (Run..., EXEC, "%a(Run,Type command to run:)"),
+  (Workspaces, WORKSPACE_MENU)
+)

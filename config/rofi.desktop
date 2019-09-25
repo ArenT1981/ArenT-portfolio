@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Rofi
+GenericName=Rofi command runner
+Comment=Provides a command runner for DE and WMs
+TryExec=rofi
+Exec=rofi
+Icon=
+Categories=Utility;
+MimeType=;

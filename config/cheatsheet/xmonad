@@ -1,0 +1,16 @@
+| Command | Key/Shortcut                                 | Descripton                                                           |
+| xmonad  | Meta-c                                       | Start kcalc                                                          |
+| xmonad  | Meta-h                                       | Start thunderbird e-mail                                             |
+| xmonad  | Meta-b                                       | Start falkon web browser                                             |
+| xmonad  | Meta-k                                       | Start keepassxc                                                      |
+| xmonad  | Meta-s                                       | Start spectacle sceenshot                                            |
+| xmonad  | Meta-f                                       | Start xfe file manager                                               |
+| xmonad  | Meta-m                                       | Start mindforger                                                     |
+| xmonad  | Meta-w                                       | Start taskcoach                                                      |
+| xmonad  | Meta-i                                       | Start telegram                                                       |
+| xmonad  | Meta-F5                                      | Start nvim-qt editor                                                 |
+| xmonad  | Meta-F1                                      | Start via                                                            |
+| xmonad  | Meta-F2                                      | Start rofi run launcher                                              |
+| xmonad  | Meta-F3                                      | Start rofi window list                                               |
+| xmonad  | Meta-F4                                      | Start cheatsheet                                                     |
+| xmonad  | Meta-F5                                      | Edit XMonad configuration file                                       |

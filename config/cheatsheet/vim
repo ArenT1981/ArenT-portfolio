@@ -1,0 +1,10 @@
+| Command | Key/Command                                  | Descripton                                                           |
+| vim     | ESC                                          | Command mode                                                         |
+| vim     | i                                            | Insert mode                                                          |
+| vim     | a                                            | Insert mode and append                                               |
+| vim     | 0 or ^                                       | Move to beginning of line                                            |
+| vim     | $                                            | Move to end of line                                                  |
+| vim     | A                                            | Move + append to end of line                                         |
+| vim     | >                                            | Automatically indent selected lines                                  |
+| vim     | :tabedit <file>                              | Edit file in a new tab                                               |
+| vim     | :tabs                                        | Show tabs                                                            |

@@ -72,7 +72,9 @@ CONF_FILE=$CONF_DIR/secretaryrc
 MASTER_LIST=$CONF_DIR/master.files
 FILE_OPS_DIR=$CONF_DIR/fileops
 SOURCE_DIR=/dev/null
-
+DATE_MODE_LOG=$CONF_DIR/filelist-datemode.files
+OPERATION="cp -n"
+CMD="cp -uv"
 #echo "master: $MASTER_LIST"
 
 if [ "$#" -ne 1 ] && [ "$#" -ne 2 ]; then
@@ -91,41 +93,62 @@ else
 
 fi
 
-echo "* Processing..."
+echo "* Processing, please wait..."
 
 find "$SOURCE_DIR" -type f -exec file {} \; >> $MASTER_LIST
 
 # Build the filelists, parsing the configuration file line-by-line
 while read LINE 
 do
-	COMMENT_HASH="`echo $LINE | cut -c 1`"
+	DATE_MODE="DISABLE"
 
+	COMMENT_HASH="`echo $LINE | cut -c 1`"
 	[ "$COMMENT_HASH" = "#" ] && continue
 
 	TYPE_FIELD="`echo $LINE | cut -d ':' -f 1`"
 	EXT_FIELD="`echo $LINE | cut -d ':' -f 2`"  
 	DEST_FIELD="`echo $LINE | cut -d ':' -f 3`"
+	DATE_CHECK=`echo $DEST_FIELD | grep ".*DATE#.*" -`
+	
+	# See whether DATE mode is active; cut out 'DATE#' text if so
+	if [ -n "$DATE_CHECK" ]; then
+		DATE_MODE="ENABLE"
+		DEST_FIELD=$(echo $DEST_FIELD | cut -d '#' -f 2)
+	fi
 
 	# Process a file extension line by filename
 	if [ "$TYPE_FIELD" = "ext" ]; then
 
 		for EXT in $EXT_FIELD
 		do
+			if [ "$DATE_MODE" = "ENABLE" ]; then
+				echo "# -> [ \*.$EXT files by DATE directories ] " > "$CONF_DIR/filelist-$EXT.files"
+				
+				# Fork off the hierarchical date script
+				find "$SOURCE_DIR" -type f  -regex \
+					".*/*\.$EXT$" \
+					-exec secretary-date-handler.sh {} "$SOURCE_DIR" "$DEST_FIELD" "$CONF_DIR/datemode-$EXT-1.files" "$CONF_DIR/datemode-$EXT.dirlist" "$OPERATION" \;
+			else
+
 			echo "# -> [ \*.$EXT files ] " > "$CONF_DIR/filelist-$EXT.files"
-			 
 			grep ".*\.$EXT.*" "$MASTER_LIST" \
 			 | cut -d ':' -f 1 \
 			 | grep ".*\.$EXT$" \
 			 | awk  -v b="\"" -v a="$DEST_FIELD" '/$/{ print b$0b":"b a b }' \
 			 >> "$CONF_DIR/filelist-$EXT.files"
-		done
 
+			fi
+		done
 	fi
 
 	# Process a MIME type line using file
 	if [ "$TYPE_FIELD" = "mime" ]; then
 		for MIME in $EXT_FIELD
 		do
+			#TODO: Impement date mode here
+			# Just use grep to build new filelist from MIME,
+			# and then use a loop to call secretary-date-handler.sh
+			# from the file path in the filelist and variables
 			echo "# -> [ $MIME files ] " > "$CONF_DIR/filelist-$MIME.files"
 			grep ": $MIME" "$MASTER_LIST" \
 			| cut -d ':' -f 1 \
@@ -186,6 +209,7 @@ ENDHEADER
 
 echo "$FILE_HEADER_TXT" >> $FILE_OPS_DIR/file-operations-$TIMESTAMP.log
 
+# Assemble all the non date ordered file lists into the work log
 for FILELIST in `ls $CONF_DIR/filelist-*.files 2> /dev/null`
 do
 	if [ -s "$FILELIST" ]; 
@@ -204,7 +228,7 @@ do
 
 			FILE="`echo $FILE_LINE | cut -d ':' -f 1`"
 			DEST="`echo $FILE_LINE | cut -d ':' -f 2`"
-			echo "cp $FILE $DEST" >> $FILE_OPS_DIR/file-operations-$TIMESTAMP.log
+			echo "$CMD $FILE $DEST" >> $FILE_OPS_DIR/file-operations-$TIMESTAMP.log
 		
 		done < $FILELIST
 	else
@@ -212,33 +236,82 @@ do
 	fi
 done
 
-OPERATIONS=`grep -v '^#' "$FILE_OPS_DIR/file-operations-$TIMESTAMP.log" | wc -l`
+# Gather together the directory creation and throw away duplicate mkdir -pv commands
+# for aesthetic and clarity purposes (would still run OK with them all in) 
+cat $CONF_DIR/datemode-*.dirlist >> $CONF_DIR/tmp-master.dirlist
+cat $CONF_DIR/tmp-master.dirlist | sort | uniq >> $CONF_DIR/master.dirlist
+
+sed -i '1i# -> [ Create directories for date based file copying/moving ]' "$CONF_DIR/master.dirlist"
 echo "" >> "$FILE_OPS_DIR/file-operations-$TIMESTAMP.log"
-echo "#-->$OPERATIONS files to copy/move." >> $FILE_OPS_DIR/file-operations-$TIMESTAMP.log
+echo "" >> "$FILE_OPS_DIR/file-operations-$TIMESTAMP.log"
+cat "$CONF_DIR/master.dirlist" >> "$FILE_OPS_DIR/file-operations-$TIMESTAMP.log"
+
+for FILELIST in `ls $CONF_DIR/datemode-*.files 2> /dev/null`
+do
+	if [ -s "$FILELIST" ]; 
+	then
+		HEADER_FLAG=1
+		while read FILE_LINE
+		do
+			if [ $HEADER_FLAG -eq 1 ]; then
+
+				echo "" >> "$FILE_OPS_DIR/file-operations-$TIMESTAMP.log"
+				echo "$FILE_LINE" >> "$FILE_OPS_DIR/file-operations-$TIMESTAMP.log"
+				echo "" >> "$FILE_OPS_DIR/file-operations-$TIMESTAMP.log"
+				HEADER_FLAG=0
+				continue
+			fi
+
+			echo "$FILE_LINE" >> $FILE_OPS_DIR/file-operations-$TIMESTAMP.log
+		
+		done < $FILELIST
+	else
+		rm $FILELIST 
+	fi
+done
+
+# Put footer information at bottom of operations list with summary data
+OPERATIONS=`egrep -v '^#|^mkdir|^$' "$FILE_OPS_DIR/file-operations-$TIMESTAMP.log" | wc -l`
+DIRS=`grep '^mkdir' "$FILE_OPS_DIR/file-operations-$TIMESTAMP.log" | wc -l`
+echo "" >> "$FILE_OPS_DIR/file-operations-$TIMESTAMP.log"
+echo "#--> $DIRS new directories to create." >> $FILE_OPS_DIR/file-operations-$TIMESTAMP.log
+echo "#--> $OPERATIONS files to copy/move." >> $FILE_OPS_DIR/file-operations-$TIMESTAMP.log
 
 # Clear out the temporary file lists
 find "$CONF_DIR" -name "*.files" -delete
+find "$CONF_DIR" -name "*.dirlist" -delete
 
+echo "* Processing complete."
+echo "* $OPERATIONS files ready to copy/move."
 echo "* File operations script created at:"
-echo "$FILE_OPS_DIR/file-operations-$TIMESTAMP.log"
-echo "* $OPERATIONS files to copy/move"
+echo ""
+echo "==="
+echo "--> $FILE_OPS_DIR/file-operations-$TIMESTAMP.log"
 
+# Check to see whether they're brave enough for AUTO...
 if [ "$AUTO" = "YES" ]; then
-	echo "* Running in AUTO mode, executing file operations..."
+	echo "* Running in AUTO mode, will now execute the file operations..."
+	sleep 1
 else
-	echo "* Processing complete."
+	echo "==="
 	echo ""
-	echo "To now actually copy/move the files, type:"
+        echo "You should now review the proposed file operations."
+	echo "---"
+	echo ""
+	echo "To go ahead and actually copy/move the files, exit this prompt ('q') and"
+	echo "then type:"
+	echo ""
 	echo "bash < $FILE_OPS_DIR/file-operations-$TIMESTAMP.log"
 	echo ""
-	echo "However, you should really check it over first!"
 	echo ""
-	echo "Would you like to review it now? (Strongly recommended!)"
+	echo "Would you like to review it now? (STRONGLY RECOMMENDED)."
 	echo ""
 	echo "Press <enter> to view it in the terminal pager or type the name of desired text" 
 	echo "editor to open it with, e.g. 'xedit' (without the quotes!)"
-	echo "Type q to exit this prompt"
-	echo -n ">"
+	echo ""
+	echo "Type q to simply exit this prompt."
+	echo ""
+	echo -n "> "
 	read CHOICE 
 	if [ "$CHOICE" = "q" ]; then
 		exit 0

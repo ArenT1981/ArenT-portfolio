@@ -1,45 +1,47 @@
 #!/bin/sh
 
-IMG_YEAR=-1
-IMG_MONTH=-1
-IMG_DAY=-1
+ERROR_FILE=$HOME/.secretary/errorlog
+FILE_YEAR=-1
+FILE_MONTH=-1
+FILE_DAY=-1
 
 SRC=$2
 PIC=$3
 LOG=$4
+DIRLOG=$5
+OPERATION=$6
 #echo "Log: $4"
 
 #echo "Source: $SRC"
 #echo "Pic: $PIC"
 #echo "Log: $LOG"
 
-IMG_DATE=$(stat -c %y "$1"| cut -d ' ' -f 1)
+FILE_DATE=$(stat -c %y "$1"| cut -d ' ' -f 1)
+FILE_YEAR=`echo $FILE_DATE | cut -d '-' -f 1`
+FILE_MONTH=`echo $FILE_DATE | cut -d '-' -f 2`
+FILE_DAY=`echo $FILE_DATE | cut -d '-' -f 3`
 
-IMG_YEAR=`echo $IMG_DATE | cut -d '-' -f 1`
-IMG_MONTH=`echo $IMG_DATE | cut -d '-' -f 2`
-IMG_DAY=`echo $IMG_DATE | cut -d '-' -f 3`
-
-if [ $IMG_YEAR -eq -1 ]; then
-	echo "Invalid file parameter passed: $1" >> /tmp/errorlog-foo.txt
+if [ $FILE_YEAR -eq -1 ]; then
+	echo "Invalid file parameter passed: $1" >> "$ERROR_FILE"
 	exit 1
 fi
 
-if [ $IMG_MONTH -eq -1 ]; then
-	echo "Invalid file parameter passed: $1" >> /tmp/errorlog-foo.txt
+if [ $FILE_MONTH -eq -1 ]; then
+	echo "Invalid file parameter passed: $1" >> "$ERROR_FILE"
 	exit 1;
 fi
 
-if [ $IMG_DAY -eq -1 ]; then
-	echo "Invalid file parameter passed: $1" >> /tmp/errorlog-foo.txt
+if [ $FILE_DAY -eq -1 ]; then
+	echo "Invalid file parameter passed: $1" >> "$ERROR_FILE" 
 	exit 1;
 fi
 
 
-#echo "$IMG_YEAR"
-#echo "$IMG_MONTH"
-#echo "$IMG_DAY"
+#echo "$FILE_YEAR"
+#echo "$FILE_MONTH"
+#echo "$FILE_DAY"
 
-case $IMG_MONTH in
+case $FILE_MONTH in
 	01)
 		MONTH="01-january"
 	;;
@@ -84,13 +86,13 @@ esac
 #echo "Month is: $MONTH"
 #echo "Filepath is: $1"
 
-DEST_DIR="$PIC/$IMG_YEAR/$MONTH"
+DEST_DIR="$PIC/$FILE_YEAR/$MONTH"
 #echo "Dest: $DEST_DIR"
 
 #echo "Dest dir is: $DEST_DIR"
 #echo "Copy operation would be:\ "
-#echo "cp $1 $DEST_DIR"
-mkdir -pv $DEST_DIR || echo "Error creating directory: $DEST_DIR"
-cp -uv "$1" $DEST_DIR 1>> $LOG 
-echo "- Processing: $1"
+echo "mkdir -pv $DEST_DIR" >> $DIRLOG
+echo "$OPERATION \"$1\" \"$DEST_DIR\"" >> $LOG
+#cp -uv "$1" $DEST_DIR 1>> $LOG 
+#echo "- Processing: $1"
 

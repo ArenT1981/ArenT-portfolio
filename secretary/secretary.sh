@@ -1,4 +1,16 @@
 #!/bin/bash
+# Author: Aren Tyr
+# Date: 2019-10-03
+# aren.tyr AT yandex.com
+#
+# Secretary: A command line program to help automatically reorganise your files
+# 
+# Configuration is done by editing/creating a configuration file in 
+# ~/.secretary/secretaryrc
+#  
+# Please review the generated operation file before telling it to copy/move 
+# your files. You could potentially do a lot of damage to your system otherwise!
+
 
 showUsage() {
 	echo ""
@@ -55,7 +67,7 @@ showUsage() {
 }
 
 AUTO="NO"
-CONF_DIR=~/.secretary
+CONF_DIR=$HOME/.secretary
 CONF_FILE=$CONF_DIR/secretaryrc
 MASTER_LIST=$CONF_DIR/master.files
 FILE_OPS_DIR=$CONF_DIR/fileops
@@ -97,16 +109,15 @@ do
 	# Process a file extension line by filename
 	if [ "$TYPE_FIELD" = "ext" ]; then
 
-
 		for EXT in $EXT_FIELD
 		do
 			echo "# -> [ \*.$EXT files ] " > "$CONF_DIR/filelist-$EXT.files"
-			PRC_LINE=`cut -d ':' -f 1 "$MASTER_LIST" \
-				| grep ".*/*\.$EXT$" | cut -z -c 1- | tr -d '\0'`
-			
-			if [ ! -z "$PRC_LINE" ]; then
-				echo "\"$PRC_LINE\":\"$DEST_FIELD\"" >> "$CONF_DIR/filelist-$EXT.files"
-			fi 
+			 
+			grep ".*\.$EXT.*" "$MASTER_LIST" \
+			 | cut -d ':' -f 1 \
+			 | grep ".*\.$EXT$" \
+			 | awk  -v b="\"" -v a="$DEST_FIELD" '/$/{ print b$0b":"b a b }' \
+			 >> "$CONF_DIR/filelist-$EXT.files"
 		done
 
 	fi
@@ -117,7 +128,8 @@ do
 		do
 			echo "# -> [ $MIME files ] " > "$CONF_DIR/filelist-$MIME.files"
 			grep ": $MIME" "$MASTER_LIST" \
-			| cut -d ':' -f 1 | awk -v b="\"" -v a="$DEST_FIELD" '/$/{ print b$0b":"b a b }' \
+			| cut -d ':' -f 1 \
+			| awk -v b="\"" -v a="$DEST_FIELD" '/$/{ print b$0b":"b a b }' \
 			>> "$CONF_DIR/filelist-$MIME.files"
 		done
 	fi
@@ -205,7 +217,7 @@ echo "" >> "$FILE_OPS_DIR/file-operations-$TIMESTAMP.log"
 echo "#-->$OPERATIONS files to copy/move." >> $FILE_OPS_DIR/file-operations-$TIMESTAMP.log
 
 # Clear out the temporary file lists
-#find "$CONF_DIR" -name "*.files" -delete
+find "$CONF_DIR" -name "*.files" -delete
 
 echo "* File operations script created at:"
 echo "$FILE_OPS_DIR/file-operations-$TIMESTAMP.log"

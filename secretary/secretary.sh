@@ -1,13 +1,87 @@
 #!/bin/bash
 
+showUsage() {
+	echo ""
+	echo "secretary"
+	echo ""
+	echo "A program to automatically reorganise and copy/move particular files based on"
+	echo "the file extension, MIME type, and/or creation date, to specified directories" 
+	echo "according to a configuration file actions." 
+	echo ""
+	echo "-----------------------------------------------------------------------------"
+	echo ""
+	echo "Usage: secretary [--yes] [OVERRIDE] [-f <configuration file>] SOURCE"
+	echo ""
+	echo "Where OVERRIDE can be one of: "
+	echo ""
+	echo "--cp-update"
+	echo "    copy files, updating if source file is newer"
+	echo "--cp-clobber"
+	echo "    copy files, overwriting any destination files of same filename"
+	echo "--mv-no-clobber"
+	echo "    move files from source, but do not overwrite any clashing destination files"
+	echo "--mv-clobber"
+	echo "    move files from source, and overwrite clashing destination files"
+	echo ""
+	echo "    Use caution with these options as they could result in unintended data loss"
+	echo "by updating or overwriting files at the destination(s) specified in the config"
+	echo "file.The default action is to copy without clobbering, i.e. do not overwrite" 
+	echo "files at the destination. This is the recommended beahaviour; simply delete the"
+	echo "source files once you've verified the copy operation has perfomed as intended,"
+	echo "if you no longer want/need a copy of them in their original location."
+	echo ""
+	echo "-f <configuration file>"
+	echo ""
+	echo "    Supply an alternative configuration file to use instead of the default which"
+	echo "is at ~/.secretary/secretaryrc. This is useful for scripting secretary instances,"
+	echo "or maintaining multiple secratary 'profiles' for different use-cases, i.e. a "
+	echo "config file for processing files off a digital camera, another one for sorting"
+	echo "internet dowloads, another one to sort text files, etc. E.g.:"
+	echo ""
+	echo "secretary ~/my/source/directory -f ~/my_config/my_secretary_rc_file"
+	echo ""
+	echo "--yes"
+	echo ""
+	echo "    Do not produce review file; automatically perform the file operations by"
+	echo "calling secretary-refile upon the generated file operations log. Take CARE with"
+	echo "this, as it will be performing mass file operations according to your settings,"
+	echo "with no option to review the operations before proceeding. Intended for"
+	echo "experienced users for scripting or automating purposes, typically when combined"
+	echo "with the '-f' option above. Most users are strongly recommended to instead "
+	echo "REVIEW the file operations log in a text editor BEFORE running it. This"
+	echo "allows you to check that it will be copying/moving files in the way that you" 
+	echo "want! \"Buyer beware\", \"You have been warned\" etc. etc... ;-) "
+	
+}
+
+AUTO="NO"
 CONF_DIR=~/.secretary
 CONF_FILE=$CONF_DIR/secretaryrc
 MASTER_LIST=$CONF_DIR/master.files
 FILE_OPS_DIR=$CONF_DIR/fileops
+SOURCE_DIR=/dev/null
 
 #echo "master: $MASTER_LIST"
 
-find "$1" -type f -exec file {} \; >> $MASTER_LIST
+if [ "$#" -ne 1 ] && [ "$#" -ne 2 ]; then
+	echo "$#"
+	showUsage
+	exit 2
+fi
+
+
+if [ "$1" = "--yes" ]; then
+	AUTO="YES"
+	SOURCE_DIR="$2"
+	echo "* '--yes' option selected, using AUTO mode..." 
+else
+	SOURCE_DIR="$1"
+
+fi
+
+echo "* Processing..."
+
+find "$SOURCE_DIR" -type f -exec file {} \; >> $MASTER_LIST
 
 # Build the filelists, parsing the configuration file line-by-line
 while read LINE 
@@ -72,8 +146,9 @@ read -d '' FILE_HEADER_TXT << "ENDHEADER"
 # ===============================================================
 # 
 # PLEASE look through this file carefully BEFORE running it
-# to ensure that it will copying/moving the correct files to 
-# your intended destination. 
+# to ensure that it will copy/move the correct files to 
+# your intended destination. Failure to do so may result in data
+# loss if you have got your settings wrong if your config file...
 # 
 # ---------------- YOU HAVE BEEN WARNED!!!!! --------------------
 # 
@@ -99,7 +174,7 @@ ENDHEADER
 
 echo "$FILE_HEADER_TXT" >> $FILE_OPS_DIR/file-operations-$TIMESTAMP.log
 
-for FILELIST in `ls $CONF_DIR/filelist-*.files`
+for FILELIST in `ls $CONF_DIR/filelist-*.files 2> /dev/null`
 do
 	if [ -s "$FILELIST" ]; 
 	then
@@ -125,4 +200,42 @@ do
 	fi
 done
 
-find "$CONF_DIR" -name "*.files" -delete
+OPERATIONS=`grep -v '^#' "$FILE_OPS_DIR/file-operations-$TIMESTAMP.log" | wc -l`
+echo "" >> "$FILE_OPS_DIR/file-operations-$TIMESTAMP.log"
+echo "#-->$OPERATIONS files to copy/move." >> $FILE_OPS_DIR/file-operations-$TIMESTAMP.log
+
+# Clear out the temporary file lists
+#find "$CONF_DIR" -name "*.files" -delete
+
+echo "* File operations script created at:"
+echo "$FILE_OPS_DIR/file-operations-$TIMESTAMP.log"
+echo "* $OPERATIONS files to copy/move"
+
+if [ "$AUTO" = "YES" ]; then
+	echo "* Running in AUTO mode, executing file operations..."
+else
+	echo "* Processing complete."
+	echo ""
+	echo "To now actually copy/move the files, type:"
+	echo "bash < $FILE_OPS_DIR/file-operations-$TIMESTAMP.log"
+	echo ""
+	echo "However, you should really check it over first!"
+	echo ""
+	echo "Would you like to review it now? (Strongly recommended!)"
+	echo ""
+	echo "Press <enter> to view it in the terminal pager or type the name of desired text" 
+	echo "editor to open it with, e.g. 'xedit' (without the quotes!)"
+	echo "Type q to exit this prompt"
+	echo -n ">"
+	read CHOICE 
+	if [ "$CHOICE" = "q" ]; then
+		exit 0
+	else
+		if [ "$CHOICE" = "" ]; then 
+			more "$FILE_OPS_DIR/file-operations-$TIMESTAMP.log"
+		else
+			exec "$CHOICE" "$FILE_OPS_DIR/file-operations-$TIMESTAMP.log"
+
+		fi
+	fi
+fi

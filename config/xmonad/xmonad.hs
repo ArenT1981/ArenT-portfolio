@@ -51,29 +51,31 @@ myKeys = [ ("M1-<Tab>"   , cycleRecentWindows [xK_Alt_L] xK_Tab xK_Tab ) -- clas
          , ("M-S-<Right>", shiftToNext                                 ) -- move client to next workspace
          , ("M-S-<Left>" , shiftToPrev                                 ) -- move client to prev workspace
          , ("M-c"        , spawn "kcalc"                               ) -- calc
-	 , ("M-<F1>"     , spawn "start-via.sh"                        ) -- via/rofi mulitfunctional launcher
+      	 , ("M-<F1>"     , spawn "start-via.sh"                        ) -- via/rofi mulitfunctional launcher
          , ("M-<F2>"     , spawn "rofi -show run"                      ) -- rofi app launcher
          , ("M-<F3>"     , spawn "rofi -show window"                   ) -- rofi window switch
-	 , ("M-<F4>"     , spawn "cheatsheet sgl"                      ) -- cheatsheet app
+         , ("M-<F4>"     , spawn "cheatsheet sgl"                      ) -- cheatsheet app
          , ("M-<F5>"     , spawn "nvim-qt /home/aren/.xmonad/xmonad.hs") -- edit config
          , ("M-r"        , spawn "xmonad --restart"                    ) -- restart xmonad w/o recompiling
          , ("M-b"        , spawn "falkon"                              ) -- launch browser
 	-- , ("M-h"        , spawn "thunderbird"                         ) -- launch thunderbird
-	 , ("M-k"        , spawn "keepassxc"                           ) -- launch keepassxc
-	 , ("M-e"        , spawn "nvim-qt"                             ) -- launch nvim editor
+      	 , ("M-k"        , spawn "keepassxc"                           ) -- launch keepassxc
+         , ("M-e"        , spawn "nvim-qt"                             ) -- launch nvim editor
          , ("M-s"        , spawn "spectacle"                           ) -- launch system top
-	 , ("M-f"        , spawn "xfe"                                 ) -- launch xfe file manager
+         , ("M-f"        , spawn "xfe"                                 ) -- launch xfe file manager
          , ("M-m"        , spawn "mindforger"                          ) -- launch mindforger 
          , ("M-w"        , spawn "taskcoach.py"                        ) -- launch task coach
-	 , ("M-i"        , spawn "telegram"                            ) -- launch telegram IM
-	 , ("M-z"        , prevScreen                                  )
-         , ("M-x"        , nextScreen                                  ) -- nicer screen switching keys
+         , ("M-i"        , spawn "telegram"                            ) -- launch telegram IM
+	 , ("M-v"        , spawn "nvim-qt -- -u ~/.SpaceVim/vimrc"     ) -- launch SpaceVim
+         , ("M-z"        , prevScreen                                  ) -- switch screen
+         -- , ("M-x"        , nextScreen                               ) -- single screen switching key enough
+	 , ("M-g"        , moveTo Next HiddenNonEmptyWS                ) 
          ]
          ++
-	    [ (otherModMasks ++ "M-" ++ [key], action tag)
-	    | (tag, key)  <- zip myWorkspaces "123456789"
-	    , (otherModMasks, action) <- [ ("", windows . W.view) -- was W.greedyView
-            , ("S-", windows . W.shift)]] 
+          [ (otherModMasks ++ "M-" ++ [key], action tag)
+          | (tag, key)  <- zip myWorkspaces "123456789"
+          , (otherModMasks, action) <- [ ("", windows . W.view) -- was W.greedyView
+          , ("S-", windows . W.shift)]] 
 -- ++
 --       [ (otherModMasks ++ "M-" ++ [key], action tag)
   --    | (tag, key)  <- zip myWorkspaces "<KP_End><KP_Down><KP_Page_Down><KP_Left><KP_Begin><KP_Right><KP_Home><KP_Up><KP_Page_Up><KP_Insert>" 
@@ -95,11 +97,11 @@ myKeys = [ ("M1-<Tab>"   , cycleRecentWindows [xK_Alt_L] xK_Tab xK_Tab ) -- clas
 
 main = xmonad $ ewmh defaultConfig
          { modMask = mod4Mask 
-         , terminal = "xterm -rightbar -sb -fn 10x20" 
-	 , borderWidth = 4 
-         , normalBorderColor  = "#29a329"
+         , terminal = "urxvt" -- "xterm -rightbar -sb -fn 10x20" 
+         , borderWidth = 3 
+         , normalBorderColor  = "#802000"
          , focusedBorderColor = "#ff3300"
-	 , layoutHook = myLayout
-	 , workspaces = myWorkspaces
+         , layoutHook = myLayout
+         , workspaces = myWorkspaces
          }
-	`additionalKeysP` myKeys
+         `additionalKeysP` myKeys

@@ -1,0 +1,39 @@
+# name: New student template
+# key: ¬¬newstudent
+# --
+**** Files
+**** Info:
+  *Name:* .\\
+  *Nickname:* .\\
+  *E-mail:* \\
+  *Phone:* \\
+  *LINE:*\\
+  *Default Lesson Length:* \\
+**** Lesson List
+  Lesson 1 (2019--  @ :)\\
+  Lesson 2 (2019--  @ :)\\
+  Lesson 3 (2019--  @ :)\\
+  Lesson 4 (2019--  @ :)\\
+  Lesson 5 (2019--  @ :)\\
+  Lesson 6 (2019--  @ :)\\
+  Lesson 7 (2019--  @ :)\\
+  Lesson 8 (2019--  @ :)\\
+  Lesson 9 (2019--  @ :)\\
+  Lesson 10 (2019-- @ :)\\
+**** Interests/Notes:
+     .\\
+**** Rough level:
+  S&L: ?\\
+  R&W: ?
+**** Goal(s):
+**** Lesson Content
+***** Lesson 1/?? - (2019-- @ :00):
+***** Lesson 2/?? - (2019-- @ :00):
+***** Lesson 3/?? - (2019-- @ :00):
+***** Lesson 4/?? - (2019-- @ :00):
+***** Lesson 5/?? - (2019-- @ :00):
+***** Lesson 6/?? - (2019-- @ :00):
+***** Lesson 7/?? - (2019-- @ :00):
+***** Lesson 8/?? - (2019-- @ :00):
+***** Lesson 9/?? - (2019-- @ :00):
+***** Lesson 10/?? - (2019-- @ :00):

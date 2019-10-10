@@ -1,0 +1,76 @@
+* Diary/Daily Log                                         :ossu:learninglog:
+** *Monday September 23rd:*
+  AM:
+  -  Basic Probability Theory
+  -  Galton Board
+  -  Probability Spaces
+  -  Binomial Coefficient/Distribution
+  PM:
+  -  Reading "The DevOps Handbook"
+  -  Introductory DevOps
+  -  Basic Linux overview
+** *Tuesday September 24th:*
+  AM/PM:
+  -  Configuring FreeBSD under VirtualBox:
+    -  Installed apache httpd
+    -  Installed mysql80
+    -  Installed Xorg (for access to high-resolution console)
+    -  Set up guest additions (required for Xorg driver)
+    -  xrandr to setup display
+  PM:
+  -  Continued with eduonix DevOps E-degree ("Part 1 DevOps Foundation")
+  PM:
+  -  Further reading of "DevOps Handbook"
+  -  Reading "Sed and Awk" by O'Reilly
+** *Wednesday September 25th:*
+  -  Backed up/added variety of config files to Github portfolio
+  -  Installed and setup Xmonad in basic configuration
+  -  Studied and learned about the =$XDG_CONFIG_HOME= and default
+    application settings under Linux
+** *Thursday September 26th:*
+  -  Studying Haskell/confinguring xmonad
+  -  Learning about .xprofile/.profile/.xsession/.xsessionrc
+** *Friday September 27th:*
+  AM:
+  -  DevOps E-degree (various Linux shell commands)
+  PM:
+  -  More Probability theory; probability spaces
+  -  FreeBSD System/FAMP/VirtualBox configuration
+  -  Kernel modules, Xorg modeline, loader.conf settings
+** *Saturday September 28th:*
+  PM:
+  - VIM practice, cheatsheet building
+** *Wednesday October 2nd:*
+  - Initial development of secretary file automation software
+** *Thursday October 3rd:*
+  - Further development and fixes to secretary
+** *Friday October 5th:*
+  - Spacemacs migration/[re]setup
+  - Import configuration from Laptop setup from earlier in Janaury
+** *Monday October 7th:* 
+  - Development of spacemacs/emacs profile switcher
+
+  Based on chemacs package in conjuction with a bash automation script.
+** *Tuesday October 8th:*
+  - Survey of overall projects/work to do
+  - Installation of Windows 10 under VirtualBox
+  - Installation of Xubuntu 19.04 under VirtualBox
+  - Further tests/development of emacs profile switcher under VirtualBox
+** *Wednesday October 9th:*
+  PM: 
+  - Setup email system on Linux desktop:
+    - mbsync (isync): IMAP mail retrieval
+    - msmtp: Lightweight sendmail replacement for home computers
+    - notmuch: Email system for Emacs based on tagging
+      - Various filters based on my configuration script
+
+  - Setup of Canon printer on other Linux laptop
+  - First real-world production test of secretary program to migrate photos and
+    images from camera onto computer (resounding success!)
+** *Thursday October 10th:*
+  PM: 
+  - Migrated this daily learning/activity log into org-mode. Attempted to
+    upate/fill in gaps due to lack of systematic logging prior to today's date
+  - Refresher on various Emacs packages
+  - Intergrated various work flow practices into Emacs/org-mode
+  - Initial export/commit of this to GitHub

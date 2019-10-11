@@ -5,6 +5,7 @@ FILE_YEAR=-1
 FILE_MONTH=-1
 FILE_DAY=-1
 
+FIRST=$1
 SRC=$2
 PIC=$3
 LOG=$4
@@ -12,9 +13,10 @@ DIRLOG=$5
 OPERATION=$6
 #echo "Log: $4"
 
-#echo "Source: $SRC"
-#echo "Pic: $PIC"
-#echo "Log: $LOG"
+echo "First: $FIRST"
+echo "Source: $SRC"
+echo "Pic: $PIC"
+echo "Log: $LOG"
 
 FILE_DATE=$(stat -c %y "$1"| cut -d ' ' -f 1)
 FILE_YEAR=`echo $FILE_DATE | cut -d '-' -f 1`

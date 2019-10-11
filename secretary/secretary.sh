@@ -69,18 +69,18 @@ showUsage() {
 AUTO="NO"
 CONF_DIR=$HOME/.secretary
 CONF_FILE=$CONF_DIR/secretaryrc
-MASTER_LIST=$CONF_DIR/master.files
+MASTER_LIST=$CONF_DIR/master
 FILE_OPS_DIR=$CONF_DIR/fileops
 SOURCE_DIR=/dev/null
 DATE_MODE_LOG=$CONF_DIR/filelist-datemode.files
 CMD="cp -uv"
 #echo "master: $MASTER_LIST"
 
-if [ "$#" -ne 1 ] && [ "$#" -ne 2 ]; then
-	echo "$#"
-	showUsage
-	exit 2
-fi
+#if [ "$#" -ne 1 ] && [ "$#" -ne 2 ]; then
+#	echo "$#"
+#	showUsage
+#	exit 2
+#fi
 
 
 if [ "$1" = "--yes" ]; then
@@ -92,10 +92,10 @@ else
 
 fi
 
-echo "* Processing, please wait..."
+#echo "* Processing, please wait..."
+#find "$SOURCE_DIR" -type f -exec file {} \; >> $MASTER_LIST
 
-find "$SOURCE_DIR" -type f -exec file {} \; >> $MASTER_LIST
-
+declare -i COUNTER=0
 # Build the filelists, parsing the configuration file line-by-line
 while read LINE
 do
@@ -106,8 +106,18 @@ do
 
 	TYPE_FIELD="`echo $LINE | cut -d ':' -f 1`"
 	EXT_FIELD="`echo $LINE | cut -d ':' -f 2`"
-	DEST_FIELD="`echo $LINE | cut -d ':' -f 3`"
-	DATE_CHECK=`echo $DEST_FIELD | grep ".*DATE#.*" -`
+  SOURCE_FIELD="`echo $LINE | cut -d ':' -f 3`"
+	DEST_FIELD="`echo $LINE | cut -d ':' -f 4`"
+	DATE_CHECK="`echo $DEST_FIELD | grep ".*DATE#.*" -`"
+
+  #debug --------
+  echo "type: $TYPE_FIELD"
+  echo "ext: $EXT_FIELD"
+  echo "source: $SOURCE_FIELD"
+  echo "dest: $DEST_FIELD"
+  echo "date: $DATE_CHECK"
+  #debug --------
+
 
 	# See whether DATE mode is active; cut out 'DATE#' text if so
 	if [ -n "$DATE_CHECK" ]; then
@@ -121,40 +131,114 @@ do
 		for EXT in $EXT_FIELD
 		do
 			if [ "$DATE_MODE" = "ENABLE" ]; then
-				echo "# -> [ \*.$EXT files by DATE directories ] " > "$CONF_DIR/filelist-$EXT.files"
+				#echo "# -> [ \*.$EXT files by DATE directories ] " > "$CONF_DIR/datemode-$COUNTER-$EXT.files"
 
 				# Fork off the hierarchical date script
-				find "$SOURCE_DIR" -type f  -regex \
+				find "$SOURCE_FIELD" -type f  -regex \
 					".*/*\.$EXT$" \
-					-exec secretary-date-handler.sh {} "$SOURCE_DIR" "$DEST_FIELD" "$CONF_DIR/datemode-$EXT-1.files" "$CONF_DIR/datemode-$EXT.dirlist" "$CMD" \;
+					-exec secretary-date-handler.sh {} "$SOURCE_FIELD" "$DEST_FIELD" "$CONF_DIR/datemode-$COUNTER-$EXT.files" "$CONF_DIR/datemode-$COUNTER-$EXT.dirlist" "$CMD" \;
+
+        # Insert header or remove empty filelist 
+        if [ -s "$CONF_DIR/datemode-$COUNTER-$EXT.files" ]; then
+            sed -i "1i# -> [ \*.$EXT files by DATE directories ]\n" "$CONF_DIR/datemode-$COUNTER-$EXT.files"
+        else
+            rm "$CONF_DIR/datemode-$COUNTER-$EXT.files"
+        fi
+        
 			else
+          # Copy/move the files by file-extension, no date ordering/organisation
+      echo "* Processing, please wait..."
+      find "$SOURCE_FIELD" -type f >> "$MASTER_LIST.$COUNTER.files"
 
-			echo "# -> [ \*.$EXT files ] " > "$CONF_DIR/filelist-$EXT.files"
-			grep ".*\.$EXT.*" "$MASTER_LIST" \
-			 | cut -d ':' -f 1 \
-			 | grep ".*\.$EXT$" \
-			 | awk  -v b="\"" -v a="$DEST_FIELD" '/$/{ print b$0b":"b a b }' \
-			 >> "$CONF_DIR/filelist-$EXT.files"
+			#echo "# -> [ \*.$EXT files ] " > "$CONF_DIR/filelist-$COUNTER-$EXT.files"
+	#		grep ".*\.$EXT.*" "$MASTER_LIST" \
+	#		 | cut -d ':' -f 1 \
+	#		 | grep ".*\.$EXT$" \
+	#		 | awk  -v b="\"" -v a="$DEST_FIELD" '/$/{ print b$0b":"b a b }' \
+	#		 >> "$CONF_DIR/filelist-$EXT.files"
 
+	   	grep ".*\.$EXT.*" "$MASTER_LIST.$COUNTER.files" \
+	        		 | grep ".*\.$EXT$" \
+	        		 | awk  -v b="\"" -v a="$DEST_FIELD" '/$/{ print b$0b":"b a b }' \
+	        		        >> "$CONF_DIR/filelist-$COUNTER-$EXT.files"
+
+      # Insert header or remove empty filelist
+      if [ -s "$CONF_DIR/filelist-$COUNTER-$EXT.files" ]; then
+          sed -i "1i# -> [ \*.$EXT files to $DEST_FIELD ]\n" "$CONF_DIR/filelist-$COUNTER-$EXT.files"
+      else
+          rm "$CONF_DIR/filelist-$COUNTER-$EXT.files"
+      fi
 			fi
 		done
 	fi
 
 	# Process a MIME type line using file
 	if [ "$TYPE_FIELD" = "mime" ]; then
+
+
+      echo "* Processing, please wait..."
+      find "$SOURCE_FIELD" -type f -exec file {} \; >> "$MASTER_LIST.$COUNTER.files"
+
+
 		for MIME in $EXT_FIELD
 		do
-			#TODO: Impement date mode here
-			# Just use grep to build new filelist from MIME,
-			# and then use a loop to call secretary-date-handler.sh
-			# from the file path in the filelist and variables
-			echo "# -> [ $MIME files ] " > "$CONF_DIR/filelist-$MIME.files"
-			grep ": $MIME" "$MASTER_LIST" \
-			| cut -d ':' -f 1 \
-			| awk -v b="\"" -v a="$DEST_FIELD" '/$/{ print b$0b":"b a b }' \
-			>> "$CONF_DIR/filelist-$MIME.files"
-		done
+						if [ "$DATE_MODE" = "ENABLE" ]; then
+				  # use sed i1 later echo "# -> [ $MIME files by DATE directories ] " > "$CONF_DIR/datemode-$COUNTER-$MIME.files"
+                grep ": $MIME" "$MASTER_LIST.$COUNTER.files" \
+			          | cut -d ':' -f 1 \
+			          | awk -v a="$DEST_FIELD" '/$/{ print $0":"a }' \
+			          >> "$CONF_DIR/filelist-$COUNTER-$MIME.files"
+
+                while read MIMELINE
+                do
+                echo "In datemode by MIME"
+                MIME_FILE="`echo $MIMELINE | cut -d ':' -f 1`"
+                MIME_SRC="`echo $MIME_FILE | rev | cut -d '/' -f 2- | rev`"
+                MIME_DEST="`echo $MIMELINE | cut -d ':' -f 2`"
+
+                #debug ----
+                #echo "Mime src: $MIME_SRC"
+               # echo "Mime dest: $MIME_DEST"
+                # ------
+                secretary-date-handler.sh "$MIME_FILE" "$MIME_SRC" "$DEST_FIELD" "$CONF_DIR/datemode-$COUNTER-$MIME.files" "$CONF_DIR/datemode-$COUNTER-$MIME.dirlist" "$CMD"
+                done < $CONF_DIR/filelist-$COUNTER-$MIME.files
+
+                # Add header if results found, otherwise purge file 
+                if [ -s "$CONF_DIR/datemode-$COUNTER-$MIME.files" ]; then
+                    sed -i "1i# -> [ $MIME mime-type files by DATE directories ]\n" "$CONF_DIR/datemode-$COUNTER-$MIME.files"
+                else
+                    rm "$CONF_DIR/datemode-$COUNTER-$MIME.files"
+                fi
+                # Avoid duplicate file operations as we have now built a list by date from original search
+                rm "$CONF_DIR/filelist-$COUNTER-$MIME.files"
+     else 
+            #TODO: Impement date mode here
+			      # Just use grep to build new filelist from MIME,
+			      # and then use a loop to call secretary-date-handler.sh
+			      # from the file path in the filelist and variables
+			      #echo "# -> [ $MIME files ] " > "$CONF_DIR/filelist-$COUNTER-$MIME.files"
+
+         grep ": $MIME" "$MASTER_LIST.$COUNTER.files" \
+			       | cut -d ':' -f 1 \
+			       | awk -v b="\"" -v a="$DEST_FIELD" '/$/{ print b$0b":"b a b }' \
+			             >> "$CONF_DIR/filelist-$COUNTER-$MIME.files"
+
+
+            if [ -s "$CONF_DIR/filelist-$COUNTER-$MIME.files" ]; then
+                sed -i "1i# -> [ $MIME mime-type files to $DEST_FIELD ]\n" "$CONF_DIR/filelist-$COUNTER-$MIME.files"
+            else
+                rm "$CONF_DIR/filelist-$COUNTER-$MIME.files"
+            fi
+            
+                        #cp $CONF_DIR/filelist-$COUNTER-$MIME.files inspect.foo
+
+fi
+ 		done
 	fi
+
+  #echo "COUNTER is: $COUNTER"
+  #COUNTER=$COUNTER+1
+  #echo "COUNTER is: $COUNTER"
 
 done < $CONF_FILE
 
@@ -239,7 +323,7 @@ done
 cat $CONF_DIR/datemode-*.dirlist >> $CONF_DIR/tmp-master.dirlist
 cat $CONF_DIR/tmp-master.dirlist | sort | uniq >> $CONF_DIR/master.dirlist
 
-sed -i '1i# -> [ Create directories for date based file copying/moving ]' "$CONF_DIR/master.dirlist"
+sed -i '1i# -> [ Create directories for date based file copying/moving ]\n' "$CONF_DIR/master.dirlist"
 echo "" >> "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
 echo "" >> "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
 cat "$CONF_DIR/master.dirlist" >> "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"

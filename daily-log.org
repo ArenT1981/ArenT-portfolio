@@ -66,7 +66,7 @@
 
   - Setup of Canon printer on other Linux laptop
   - First real-world production test of secretary program to migrate photos and
-    images from camera onto computer (resounding success!)
+    images from camera onto computer (resounding success!). Captured screencast.
 ** *Thursday October 10th:*
   PM: 
   - Migrated this daily learning/activity log into org-mode. Attempted to
@@ -74,3 +74,5 @@
   - Refresher on various Emacs packages
   - Intergrated various work flow practices into Emacs/org-mode
   - Initial export/commit of this to GitHub
+  - Configured various filters/regular expressions for e-mail automation
+  - Further org-mode conversion and practice with various export format parameters

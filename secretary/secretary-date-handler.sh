@@ -18,6 +18,12 @@ echo "Source: $SRC"
 echo "Pic: $PIC"
 echo "Log: $LOG"
 
+if [ -z "$FIRST" ]; then
+    exit 0
+fi
+
+
+
 FILE_DATE=$(stat -c %y "$1"| cut -d ' ' -f 1)
 FILE_YEAR=`echo $FILE_DATE | cut -d '-' -f 1`
 FILE_MONTH=`echo $FILE_DATE | cut -d '-' -f 2`

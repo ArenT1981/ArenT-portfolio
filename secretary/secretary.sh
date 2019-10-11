@@ -140,7 +140,7 @@ do
 
         # Insert header or remove empty filelist 
         if [ -s "$CONF_DIR/datemode-$COUNTER-$EXT.files" ]; then
-            sed -i "1i# -> [ \*.$EXT files by DATE directories ]\n" "$CONF_DIR/datemode-$COUNTER-$EXT.files"
+            sed -i "1i# -> [ \*.$EXT files by DATE directories ]" "$CONF_DIR/datemode-$COUNTER-$EXT.files"
         else
             rm "$CONF_DIR/datemode-$COUNTER-$EXT.files"
         fi
@@ -164,7 +164,7 @@ do
 
       # Insert header or remove empty filelist
       if [ -s "$CONF_DIR/filelist-$COUNTER-$EXT.files" ]; then
-          sed -i "1i# -> [ \*.$EXT files to $DEST_FIELD ]\n" "$CONF_DIR/filelist-$COUNTER-$EXT.files"
+          sed -i "1i# -> [ \*.$EXT files to $DEST_FIELD ]" "$CONF_DIR/filelist-$COUNTER-$EXT.files"
       else
           rm "$CONF_DIR/filelist-$COUNTER-$EXT.files"
       fi
@@ -205,7 +205,7 @@ do
 
                 # Add header if results found, otherwise purge file 
                 if [ -s "$CONF_DIR/datemode-$COUNTER-$MIME.files" ]; then
-                    sed -i "1i# -> [ $MIME mime-type files by DATE directories ]\n" "$CONF_DIR/datemode-$COUNTER-$MIME.files"
+                    sed -i "1i# -> [ $MIME mime-type files by DATE directories ]" "$CONF_DIR/datemode-$COUNTER-$MIME.files"
                 else
                     rm "$CONF_DIR/datemode-$COUNTER-$MIME.files"
                 fi
@@ -225,7 +225,7 @@ do
 
 
             if [ -s "$CONF_DIR/filelist-$COUNTER-$MIME.files" ]; then
-                sed -i "1i# -> [ $MIME mime-type files to $DEST_FIELD ]\n" "$CONF_DIR/filelist-$COUNTER-$MIME.files"
+                sed -i "1i# -> [ $MIME mime-type files to $DEST_FIELD ]" "$CONF_DIR/filelist-$COUNTER-$MIME.files"
             else
                 rm "$CONF_DIR/filelist-$COUNTER-$MIME.files"
             fi
@@ -343,6 +343,7 @@ do
 				HEADER_FLAG=0
 				continue
 			fi
+
 
 			echo "$FILE_LINE" >> $FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh
 

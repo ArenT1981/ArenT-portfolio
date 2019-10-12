@@ -74,7 +74,45 @@ FILE_OPS_DIR=$CONF_DIR/fileops
 SOURCE_DIR=/dev/null
 DATE_MODE_LOG=$CONF_DIR/filelist-datemode.files
 CMD="cp -uv"
-#echo "master: $MASTER_LIST"
+
+
+if [ ! -z "$EDITOR" ]; then
+    EDIT_VIEW="$EDITOR"
+else
+    EDIT_VIEW="vi"
+fi
+# TODO    Replace with case
+# if [ -z "$DISPLAY" ]; then # Are we running under X?
+#     if [ -f "/usr/bin/gedit" ]; then
+#         EDIT_VIEW="gedit"
+#     
+#     if [ -f "/usr/bin/kate" ]; then
+#         EDIT_VIEW="kate"
+#     else
+#     if [ -f "/usr/bin/featherpad" ]; then
+#         EDIT_VIEW="featherpad"
+#     else
+#     if [ -f "/usr/bin/mousepad" ]; then
+#         EDIT_VIEW="mousepad"
+#     else
+#     if [ -f "/usr/bin/xedit" ]; then
+#         EDIT_VIEW="xedit"
+#     fi
+# fi
+#     else
+#         if [ -f "/bin/nano" ]; then
+#             EDIT_VIEW="nano"
+#         fi
+#     else
+#         if [ -f "/usr/bin/vi" ]; then
+#             EDIT_VIEW="vi"
+#         fi
+#     else
+#         if [ -f "/usr/bin/emacs" ]; then
+#             EDIT_VIEW="emacs"
+#         fi
+# fi
+
 
 #if [ "$#" -ne 1 ] && [ "$#" -ne 2 ]; then
 #	echo "$#"
@@ -92,14 +130,17 @@ else
 
 fi
 
-#echo "* Processing, please wait..."
-#find "$SOURCE_DIR" -type f -exec file {} \; >> $MASTER_LIST
-
+# Counter for enumerating temporary filenames
 declare -i COUNTER=0
+
+echo "* Processing, please wait..."
+sleep 0.4
 # Build the filelists, parsing the configuration file line-by-line
 while read LINE
 do
-	DATE_MODE="DISABLE"
+    echo -n "."
+
+  DATE_MODE="DISABLE"
 
 	COMMENT_HASH="`echo $LINE | cut -c 1`"
 	[ "$COMMENT_HASH" = "#" ] && continue
@@ -110,13 +151,15 @@ do
 	DEST_FIELD="`echo $LINE | cut -d ':' -f 4`"
 	DATE_CHECK="`echo $DEST_FIELD | grep ".*DATE#.*" -`"
 
-  #debug --------
-  echo "type: $TYPE_FIELD"
-  echo "ext: $EXT_FIELD"
-  echo "source: $SOURCE_FIELD"
-  echo "dest: $DEST_FIELD"
-  echo "date: $DATE_CHECK"
-  #debug --------
+  FILE_CMD="`echo $LINE | cut -d ':' -f 5`"
+  #echo $FILE_CMD
+  #if [ "$FILE_CMD" = "#" ]; then
+  #    CMD="cp -uv"
+  #else
+  #    CMD="$FILE_CMD"
+  #fi
+
+
 
 
 	# See whether DATE mode is active; cut out 'DATE#' text if so
@@ -130,7 +173,8 @@ do
 
 		for EXT in $EXT_FIELD
 		do
-			if [ "$DATE_MODE" = "ENABLE" ]; then
+        echo -n "."
+        if [ "$DATE_MODE" = "ENABLE" ]; then
 				#echo "# -> [ \*.$EXT files by DATE directories ] " > "$CONF_DIR/datemode-$COUNTER-$EXT.files"
 
 				# Fork off the hierarchical date script
@@ -140,15 +184,17 @@ do
 
         # Insert header or remove empty filelist 
         if [ -s "$CONF_DIR/datemode-$COUNTER-$EXT.files" ]; then
-            sed -i "1i# -> [ \*.$EXT files by DATE directories ]" "$CONF_DIR/datemode-$COUNTER-$EXT.files"
+            sed -i "1i# -> [ \*.$EXT files from $SOURCE_FIELD to DATE directories ]" "$CONF_DIR/datemode-$COUNTER-$EXT.files"
         else
-            rm "$CONF_DIR/datemode-$COUNTER-$EXT.files"
+            if [ -f "$CONF_DIR/datemode-$COUNTER-$EXT.files" ]; then
+                rm "$CONF_DIR/datemode-$COUNTER-$EXT.files"
+            fi
         fi
-        
+
 			else
+          echo -n "."
           # Copy/move the files by file-extension, no date ordering/organisation
-      echo "* Processing, please wait..."
-      find "$SOURCE_FIELD" -type f >> "$MASTER_LIST.$COUNTER.files"
+          find "$SOURCE_FIELD" -type f >> "$MASTER_LIST.$COUNTER.files"
 
 			#echo "# -> [ \*.$EXT files ] " > "$CONF_DIR/filelist-$COUNTER-$EXT.files"
 	#		grep ".*\.$EXT.*" "$MASTER_LIST" \
@@ -156,7 +202,7 @@ do
 	#		 | grep ".*\.$EXT$" \
 	#		 | awk  -v b="\"" -v a="$DEST_FIELD" '/$/{ print b$0b":"b a b }' \
 	#		 >> "$CONF_DIR/filelist-$EXT.files"
-
+          echo -n "."
 	   	grep ".*\.$EXT.*" "$MASTER_LIST.$COUNTER.files" \
 	        		 | grep ".*\.$EXT$" \
 	        		 | awk  -v b="\"" -v a="$DEST_FIELD" '/$/{ print b$0b":"b a b }' \
@@ -164,7 +210,7 @@ do
 
       # Insert header or remove empty filelist
       if [ -s "$CONF_DIR/filelist-$COUNTER-$EXT.files" ]; then
-          sed -i "1i# -> [ \*.$EXT files to $DEST_FIELD ]" "$CONF_DIR/filelist-$COUNTER-$EXT.files"
+          sed -i "1i# -> [ \*.$EXT files from $SOURCE_FIELD to $DEST_FIELD ]" "$CONF_DIR/filelist-$COUNTER-$EXT.files"
       else
           rm "$CONF_DIR/filelist-$COUNTER-$EXT.files"
       fi
@@ -176,13 +222,14 @@ do
 	if [ "$TYPE_FIELD" = "mime" ]; then
 
 
-      echo "* Processing, please wait..."
+      echo -n "."
       find "$SOURCE_FIELD" -type f -exec file {} \; >> "$MASTER_LIST.$COUNTER.files"
 
 
 		for MIME in $EXT_FIELD
 		do
-						if [ "$DATE_MODE" = "ENABLE" ]; then
+        echo -n "."
+	      if [ "$DATE_MODE" = "ENABLE" ]; then
 				  # use sed i1 later echo "# -> [ $MIME files by DATE directories ] " > "$CONF_DIR/datemode-$COUNTER-$MIME.files"
                 grep ": $MIME" "$MASTER_LIST.$COUNTER.files" \
 			          | cut -d ':' -f 1 \
@@ -191,7 +238,8 @@ do
 
                 while read MIMELINE
                 do
-                echo "In datemode by MIME"
+                    echo -n "."
+                #echo "In datemode by MIME"
                 MIME_FILE="`echo $MIMELINE | cut -d ':' -f 1`"
                 MIME_SRC="`echo $MIME_FILE | rev | cut -d '/' -f 2- | rev`"
                 MIME_DEST="`echo $MIMELINE | cut -d ':' -f 2`"
@@ -205,18 +253,16 @@ do
 
                 # Add header if results found, otherwise purge file 
                 if [ -s "$CONF_DIR/datemode-$COUNTER-$MIME.files" ]; then
-                    sed -i "1i# -> [ $MIME mime-type files by DATE directories ]" "$CONF_DIR/datemode-$COUNTER-$MIME.files"
+                    sed -i "1i# -> [ $MIME files from $SOURCE_FIELD by DATE directories ]" "$CONF_DIR/datemode-$COUNTER-$MIME.files"
                 else
-                    rm "$CONF_DIR/datemode-$COUNTER-$MIME.files"
+                    if [ -f "$CONF_DIR/datemode-$COUNTER-$MIME.files" ]; then
+                        rm "$CONF_DIR/datemode-$COUNTER-$MIME.files"
+                    fi
                 fi
                 # Avoid duplicate file operations as we have now built a list by date from original search
                 rm "$CONF_DIR/filelist-$COUNTER-$MIME.files"
-     else 
-            #TODO: Impement date mode here
-			      # Just use grep to build new filelist from MIME,
-			      # and then use a loop to call secretary-date-handler.sh
-			      # from the file path in the filelist and variables
-			      #echo "# -> [ $MIME files ] " > "$CONF_DIR/filelist-$COUNTER-$MIME.files"
+     else
+         echo -n "."
 
          grep ": $MIME" "$MASTER_LIST.$COUNTER.files" \
 			       | cut -d ':' -f 1 \
@@ -225,30 +271,27 @@ do
 
 
             if [ -s "$CONF_DIR/filelist-$COUNTER-$MIME.files" ]; then
-                sed -i "1i# -> [ $MIME mime-type files to $DEST_FIELD ]" "$CONF_DIR/filelist-$COUNTER-$MIME.files"
+                sed -i "1i# -> [ $MIME files from $SOURCE_FIELD to $DEST_FIELD ]" "$CONF_DIR/filelist-$COUNTER-$MIME.files"
             else
                 rm "$CONF_DIR/filelist-$COUNTER-$MIME.files"
             fi
-            
-                        #cp $CONF_DIR/filelist-$COUNTER-$MIME.files inspect.foo
 
 fi
  		done
 	fi
 
-  #echo "COUNTER is: $COUNTER"
-  #COUNTER=$COUNTER+1
-  #echo "COUNTER is: $COUNTER"
+  COUNTER=$COUNTER+1
 
 done < $CONF_FILE
 
+echo -n "."
 # Remove the filelists with no files to copy
-for FILELIST in `ls $CONF_DIR/filelist-*.files`
-do
-	if [ "`wc -l $FILELIST | cut -d ' ' -f 1`" -eq 1 ]; then
-		rm $FILELIST
-	fi
-done
+#for FILELIST in `ls $CONF_DIR/filelist-*.files`
+#do#=
+#	if [ "`wc -l $FILELIST | cut -d ' ' -f 1`" -eq 1 ]; then
+#		rm $FILELIST
+#	fi
+#done
 
 # Build the final copying script
 TIMESTAMP="`date +%Y-%m-%d-%H_%M`"
@@ -294,11 +337,13 @@ echo "$FILE_HEADER_TXT" >> $FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh
 # Assemble all the non date ordered file lists into the work log
 for FILELIST in `ls $CONF_DIR/filelist-*.files 2> /dev/null`
 do
+    echo -n "."
 	if [ -s "$FILELIST" ];
 	then
 		HEADER_FLAG=1
 		while read FILE_LINE
 		do
+        echo -n "."
 			if [ $HEADER_FLAG -eq 1 ]; then
 
 				echo "" >> "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
@@ -330,6 +375,7 @@ cat "$CONF_DIR/master.dirlist" >> "$FILE_OPS_DIR/secretary-file-operations-$TIME
 
 for FILELIST in `ls $CONF_DIR/datemode-*.files 2> /dev/null`
 do
+    echo -n "."
 	if [ -s "$FILELIST" ];
 	then
 		HEADER_FLAG=1
@@ -364,53 +410,63 @@ echo "#--> $OPERATIONS files to copy/move." >> $FILE_OPS_DIR/secretary-file-oper
 find "$CONF_DIR" -name "*.files" -delete
 find "$CONF_DIR" -name "*.dirlist" -delete
 
+echo ""
 echo "* Processing complete."
 echo "* $OPERATIONS files ready to copy/move."
 echo "* File operations script created at:"
 echo ""
-echo "==="
-echo "--> $FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
+echo "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
+
 
 # Check to see whether they're brave enough for AUTO...
 if [ "$AUTO" = "YES" ]; then
-    echo "==="
     echo ""
 	  echo "* Running in AUTO mode, will now execute the file operations..."
 	  sleep 1
     bash "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh" | tee secretary-$TIMESTAMP.log
     echo ""
-    echo "* Complete. Files copied."
-    echo ""
-    echo "Logfile showing operations performed created at:"
-    echo "--> $FILE_OPS_DIR/secretary-$TIMESTAMP.log"
+    echo "* Complete. File transactions finished."
+    echo "* Logfile showing operations performed created at:"
+    echo "$FILE_OPS_DIR/secretary-$TIMESTAMP.log"
 else
-    echo "==="
     echo ""
-            echo "You should now review the proposed file operations."
-    echo "---"
+    echo "* You should now review the proposed file operations."
     echo ""
-    echo "To go ahead and actually copy/move the files, exit this prompt ('q') and"
-    echo "then type:"
+    echo "Reviewing the file operations script BEFORE operation is STRONGLY "
+    echo "RECOMMENDED. PLEASE ENSURE YOU ARE COPYING/MOVING FILES AS INTENDED."
+    echo "FAILURE TO DO SO COULD RESULT IN DATA LOSS AS THE SCRIPT IS PERFORMING BATCH"
+    echo "FILE OPERATIONS. YOU HAVE BEEN WARNED..."
     echo ""
-    echo "bash < $FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
+    echo "------------------------------------------------------------------------"
+    echo "If all looks good, to go ahead and actually copy/move the files, exit this prompt"
+    echo "('q') and execute the script:"
     echo ""
+    echo "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
+    echo "------------------------------------------------------------------------"
     echo ""
-    echo "Would you like to review it now? (STRONGLY RECOMMENDED)."
-    echo ""
-    echo "Press <enter> to view it in the terminal pager or type the name of desired text"
-    echo "editor to open it with, e.g. 'xedit' (without the quotes!)"
-    echo ""
-    echo "Type q to simply exit this prompt."
-    echo ""
+    echo "* Press:"
+    echo " <enter> to view it in the terminal pager"
+    echo " <e> to view it in your editor."
+    echo " any other key to quit this prompt."
     echo -n "> "
     read CHOICE
-    if [ "$CHOICE" = "q" ]; then
-        exit 0
-	else
-		if [ "$CHOICE" = "" ]; then
+
+    if [ "$CHOICE" = "e" ]; then
+            "$EDIT_VIEW" "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
+            chmod u+x "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
+            exit 0
+    fi
+
+    if [ "$CHOICE" = "" ]; then
         more "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
-		else
-        exec "$CHOICE" "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
-		fi
-	fi
+        chmod u+x "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
+        exit 0
+    fi
+
+chmod u+x "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
+exit 0
+
 fi
+fi
+
+# TODO Test for and create any non-existence directories based on source dir

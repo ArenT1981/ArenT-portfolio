@@ -7,16 +7,16 @@ FILE_DAY=-1
 
 FIRST=$1
 SRC=$2
-PIC=$3
+DEST=$3
 LOG=$4
 DIRLOG=$5
 OPERATION=$6
 #echo "Log: $4"
 
-echo "First: $FIRST"
-echo "Source: $SRC"
-echo "Pic: $PIC"
-echo "Log: $LOG"
+#echo "First: $FIRST"
+#echo "Source: $SRC"
+#echo "Pic: $PIC"
+#echo "Log: $LOG"
 
 if [ -z "$FIRST" ]; then
     exit 0
@@ -94,7 +94,7 @@ esac
 #echo "Month is: $MONTH"
 #echo "Filepath is: $1"
 
-DEST_DIR="$PIC/$FILE_YEAR/$MONTH"
+DEST_DIR="$DEST/$FILE_YEAR/$MONTH"
 #echo "Dest: $DEST_DIR"
 
 #echo "Dest dir is: $DEST_DIR"

@@ -81,37 +81,13 @@ if [ ! -z "$EDITOR" ]; then
 else
     EDIT_VIEW="vi"
 fi
-# TODO    Replace with case
-# if [ -z "$DISPLAY" ]; then # Are we running under X?
-#     if [ -f "/usr/bin/gedit" ]; then
-#         EDIT_VIEW="gedit"
-#     
-#     if [ -f "/usr/bin/kate" ]; then
-#         EDIT_VIEW="kate"
-#     else
-#     if [ -f "/usr/bin/featherpad" ]; then
-#         EDIT_VIEW="featherpad"
-#     else
-#     if [ -f "/usr/bin/mousepad" ]; then
-#         EDIT_VIEW="mousepad"
-#     else
-#     if [ -f "/usr/bin/xedit" ]; then
-#         EDIT_VIEW="xedit"
-#     fi
-# fi
-#     else
-#         if [ -f "/bin/nano" ]; then
-#             EDIT_VIEW="nano"
-#         fi
-#     else
-#         if [ -f "/usr/bin/vi" ]; then
-#             EDIT_VIEW="vi"
-#         fi
-#     else
-#         if [ -f "/usr/bin/emacs" ]; then
-#             EDIT_VIEW="emacs"
-#         fi
-# fi
+
+# Use graphical editor if running under X and they've set $VISUAL
+if [ ! -z "$DISPLAY" ]; then # Are we running under X?
+    if [ ! -z "$VISUAL" ]; then
+        EDIT_VIEW="$VISUAL"
+    fi
+fi
 
 
 #if [ "$#" -ne 1 ] && [ "$#" -ne 2 ]; then
@@ -152,15 +128,6 @@ do
 	DATE_CHECK="`echo $DEST_FIELD | grep ".*DATE#.*" -`"
 
   FILE_CMD="`echo $LINE | cut -d ':' -f 5`"
-  #echo $FILE_CMD
-  #if [ "$FILE_CMD" = "#" ]; then
-  #    CMD="cp -uv"
-  #else
-  #    CMD="$FILE_CMD"
-  #fi
-
-
-
 
 	# See whether DATE mode is active; cut out 'DATE#' text if so
 	if [ -n "$DATE_CHECK" ]; then
@@ -192,21 +159,15 @@ do
         fi
 
 			else
-          echo -n "."
-          # Copy/move the files by file-extension, no date ordering/organisation
-          find "$SOURCE_FIELD" -type f >> "$MASTER_LIST.$COUNTER.files"
+            echo -n "."
+            # Copy/move the files by file-extension, no date ordering/organisation
+            find "$SOURCE_FIELD" -type f >> "$MASTER_LIST.$COUNTER.files"
 
-			#echo "# -> [ \*.$EXT files ] " > "$CONF_DIR/filelist-$COUNTER-$EXT.files"
-	#		grep ".*\.$EXT.*" "$MASTER_LIST" \
-	#		 | cut -d ':' -f 1 \
-	#		 | grep ".*\.$EXT$" \
-	#		 | awk  -v b="\"" -v a="$DEST_FIELD" '/$/{ print b$0b":"b a b }' \
-	#		 >> "$CONF_DIR/filelist-$EXT.files"
-          echo -n "."
-	   	grep ".*\.$EXT.*" "$MASTER_LIST.$COUNTER.files" \
-	        		 | grep ".*\.$EXT$" \
-	        		 | awk  -v b="\"" -v a="$DEST_FIELD" '/$/{ print b$0b":"b a b }' \
-	        		        >> "$CONF_DIR/filelist-$COUNTER-$EXT.files"
+            echo -n "."
+            grep ".*\.$EXT.*" "$MASTER_LIST.$COUNTER.files" \
+            | grep ".*\.$EXT$" \
+            | awk  -v b="\"" -v a="$DEST_FIELD" '/$/{ print b$0b":"b a b }' \
+            >> "$CONF_DIR/filelist-$COUNTER-$EXT.files"
 
       # Insert header or remove empty filelist
       if [ -s "$CONF_DIR/filelist-$COUNTER-$EXT.files" ]; then
@@ -244,10 +205,7 @@ do
                 MIME_SRC="`echo $MIME_FILE | rev | cut -d '/' -f 2- | rev`"
                 MIME_DEST="`echo $MIMELINE | cut -d ':' -f 2`"
 
-                #debug ----
-                #echo "Mime src: $MIME_SRC"
-               # echo "Mime dest: $MIME_DEST"
-                # ------
+               # Fork off date script
                 secretary-date-handler.sh "$MIME_FILE" "$MIME_SRC" "$DEST_FIELD" "$CONF_DIR/datemode-$COUNTER-$MIME.files" "$CONF_DIR/datemode-$COUNTER-$MIME.dirlist" "$CMD"
                 done < $CONF_DIR/filelist-$COUNTER-$MIME.files
 
@@ -410,7 +368,7 @@ echo "#--> $OPERATIONS files to copy/move." >> $FILE_OPS_DIR/secretary-file-oper
 find "$CONF_DIR" -name "*.files" -delete
 find "$CONF_DIR" -name "*.dirlist" -delete
 
-echo ""
+clear
 echo "* Processing complete."
 echo "* $OPERATIONS files ready to copy/move."
 echo "* File operations script created at:"
@@ -445,9 +403,9 @@ else
     echo "------------------------------------------------------------------------"
     echo ""
     echo "* Press:"
-    echo " <enter> to view it in the terminal pager"
-    echo " <e> to view it in your editor."
-    echo " any other key to quit this prompt."
+    echo "- <enter> to view it in the terminal pager"
+    echo "- <e> to view it in your editor."
+    echo "- Any other key to quit this prompt."
     echo -n "> "
     read CHOICE
 

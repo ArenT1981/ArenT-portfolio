@@ -76,3 +76,6 @@
   - Initial export/commit of this to GitHub
   - Configured various filters/regular expressions for e-mail automation
   - Further org-mode conversion and practice with various export format parameters
+** *Friday October 11th:*
+   PM:
+  - Further extensive work on secretary file management program

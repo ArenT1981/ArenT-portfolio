@@ -1,34 +1,52 @@
 #!/bin/sh
 
+# Some error checking
 ERROR_FILE=$HOME/.secretary/errorlog
 FILE_YEAR=-1
 FILE_MONTH=-1
 FILE_DAY=-1
 
+# Grab the parameters
 FIRST=$1
 SRC=$2
 DEST=$3
 LOG=$4
 DIRLOG=$5
 OPERATION=$6
-#echo "Log: $4"
 
-#echo "First: $FIRST"
-#echo "Source: $SRC"
-#echo "Pic: $PIC"
-#echo "Log: $LOG"
-
+# Check that we've got the necessary parameters
 if [ -z "$FIRST" ]; then
-    exit 0
+    exit 1
 fi
 
+if [ -z "$SRC" ]; then
+    exit 1
+fi
 
+if [ -z "$DEST" ]; then
+    exit 1
+fi
+
+if [ -z "$LOG" ]; then
+    exit 1
+fi
+
+if [ -z "$DIRLOG" ]; then
+    exit 1
+fi
+
+if [ -z "$OPERATION" ]; then
+    exit 1
+fi
+
+echo -n "."
 
 FILE_DATE=$(stat -c %y "$1"| cut -d ' ' -f 1)
 FILE_YEAR=`echo $FILE_DATE | cut -d '-' -f 1`
 FILE_MONTH=`echo $FILE_DATE | cut -d '-' -f 2`
 FILE_DAY=`echo $FILE_DATE | cut -d '-' -f 3`
 
+# Check we've successfully stat'd the file
 if [ $FILE_YEAR -eq -1 ]; then
 	echo "Invalid file parameter passed: $1" >> "$ERROR_FILE"
 	exit 1
@@ -44,11 +62,7 @@ if [ $FILE_DAY -eq -1 ]; then
 	exit 1;
 fi
 
-
-#echo "$FILE_YEAR"
-#echo "$FILE_MONTH"
-#echo "$FILE_DAY"
-
+# Which month?
 case $FILE_MONTH in
 	01)
 		MONTH="01-january"
@@ -91,16 +105,11 @@ case $FILE_MONTH in
 		;;
 esac
 
-#echo "Month is: $MONTH"
-#echo "Filepath is: $1"
-
+# Build the destination path
 DEST_DIR="$DEST/$FILE_YEAR/$MONTH"
-#echo "Dest: $DEST_DIR"
 
-#echo "Dest dir is: $DEST_DIR"
-#echo "Copy operation would be:\ "
+# Ensure that the destination directory exists; create if necessary
 echo "mkdir -pv $DEST_DIR" >> $DIRLOG
+# Now add the actual copy/move operation to the script
 echo "$OPERATION \"$1\" \"$DEST_DIR\"" >> $LOG
-#cp -uv "$1" $DEST_DIR 1>> $LOG 
-#echo "- Processing: $1"
 

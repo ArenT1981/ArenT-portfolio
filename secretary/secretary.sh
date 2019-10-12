@@ -22,47 +22,47 @@ showUsage() {
 	echo ""
 	echo "-----------------------------------------------------------------------------"
 	echo ""
-	echo "Usage: secretary [--yes] [OVERRIDE] [-f <configuration file>] SOURCE"
+	echo "Usage: secretary [--auto] [configuration file]"
 	echo ""
-	echo "Where OVERRIDE can be one of: "
+	echo "[configuration file (relative filename or path to file as required)]"
 	echo ""
-	echo "--cp-update"
-	echo "    copy files, updating if source file is newer"
-	echo "--cp-clobber"
-	echo "    copy files, overwriting any destination files of same filename"
-	echo "--mv-no-clobber"
-	echo "    move files from source, but do not overwrite any clashing destination files"
-	echo "--mv-clobber"
-	echo "    move files from source, and overwrite clashing destination files"
-	echo ""
-	echo "    Use caution with these options as they could result in unintended data loss"
-	echo "by updating or overwriting files at the destination(s) specified in the config"
-	echo "file.The default action is to copy without clobbering, i.e. do not overwrite"
-	echo "files at the destination. This is the recommended beahaviour; simply delete the"
-	echo "source files once you've verified the copy operation has perfomed as intended,"
-	echo "if you no longer want/need a copy of them in their original location."
-	echo ""
-	echo "-f <configuration file>"
-	echo ""
-	echo "    Supply an alternative configuration file to use instead of the default which"
+	echo "    Optionally supply a configuration file to use instead of the default which"
 	echo "is at ~/.secretary/secretaryrc. This is useful for scripting secretary instances,"
-	echo "or maintaining multiple secratary 'profiles' for different use-cases, i.e. a "
+	echo "or maintaining multiple secretary 'profiles' for different use-cases, i.e. a "
 	echo "config file for processing files off a digital camera, another one for sorting"
 	echo "internet dowloads, another one to sort text files, etc. E.g.:"
 	echo ""
-	echo "secretary ~/my/source/directory -f ~/my_config/my_secretary_rc_file"
+	echo "secretary /path/to/my/config/digitalCamera.secretary"
+  echo "secretary copyAllPngsAndPerlScripts.secretary"
+  echo "secretary ~/configs/sortOutDownloads.secretary"
+  echo "secretary \"~/My Music/autoSorter.secretary\""
 	echo ""
-	echo "--yes"
+	echo "[--auto]"
 	echo ""
 	echo "    Do not produce review file; automatically perform the file operations by"
-	echo "calling secretary-refile upon the generated file operations log. Take CARE with"
-	echo "this, as it will be performing mass file operations according to your settings,"
-	echo "with no option to review the operations before proceeding. Intended for"
-	echo "experienced users for scripting or automating purposes, typically when combined"
-	echo "with the '-f' option above. Most users are strongly recommended to instead "
-	echo "REVIEW the file operations log in a text editor BEFORE running it. This"
-	echo "allows you to check that it will be copying/moving files in the way that you"
-	echo "want! \"Buyer beware\", \"You have been warned\" etc. etc... ;-) "
+	echo "calling generated file operations script. Take care with this, as it will be "
+  echo "performing mass file operations according to your settings, with no option to"
+  echo "review the operations before proceeding. Intended for experienced users for "
+  echo "scripting or automating purposes."
+  echo ""
+  echo "Automatic operation will create a logfile showing the file transactions "
+  echo "completed at '~/.secretary/secretary-<date-time>.log' if subsequent review is "
+  echo "desired."
+  echo ""
+	echo "Most users are instead strongly recommended to REVIEW the file operations script"
+  echo "in a text editor BEFORE running it. This allows you to check that it will be "
+  echo "copying/moving files in the way that you actually want!"
+  echo ""
+  echo "\"Buyer beware\", \"You have been warned\" etc. etc... ;-) "
+  echo ""
+  echo "Simply use by prefixing in front of your configuration file, if used, or by"
+  echo "itself if you want it to automatically run the contents of"
+  echo "~/.secretary/secretaryrc e.g. "
+  echo ""
+  echo "secretary --auto                          (runs on ~/.secretary/secretaryrc)"
+  echo "secretary --auto /path/to/mySecretaryConfig.secretary"
+  echo "secretary --auto myAmazingFileArrangement.secretary"
+
 
 }
 
@@ -71,9 +71,9 @@ CONF_DIR=$HOME/.secretary
 CONF_FILE=$CONF_DIR/secretaryrc
 MASTER_LIST=$CONF_DIR/master
 FILE_OPS_DIR=$CONF_DIR/fileops
-SOURCE_DIR=/dev/null
+CUSTOM_FILE=/dev/null
 DATE_MODE_LOG=$CONF_DIR/filelist-datemode.files
-CMD="cp -uv"
+CMD="cp -n"
 
 
 if [ ! -z "$EDITOR" ]; then
@@ -89,33 +89,42 @@ if [ ! -z "$DISPLAY" ]; then # Are we running under X?
     fi
 fi
 
+# Did they even pass a file parameter? Or did they ask for help?
+if [ "$1" = "-help" ] || [ "$1" = "--help" ] || [ "$1" = "help" ]; then
+	showUsage
+	exit 0
+fi
 
-#if [ "$#" -ne 1 ] && [ "$#" -ne 2 ]; then
-#	echo "$#"
-#	showUsage
-#	exit 2
-#fi
-
-
-if [ "$1" = "--yes" ]; then
+# Did they ask for auto mode...?
+if [ "$1" = "--auto" ]; then
 	AUTO="YES"
-	SOURCE_DIR="$2"
-	echo "* '--yes' option selected, using AUTO mode..."
+	CUSTOM_FILE="$2"
+	echo "* '--auto' option selected, using AUTO mode"
 else
-	SOURCE_DIR="$1"
+	CUSTOM_FILE="$1"
+fi
 
+# Did they pass a secretary configuration file? Or are we using default...
+if [ ! -z "$CUSTOM_FILE" ]; then
+    CONF_FILE="$CUSTOM_FILE"
+    echo "* Using file $CUSTOM_FILE"
+    if [ ! -f "$CUSTOM_FILE" ]; then
+    echo "* Non-existent file $CUSTOM_FILE, exiting. Check path/filename."
+    exit 0
+    fi
 fi
 
 # Counter for enumerating temporary filenames
 declare -i COUNTER=0
 
 echo "* Processing, please wait..."
-sleep 0.4
+
 # Build the filelists, parsing the configuration file line-by-line
 while read LINE
 do
     echo -n "."
 
+  CMD="cp -n"
   DATE_MODE="DISABLE"
 
 	COMMENT_HASH="`echo $LINE | cut -c 1`"
@@ -127,7 +136,11 @@ do
 	DEST_FIELD="`echo $LINE | cut -d ':' -f 4`"
 	DATE_CHECK="`echo $DEST_FIELD | grep ".*DATE#.*" -`"
 
-  FILE_CMD="`echo $LINE | cut -d ':' -f 5`"
+  FILE_CMD="`echo $LINE | cut -d ':' -f 5 | cut -d '#' -f 1`"
+
+  if [ ! -z "$FILE_CMD" ]; then
+      CMD="$FILE_CMD"
+  fi
 
 	# See whether DATE mode is active; cut out 'DATE#' text if so
 	if [ -n "$DATE_CHECK" ]; then
@@ -135,7 +148,7 @@ do
 		DEST_FIELD=$(echo $DEST_FIELD | cut -d '#' -f 2)
 	fi
 
-	# Process a file extension line by filename
+	# Process a file extension line by each file extension
 	if [ "$TYPE_FIELD" = "ext" ]; then
 
 		for EXT in $EXT_FIELD
@@ -145,7 +158,7 @@ do
 				#echo "# -> [ \*.$EXT files by DATE directories ] " > "$CONF_DIR/datemode-$COUNTER-$EXT.files"
 
 				# Fork off the hierarchical date script
-				find "$SOURCE_FIELD" -type f  -regex \
+				find "$SOURCE_FIELD" -type f  -iregex \
 					".*/*\.$EXT$" \
 					-exec secretary-date-handler.sh {} "$SOURCE_FIELD" "$DEST_FIELD" "$CONF_DIR/datemode-$COUNTER-$EXT.files" "$CONF_DIR/datemode-$COUNTER-$EXT.dirlist" "$CMD" \;
 
@@ -159,19 +172,26 @@ do
         fi
 
 			else
-            echo -n "."
+          echo -n "."
+
+          # We will need to create destination directory if it doesn't already exist
+          if [ ! -d "$DEST_FIELD" ]; then
+              echo "mkdir -pv $DEST_FIELD" >> "filelist-$COUNTER-$EXT.dirlist"
+          fi
+
             # Copy/move the files by file-extension, no date ordering/organisation
             find "$SOURCE_FIELD" -type f >> "$MASTER_LIST.$COUNTER.files"
 
             echo -n "."
-            grep ".*\.$EXT.*" "$MASTER_LIST.$COUNTER.files" \
-            | grep ".*\.$EXT$" \
-            | awk  -v b="\"" -v a="$DEST_FIELD" '/$/{ print b$0b":"b a b }' \
+            grep -i ".*\.$EXT.*" "$MASTER_LIST.$COUNTER.files" \
+            | grep -i ".*\.$EXT$" \
+            | awk  -v b="\"" -v a="$DEST_FIELD" -v c="$CMD" '/$/{ print c":"b$0b":"b a b }' \
             >> "$CONF_DIR/filelist-$COUNTER-$EXT.files"
 
       # Insert header or remove empty filelist
       if [ -s "$CONF_DIR/filelist-$COUNTER-$EXT.files" ]; then
           sed -i "1i# -> [ \*.$EXT files from $SOURCE_FIELD to $DEST_FIELD ]" "$CONF_DIR/filelist-$COUNTER-$EXT.files"
+        #  sed -e "\$$CMD"
       else
           rm "$CONF_DIR/filelist-$COUNTER-$EXT.files"
       fi
@@ -179,7 +199,7 @@ do
 		done
 	fi
 
-	# Process a MIME type line using file
+	# Process a MIME type line per each MIME file-type
 	if [ "$TYPE_FIELD" = "mime" ]; then
 
 
@@ -190,9 +210,10 @@ do
 		for MIME in $EXT_FIELD
 		do
         echo -n "."
+        # Date mode enabled?
 	      if [ "$DATE_MODE" = "ENABLE" ]; then
-				  # use sed i1 later echo "# -> [ $MIME files by DATE directories ] " > "$CONF_DIR/datemode-$COUNTER-$MIME.files"
-                grep ": $MIME" "$MASTER_LIST.$COUNTER.files" \
+
+                grep -i ": $MIME" "$MASTER_LIST.$COUNTER.files" \
 			          | cut -d ':' -f 1 \
 			          | awk -v a="$DEST_FIELD" '/$/{ print $0":"a }' \
 			          >> "$CONF_DIR/filelist-$COUNTER-$MIME.files"
@@ -222,11 +243,17 @@ do
      else
          echo -n "."
 
-         grep ": $MIME" "$MASTER_LIST.$COUNTER.files" \
+         # We will need to create destination directory if it doesn't already exist
+         if [ ! -d "$DEST_FIELD" ]; then
+             echo "mkdir -pv $DEST_FIELD" >> "filelist-$COUNTER-$MIME.dirlist"
+         fi
+
+         grep -i ": $MIME" "$MASTER_LIST.$COUNTER.files" \
 			       | cut -d ':' -f 1 \
-			       | awk -v b="\"" -v a="$DEST_FIELD" '/$/{ print b$0b":"b a b }' \
+			       | awk -v b="\"" -v a="$DEST_FIELD" -v c="$CMD" '/$/{ print c":"b$0b":"b a b }' \
 			             >> "$CONF_DIR/filelist-$COUNTER-$MIME.files"
 
+         #cp $CONF_DIR/filelist-$COUNTER-$MIME.files arse-$COUNTER.poo
 
             if [ -s "$CONF_DIR/filelist-$COUNTER-$MIME.files" ]; then
                 sed -i "1i# -> [ $MIME files from $SOURCE_FIELD to $DEST_FIELD ]" "$CONF_DIR/filelist-$COUNTER-$MIME.files"
@@ -243,56 +270,54 @@ fi
 done < $CONF_FILE
 
 echo -n "."
-# Remove the filelists with no files to copy
-#for FILELIST in `ls $CONF_DIR/filelist-*.files`
-#do#=
-#	if [ "`wc -l $FILELIST | cut -d ' ' -f 1`" -eq 1 ]; then
-#		rm $FILELIST
-#	fi
-#done
 
 # Build the final copying script
 TIMESTAMP="`date +%Y-%m-%d-%H_%M`"
 echo "#!/bin/bash" > $FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh
 
+# Add an information header
 read -d '' FILE_HEADER_TXT << "ENDHEADER"
-# ---------------------------------------------------------------
-# ---------------------------------------------------------------
+# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
 #
-#        [ File operations list generated by secretary ]
+#           [ File operations list generated by secretary ]
 #
-# ===============================================================
-# ===============================================================
+# ======================================================================
+# ======================================================================
 #
 # PLEASE look through this file carefully BEFORE running it
 # to ensure that it will copy/move the correct files to
 # your intended destination. Failure to do so may result in data
-# loss if you have got your settings wrong if your config file...
+# loss if you have got your settings wrong in your config file...
 #
-# ---------------- YOU HAVE BEEN WARNED!!!!! --------------------
+# ------------------- YOU HAVE BEEN WARNED!!!!! ------------------------
 #
-# To execute this script:
-#
-#    $ bash run #log#
-#
-# where "#log#" will be a file of the form
-# secretary-file-operations-TIMESTAMP.sh, for example:
-#
-#    $ bash run secretary-file-operations-2019-10-03-14_04.sh
-#
-# (Here the file operations script was created on March 3rd
-# 2019, at 14:04 in the afternoon.)
-#
-# If you select the "--yes" option you will bypass this message
-# and have the operations automatically performed. Use with care.
+# To execute this script, type:
 #
 #
-# ----------------------------------------------------------------
+# If you select the "--auto" option you will bypass this step
+# and have the operations script automatically performed. Use with care.
+#
+# ----------------------------------------------------------------------
 ENDHEADER
 
 echo "$FILE_HEADER_TXT" >> $FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh
+# Inject dynamically generated file text
+sed -i "19i# $ $CONF_DIR/fileops/secretary-file-operations-$TIMESTAMP.sh" "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
 
-# Assemble all the non date ordered file lists into the work log
+# Gather together the directory creation and throw away duplicate mkdir -pv commands
+# for aesthetic and clarity purposes (would still run OK with them all in though)
+cat $CONF_DIR/filelist-*.dirlist >> $CONF_DIR/tmp-master.dirlist
+cat $CONF_DIR/datemode-*.dirlist >> $CONF_DIR/tmp-master.dirlist
+cat $CONF_DIR/tmp-master.dirlist | sort | uniq >> $CONF_DIR/master.dirlist
+
+# Add these directories to the work script
+sed -i '1i# -> [ Create necessary directories for subsequent file copying/moving operations ]\n' "$CONF_DIR/master.dirlist"
+echo "" >> "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
+echo "" >> "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
+cat "$CONF_DIR/master.dirlist" >> "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
+
+# Assemble all the non date ordered file lists into the work script
 for FILELIST in `ls $CONF_DIR/filelist-*.files 2> /dev/null`
 do
     echo -n "."
@@ -311,9 +336,10 @@ do
 				continue
 			fi
 
-			FILE="`echo $FILE_LINE | cut -d ':' -f 1`"
-			DEST="`echo $FILE_LINE | cut -d ':' -f 2`"
-			echo "$CMD $FILE $DEST" >> $FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh
+      CMD_LINE="`echo $FILE_LINE | cut -d ':' -f 1`"
+			FILE="`echo $FILE_LINE | cut -d ':' -f 2`"
+			DEST="`echo $FILE_LINE | cut -d ':' -f 3`"
+			echo "$CMD_LINE $FILE $DEST" >> $FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh
 
 		done < $FILELIST
 	else
@@ -321,16 +347,7 @@ do
 	fi
 done
 
-# Gather together the directory creation and throw away duplicate mkdir -pv commands
-# for aesthetic and clarity purposes (would still run OK with them all in)
-cat $CONF_DIR/datemode-*.dirlist >> $CONF_DIR/tmp-master.dirlist
-cat $CONF_DIR/tmp-master.dirlist | sort | uniq >> $CONF_DIR/master.dirlist
-
-sed -i '1i# -> [ Create directories for date based file copying/moving ]\n' "$CONF_DIR/master.dirlist"
-echo "" >> "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
-echo "" >> "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
-cat "$CONF_DIR/master.dirlist" >> "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
-
+# Now assemble all the date ordered file operations into the work script
 for FILELIST in `ls $CONF_DIR/datemode-*.files 2> /dev/null`
 do
     echo -n "."
@@ -357,19 +374,20 @@ do
 	fi
 done
 
-# Put footer information at bottom of operations list with summary data
+# Put footer information at bottom of work script with summary data
 OPERATIONS=`egrep -v '^#|^mkdir|^$' "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh" | wc -l`
 DIRS=`grep '^mkdir' "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh" | wc -l`
 echo "" >> "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
 echo "#--> $DIRS new directories to create." >> $FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh
 echo "#--> $OPERATIONS files to copy/move." >> $FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh
 
-# Clear out the temporary file lists
+# Clear out the temporary file lists so they don't pollute the filesystem
 find "$CONF_DIR" -name "*.files" -delete
 find "$CONF_DIR" -name "*.dirlist" -delete
 
+# Present results to user
 clear
-echo "* Processing complete."
+echo "* Processing complete on $CONF_FILE."
 echo "* $OPERATIONS files ready to copy/move."
 echo "* File operations script created at:"
 echo ""
@@ -386,6 +404,7 @@ if [ "$AUTO" = "YES" ]; then
     echo "* Complete. File transactions finished."
     echo "* Logfile showing operations performed created at:"
     echo "$FILE_OPS_DIR/secretary-$TIMESTAMP.log"
+    rm "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
 else
     echo ""
     echo "* You should now review the proposed file operations."
@@ -421,10 +440,7 @@ else
         exit 0
     fi
 
-chmod u+x "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
-exit 0
-
-fi
+ chmod u+x "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
+ exit 0
 fi
 
-# TODO Test for and create any non-existence directories based on source dir

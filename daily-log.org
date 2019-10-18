@@ -1,3 +1,4 @@
+#+STARTUP: indent
 * Diary/Daily Log                                         :ossu:learninglog:
 ** *Monday September 23rd:*
   AM:
@@ -79,3 +80,32 @@
 ** *Friday October 11th:*
    PM:
   - Further extensive work on secretary file management program
+** *Saturday October 12th:*
+   PM:
+   - Significant work on secretary. Almost finished for core functionality.
+   - Further org-mode organisation
+** *Sunday October 13th:*
+PM:
+- Grokking Garmin FIT file format in order to convert to CSV and use gnuplot
+** *Monday October 14th:*
+- Many hours spent on garmin FIT file conversion to CSV, 
+automatic plotting with gnuplot. and automated file sorting
+** *Tuesday October 15th:*
+- Windows 10 installation under VirtualBox on Arch Linux laptop
+- Arch system update and bug fix of broken systemd unit / installtion of rng-tools
+- Creation of rsync backup script to automate spacemacs stable/daily branches
+** *Wednesday October 16th:*
+- Studied conditional probability and Bayes theorem
+- Org-mode tweaks
+** *Thursday October 17th:*
+PM:
+- Org-brain conversion/setup
+- Printer setup
+** *Friday October 18th:*
+AM: 
+- Org-brain refactoring
+- Tidying and improving mathematics notes
+PM:
+- Garmin FIT file conversion/export/script
+- Scripted new automated file modified date based on filename
+- Yas snippet work in EMACS

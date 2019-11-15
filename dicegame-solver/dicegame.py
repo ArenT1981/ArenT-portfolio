@@ -26,21 +26,28 @@ def count_wins(dice1, dice2):
 
 def find_weakness(resultlist):
     win_match = []
+    pick_dice = -1
+    margin = -1
+    #print("rr", resultlist)
     for key in resultlist:
 #        print ("key: ", resultlist[key])
         if resultlist[key] == 0:
-            win_match.append(key)
-            print(win_match)
+            if resultlist["LM" + str(key)] > margin:
+                pick_dice = key
+                margin = resultlist["LM" + str(key)]
+                #print("MARGIN: ", margin)
+            #win_match.append(key)
             #return key
-    if win_match == []:
-        return -1
-    else:
-        return win_match
+   # if win_match == []:
+    #print("Would return: ", pick_dice)
+    return pick_dice
 
 def check_unique_winning_dice(resultlist):
+    #print(resultlist)
     for key in resultlist:
-        if resultlist[key] != 1:
-            return -1
+        if isinstance(key, (int, long)):
+            if resultlist[key] != 1:
+                return -1
     return 1
 
 
@@ -110,11 +117,13 @@ def compute_dice_table(dices):
                 dice_comp += 1
                 continue
             winner = count_wins(dices[dice_index], dices[dice_comp])
-            print(winner)
+            #print(winner)
             if winner[0] > winner[1]:
                 winner_dict[dice_index][dice_comp] = 1
+                winner_dict[dice_index]["WM" + str(dice_comp)] = winner[0] - winner[1]
             if winner[0] < winner[1]:
                 winner_dict[dice_index][dice_comp] = 0
+                winner_dict[dice_index]["LM" + str(dice_comp)] = winner [1] - winner[0]
             if winner[0] == winner[1]:
                 winner_dict[dice_index][dice_comp] = "tie"
 
@@ -148,13 +157,22 @@ def compute_strategy(dices):
         strategy["choose_first"] = False
         for i in range(len(dices)):
             strategy[i] = (i + 1) % len(dices)
-            print("iter ", i)
+            #print("iter ", i)
             killdie = find_weakness(dice_table[i])
             if killdie != -1:
-                if len(killdie) == 1:
-                    print("foo")
-                else:
-                    print("KD: ", killdie)
+                # Only one better dice?
+               # if len(killdie) == 1:
+                #    print("foo")
+                 #   strategy[i] = killdie[0]
+                #else:
+                    # Find best possible dice, probabilistically
+                 #   kill_list = []
+                  #  print("KD: ", killdie)
+                    #v=list(killdie.values())
+                    #for option in range(len(killdie)):
+                       # kill_list.append(dice_tabale[i]["WM" + str()]
+                    #for i in range(len(killdie)):
+                      #  count_wins
                     # print("for dice "+ str(i) + " play dice: ", killdie)
                 strategy[i] = killdie
 
@@ -175,6 +193,6 @@ def compute_strategy(dices):
 
 print(compute_strategy([[1, 1, 4, 6, 7, 8], [2, 2, 2, 6, 7, 7], [3, 3, 3, 5, 5, 8]]))
 print(compute_strategy([[4, 4, 4, 4, 0, 0], [7, 7, 3, 3, 3, 3], [6, 6, 2, 2, 2, 2], [5, 5, 5, 1, 1, 1]]))
-#print(compute_strategy([[1, 1, 6, 6, 8, 8], [2, 2, 4, 4, 9, 9], [3, 3, 5, 5, 7, 7]]))
+print(compute_strategy([[1, 1, 6, 6, 8, 8], [2, 2, 4, 4, 9, 9], [3, 3, 5, 5, 7, 7]]))
 print(compute_strategy([[1, 1, 2, 4, 5, 7], [1, 2, 2, 3, 4, 7], [1, 2, 3, 4, 5, 6]]))
 print(compute_strategy([[3, 3, 3, 3, 3, 3], [6, 6, 2, 2, 2, 2], [4, 4, 4, 4, 0, 0], [5, 5, 5, 1, 1, 1]]))

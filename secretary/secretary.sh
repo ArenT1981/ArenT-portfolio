@@ -11,6 +11,19 @@
 # Please review the generated operation file before telling it to copy/move
 # your files. You could potentially do a lot of damage to your system otherwise!
 
+# --- Globals ---
+AUTO="NO"
+FILE_ARG="false"
+CONF_DIR=$HOME/.secretary
+TASK_DIR=$CONF_DIR/tasks
+CONF_FILE=$CONF_DIR/secretaryrc
+MASTER_LIST=$CONF_DIR/master
+FILE_OPS_DIR=$CONF_DIR/fileops
+CUSTOM_FILE=/dev/null
+DATE_MODE_LOG=$CONF_DIR/filelist-datemode.files
+CMD="cp -n"
+EDITCOMMAND=vim
+# ----------------
 
 showUsage() {
 	echo ""
@@ -66,15 +79,80 @@ showUsage() {
 
 }
 
-AUTO="NO"
-CONF_DIR=$HOME/.secretary
-CONF_FILE=$CONF_DIR/secretaryrc
-MASTER_LIST=$CONF_DIR/master
-FILE_OPS_DIR=$CONF_DIR/fileops
-CUSTOM_FILE=/dev/null
-DATE_MODE_LOG=$CONF_DIR/filelist-datemode.files
-CMD="cp -n"
 
+createNewFile()
+{
+
+    echo "* Creating new secretary task file"
+    echo "* Please select option:"
+    echo ""
+    echo "[1] Create file from scratch"
+    echo " - Use file template:"
+    echo ""
+    echo ""
+    echo -n "> "
+    read CHOICE
+    echo ""
+    echo "* Now please enter a filename to use."
+    echo "No spaces and without extension."
+    echo "(e.g. sort-downloads, my_downloads, sortDocFiles etc.)"
+    echo -n "> "
+    read FILENAME
+
+    if [ ! -f "$TASK_DIR/$FILENAME" ]; then
+        #touch "$TASK_DIR/$FILENAME"
+        echo ""
+    fi
+
+    $EDITCOMMAND "$TASK_DIR/$FILENAME"
+    # check if filename already exists and abort if it does
+
+
+}
+
+
+lsTaskFiles()
+{
+
+    echo "* Stored secretary task files:"
+    declare -i COUNTER=1
+    for taskFile in `ls "$CONF_DIR"/tasks 2>/dev/null | grep ".secretary" | cut -d '.' -f 1 | tee "$CONF_DIR"/tasks/.taskfilelist`
+    do
+        echo "[$COUNTER] $taskFile"
+        COUNTER=$COUNTER+1
+    done
+
+
+}
+
+
+editTaskFile()
+{
+    echo "* Edit an existing task file."
+    lsTaskFiles
+    echo "* Please enter name of task file to edit:"
+    echo -n "> "
+    read CHOICE
+    # do something with choice
+    FILENAME="`head -n $CHOICE $TASK_DIR/.taskfilelist | tail -n 1`"
+    echo "F: $FILENAME"
+
+    vim "$TASK_DIR/$FILENAME".secretary
+
+}
+
+
+setEditor()
+{
+    echo "* Enter desired editor command."
+    echo "(e.g. vim, emacs, gedit, xedit, emacsclient -nc, kate, etc. )"
+    echo -n "> "
+    read CHOICE
+    echo "* Editor command now set to:"
+    echo "\"$CHOICE\""
+    echo "* Simply run this command again if you wish to update editor."
+
+}
 
 if [ ! -z "$EDITOR" ]; then
     EDIT_VIEW="$EDITOR"
@@ -104,15 +182,65 @@ else
 	CUSTOM_FILE="$1"
 fi
 
+# Show stored secretary task files
+if [ "$1" = "ls" ]; then
+    lsTaskFiles
+    exit 0
+fi
+
+
+if [ "$1" = "new" ]; then
+    createNewFile
+    exit 0
+fi
+
+if [ "$1" = "edit" ]; then
+    editTaskFile
+    exit 0
+fi
+
+if [ "$1" = "editor" ]; then
+    setEditor
+    exit 0
+fi
+
 # Did they pass a secretary configuration file? Or are we using default...
 if [ ! -z "$CUSTOM_FILE" ]; then
-    CONF_FILE="$CUSTOM_FILE"
-    echo "* Using file $CUSTOM_FILE"
     if [ ! -f "$CUSTOM_FILE" ]; then
-    echo "* Non-existent file $CUSTOM_FILE, exiting. Check path/filename."
-    exit 0
+        if [ -f "$CUSTOM_FILE".secretary ]; then
+            echo "* Using current directory file $CUSTOM_FILE.secretary"
+            CUSTOM_FILE="$CUSTOM_FILE".secretary
+            FILE_ARG="true"
+        fi
+    else
+        echo "* Using current directory file $CUSTOM_FILE"
+        CONF_FILE="$CUSTOM_FILE"
+        FILE_ARG="true"
     fi
 fi
+
+# File not found in current directory, is it a stored task file?
+if [ "$FILE_ARG" = "false" ]; then
+    if [ -f "$TASK_DIR/$CUSTOM_FILE" ]; then
+        echo "* Using stored secretary file $CUSTOM_FILE"
+        CONF_FILE="$TASK_DIR/$CUSTOM_FILE"
+    elif [ -f "$TASK_DIR/$CUSTOM_FILE".secretary ]; then
+        echo "* Using stored secretary file $CUSTOM_FILE"
+        CONF_FILE="$TASK_DIR/$CUSTOM_FILE".secretary
+    else
+        echo "* No secretary task file named \"$CUSTOM_FILE\" found."
+        echo "(Looked in current directory and task directory)."
+        echo "* Please check path/filename. Exiting."
+        lsTaskFiles
+        exit 0
+    fi
+fi
+
+echo $CUSTOM_FILE
+echo $CONF_FILE
+
+# DEVELOPMENT uncomment here
+#exit 0
 
 # Counter for enumerating temporary filenames
 declare -i COUNTER=0

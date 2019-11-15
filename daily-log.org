@@ -103,9 +103,103 @@ PM:
 - Printer setup
 ** *Friday October 18th:*
 AM: 
-- Org-brain refactoring
+- Org-brain refactoring - WHAT DOES T HI look like???
 - Tidying and improving mathematics notes
 PM:
 - Garmin FIT file conversion/export/script
 - Scripted new automated file modified date based on filename
 - Yas snippet work in EMACS
+** *Saturday October 19th:*
+AM/PM:
+- Note conversion and integration 
+- Overview/review of current pending projects/tasks
+** *Sunday Octboer 20th:*
+- Note organisation/review
+- File tidying
+- Bash prompt/configuration customisation
+** *Monday October 21st:*
+- Rewrite/refactor backup strategy/rewrite rsync scripts
+- Rewrite CVs
+** *Tuesday October 22nd:*
+- Further note/knowledge management
+- Finalised rsync backups 
+** *Wednesday Octboer 23rd:*
+PM:
+- Task consolidation
+** *Thursday October 24th:*
+- Study/reading on Lisp and Lisp dialects
+- Read-Eval-Print loop
+** *Friday October 25th:*
+- Job applications
+- CV work 
+- Jekyll blogging refresher
+- LaTeX mathematical typesetting
+** *Saturday October 26th:*
+- File tidying
+- Studying Lisp programming
+** *Sunday October 27th:*
+- Configuration fixes
+** *Monday October 28th:*
+AM:
+- Setting up org-mode to publish to Jekyll blog, yasnippet templates
+PM: 
+- Coursera: Graph Theory
+- Config bux fixing
+** *Tuesday October 29th:*
+AM:
+- Reading: Structure and Interpretation of Computer Programs
+PM:
+- Coursera: Graph Theory
+- DevOps e-Degree / bash shell scripting
+** *Wednesday October 30th:*
+PM:
+- DevOps e-Degree
+- Lisp programming
+** *Thursday October 31st:*
+AM:
+- Reading: Structure and Interpretation of Computer Programs
+- Coursera: Graph Theory
+PM:
+- Coursera: Graph Theory
+** *Friday November 1st:*
+PM: 
+- Coursera: Graph Theory
+- edudonix: DevOps 
+** *Saturday November 2nd:*
+PM: 
+- Coursera: Graph Theory
+** *Sunday November 3rd*
+PM: 
+- Secretary bash script program
+** *Monday November 4th:*
+PM:
+- Coursera - Number theory/cryptography
+** *Tuesday November 5th:*
+PM:
+- Coursera - Number theory/cryptography
+** *Wednesday November 6th:*
+AM:
+- Reading: Computer Science number systems
+PM: 
+- Coursera - Number theory/cryptography
+** *Thursday November 7th:*
+PM: 
+- DevOps e-Degree / Linux shell + networking
+** *Friday November 8th:*
+PM: 
+- Coursera: Number theory/Euclid's algorithm
+- edX How to Code: Review of data definitions
+** *Saturday November 9th:*
+AM:
+- DNS / DNS over HTTPS protocol
+- Firefox configuration settings
+PM:
+- Coursera: Number theory/cryptography
+** *Sunday November 10th:*
+PM:
+- Coursera: Programming modular arithmetic algorithms
+- Coursera: Cryptography / integer factorisation
+** *Monday November 11th:*
+PM: 
+- Coursera: Cryptographic theory
+- Modular arithmetic/exponential, Euler's theorem

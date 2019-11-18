@@ -13,9 +13,9 @@ womenList = dict()
 
 def setUnmarried(man):
     # Fiance has rejected him, back on the marriage hunt!
-    print("setting previous proposal unmarried")
+    #print("setting previous proposal unmarried")
     menChoices["man-"+str(man)] = -1#
-    print(menChoices)
+    #print(menChoices)
 
 
 #def doMarry(flag, choice, man_index, woman_index, current_man, current_woman):
@@ -32,67 +32,70 @@ def doMarry(flag, choice_index, man):
     woman_status = womenChoices["woman-"+str(wifeChoice)]
 
 
-    print("man status, wife choice, woman status:", man_status, wifeChoice, woman_status)
+    print("Man " + str(man) + " is proposing to woman " + str(wifeChoice))
     # 1. Base case
     # He's already married, so do nothing...
     if man_status != -1:
-        print("Man is already married, skipping.")
+        print("Man is already engaged and should not be proposing to anyone else, naughty man!")
         flag = 1
         return flag
 
     # 2. Second base case. Women not married, so immediately marry
     if woman_status == -1:
-        print("Not married. Marrying unmarried man to woman: ", man, wifeChoice)
-        print(wifeChoice)
+        print("His choice is not engaged. Engaging single man " + str(man) + " to woman " + str(wifeChoice))
+        #print(wifeChoice)
         menChoices["man-"+str(man)] = wifeChoice
         womenChoices["woman-"+str(wifeChoice)] = man
-        print(menChoices, womenChoices)
+        #print(menChoices, womenChoices)
         flag = 1
         # Return married choice immediately from function
         return flag
 
-    print("Married woman, does will she accept?")
+    print("Engaged woman, will she accept his proposal?")
     if woman_status != -1:
 
-        print("comparison marriage")
-        print(man,wifeChoice)
-        print("PROPOSING: ", man)
+        #print("comparison marriage")
+        #print(man,wifeChoice)
+        #print("PROPOSING: ", man)
         current_fiance_number = womenChoices["woman-"+str(wifeChoice)]
 
         current_fiance = her_list.index(current_fiance_number)
         proposed_fiance = her_list.index(man)
 
-        print("current_fiance index:", current_fiance)
-        print("proposing_fiance index:", proposed_fiance)
+        #print("current_fiance index:", current_fiance)
+        #print("proposing_fiance index:", proposed_fiance)
         #print("woman index:", man.index())
 
         if proposed_fiance < current_fiance:
-            print("she prefers him to", current_fiance_number)
-            print("he is:", man)
-            print("his choice: ", wifeChoice)
-            print("unmarrying man number: ", current_fiance_number)
+            #print("she prefers him to", current_fiance_number)
+            #print("he is:", man)
+            #print("his choice: ", wifeChoice)
+            print("Proposal accepted. Woman " + str(wifeChoice) + " is rejecting man " + str(current_fiance_number) + " to become engaged to man " + str(man))
+            #print("Proposal accepted " + str(wifeChoice) + )
+            # Unmarrying existing man and set new partnership
             setUnmarried(current_fiance_number)
             menChoices["man-"+str(man)] = wifeChoice
             womenChoices["woman-"+str(wifeChoice)] = man
-            print("Marriage results:")
-            print(menChoices)
-            print(womenChoices)
+            #print("Marriage results thus far:")
+            #print(menChoices)
+            #print(womenChoices)
             flag = 1
             return flag
             #print("cf, pf", current_fiance, proposed_fiance)
         else:
             #man.insert(0,wifeChoice)
-            print("she rejected him")
-            print("cf, pf", current_fiance_number, man)
+            print("Woman " + str(wifeChoice) + " rejected his proposal, prefers to be with man " + str(current_fiance_number))
+            #print("cf, pf", current_fiance_number, man)
             flag = -1
             return flag
     else:
-        print("ERROR! Faulty graph")
-        flag = -1
+        print("ERROR! Faulty suitor matching data with errant matchings, cannot compute.")
+        print("Looks like they'll just have to stay single for a while longer.")
+        flag = -100
         return flag
 
 
-    print("REACHED here")
+    #print("REACHED here")
     return flag
 
 
@@ -128,7 +131,7 @@ def stableMatching(n, menPreferences, womenPreferences):
         for man in range(n):
             flag = -1
             choice_index = 0
-            print("man is: " + str(man))
+            #print("man is: " + str(man))
             woman_index = 0
             it = str(woman_index)
             this_man = str(man)
@@ -136,7 +139,8 @@ def stableMatching(n, menPreferences, womenPreferences):
             while flag != 1:
                 #print("inner loop doing: ", str(man), str(womenChoices["woman-"+it]))
                 while woman_index < n:
-                    print("woman is: " + str(woman_index))
+                    #print("woman is: " + str(woman_index))
+                    #print("Man " + str(man) " is proposing to woman " + str(woman_index))
                     #flag = doMarry(flag, choice_index, man, woman_index, menList["man-"+this_man], womenList["woman-"+it])
                     flag = doMarry(flag, choice_index, man)
                     if flag == 1:
@@ -146,6 +150,11 @@ def stableMatching(n, menPreferences, womenPreferences):
 
                     if flag != 1:
                         choice_index += 1
+
+
+                    if flag == -100:
+                        all_married = True
+                        print("Errors encountered on input matching data, please check and try again.")
                 #print("inner loop after: ", str(man), str(womenChoices["woman-"+it]))
                 #print(womenChoices)
 
@@ -166,18 +175,19 @@ def stableMatching(n, menPreferences, womenPreferences):
 
 
         marriedTotal = 0
-        print(len(menChoices))
+        #print(len(menChoices))
         marriage_check = 0
         for marriage_check in range(len(menChoices)):
             if menChoices["man-"+str(marriage_check)] != -1:
-                print("Married!")
+                #print("Married!")
                 all_married = True
             else:
-                print("Not married :-( ")
+                print("Some suitors are still single :-( ")
+                print("Let's find them someone to be with.")
                 all_married = False
                 break
 
-        print(menChoices,womenChoices)
+        #print(menChoices,womenChoices)
 
         #all_married = True
         #increment += 1
@@ -193,15 +203,16 @@ def stableMatching(n, menPreferences, womenPreferences):
         currentMan = menChoices["man-"+str(man)]
         choiceList.append(currentMan)
 
+    print("=============================")
+    print("Here are the final matchings:")
+    print("Men's choices: " + str(menChoices))
+    print("Women's choices: " + str(womenChoices))
+    print("Loops required to compute: " + str(loop_counter))
 
-    print(menChoices)
-    print(womenChoices)
-
-    print("loops: ", loop_counter)
     # Return the final list
     print("Final list: ")
     print(choiceList)
-
+    print("=============================")
     return choiceList
 
 # def proposeMarriage(flag, index, woman_index, man, woman, man_status, woman_status):

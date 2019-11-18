@@ -203,3 +203,20 @@ PM:
 PM: 
 - Coursera: Cryptographic theory
 - Modular arithmetic/exponential, Euler's theorem
+** *Tuesday November 12th:*
+- Coursera: Cryptographic theory
+- Modular arithmetic/algorithms
+** *Wednesday November 13th:*
+- Coursera: Cryptography / RSA algorithm
+- Conditional probability
+** *Thursday November 14th:*
+- Coursera: Probability. Conditional probability
+- Expectation, and Monty Hall paradox
+- Random variables and Markov's inequality
+** *Friday November 15th:*
+- Implementing a dice game using probabilistic modelling
+** *Saturday November 16th:*
+PM: 
+- Readding: Data structures/mathematics of lists/stacks/queues
+- Coursera: Permutations/sorting algorithm 
+- Gale-Shapely matching algorithm

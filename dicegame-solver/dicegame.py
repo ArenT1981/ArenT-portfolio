@@ -3,7 +3,7 @@
 #
 # Date: 2019-11-15
 # Version 1.0
-# 
+#
 # This program simulates a "weighted" dice competition between two six
 # sided dice, and implements a probabilistically winning strategy, by
 # selecting either to go first (if there is a single clear "winning" dice

@@ -45,8 +45,8 @@ def stableMatching(n, menPreferences, womenPreferences):
         womenList["woman-"+str(x)] = womenPreferences[x]
 
 
-    print(menChoices, womenChoices)
-    print(menList, womenList)
+    #print(menChoices, womenChoices)
+    #print(menList, womenList)
     # generate return list
     #for x in range(n):
      #   currentMan = menChoices["man-"+str(x)]
@@ -65,15 +65,38 @@ def stableMatching(n, menPreferences, womenPreferences):
     man_number = 0
     manIndex = 0
 
-    #while all_married == False:
-    (menList["man-0"], womenList["woman-0"], menChoices["man-0"], womenChoices["woman-0"]) = proposeMarriage(manIndex, menList["man-0"], womenList["woman-0"], menChoices["man-0"], womenChoices["woman-0"])
+    all_married = False
+
+    increment = 0
+
+    while all_married == False:
+
+        it = str(increment)
+
+        (menList["man-"+it], womenList["woman-"+it], menChoices["man-"+it], womenChoices["woman-"+it]) = proposeMarriage(manIndex, menList["man-"+it], womenList["woman-"+it], menChoices["man-"+it], womenChoices["woman-"+it])
     #    unmarriedMen[man] = "man-" + str(man_number)
     #    man_number += 1
 
-    print("---")
-    print(menList["man-0"], womenList["woman-0"], menChoices["man-0"], womenChoices["woman-0"])
-    #print(unmarriedMen)
-    # None of the men has a spouse yet, we denote this by the value None
+        print("---")
+        print(menList["man-0"], womenList["woman-0"], menChoices["man-0"], womenChoices["woman-0"])
+
+
+        marriedTotal = 0
+        for marriage_check in range(len(menChoices)):
+            if menChoices["man-"+str(marriage_check)] != -1:
+                print("Married!")
+                all_married = True
+            else:
+                print("Not married :-( ")
+                all_married = False
+                break
+
+
+        increment += 1
+        #debug
+        all_married = True 
+                #print(unmarriedMen)
+        # None of the men has a spouse yet, we denote this by the value None
     #manSpouse = [None] * n
 
     #print(manSpouse)

@@ -8,6 +8,8 @@
 
 menChoices = dict()
 womenChoices = dict()
+menList = dict()
+womenList = dict()
 
 def setUnmarried(man):
     # Fiance has rejected him, back on the marriage hunt!
@@ -16,15 +18,21 @@ def setUnmarried(man):
     print(menChoices)
 
 
-def doMarry(flag, choice, man_index, woman_index, current_man, current_woman):
+#def doMarry(flag, choice, man_index, woman_index, current_man, current_woman):
+def doMarry(flag, choice_index, man):
 
+    his_list = menList["man-"+str(man)]
     # Obtain their current marriage status/match
-    man_status = menChoices["man-"+str(man_index)]
-    woman_status = womenChoices["woman-"+str(woman_index)]
+    man_status = menChoices["man-"+str(man)]
+    # Get his next choice
+    wifeChoice = his_list[choice_index]
+    # Ger her list of suitors
+    her_list = womenList["woman-"+str(wifeChoice)]
+    # Get status of this woman
+    woman_status = womenChoices["woman-"+str(wifeChoice)]
 
-    # Get his next choice 
-    wifeChoice = current_man[choice]
 
+    print("man status, wife choice, woman status:", man_status, wifeChoice, woman_status)
     # 1. Base case
     # He's already married, so do nothing...
     if man_status != -1:
@@ -34,10 +42,10 @@ def doMarry(flag, choice, man_index, woman_index, current_man, current_woman):
 
     # 2. Second base case. Women not married, so immediately marry
     if woman_status == -1:
-        print("Not married. Marrying unmarried man to woman: ", man_index, woman_index)
+        print("Not married. Marrying unmarried man to woman: ", man, wifeChoice)
         print(wifeChoice)
-        menChoices["man-"+str(man_index)] = woman_index
-        womenChoices["woman-"+str(woman_index)] = man_index
+        menChoices["man-"+str(man)] = wifeChoice
+        womenChoices["woman-"+str(wifeChoice)] = man
         print(menChoices, womenChoices)
         flag = 1
         # Return married choice immediately from function
@@ -47,13 +55,12 @@ def doMarry(flag, choice, man_index, woman_index, current_man, current_woman):
     if woman_status != -1:
 
         print("comparison marriage")
-        print(current_man,man_index,woman_index)
-        proposing_man = man_index
-        print("PROPOSING: ", man_index)
-        current_fiance_number = womenChoices["woman-"+str(woman_index)]
+        print(man,wifeChoice)
+        print("PROPOSING: ", man)
+        current_fiance_number = womenChoices["woman-"+str(wifeChoice)]
 
-        current_fiance = current_woman.index(current_fiance_number)
-        proposed_fiance = current_woman.index(proposing_man)
+        current_fiance = her_list.index(current_fiance_number)
+        proposed_fiance = her_list.index(man)
 
         print("current_fiance index:", current_fiance)
         print("proposing_fiance index:", proposed_fiance)
@@ -61,12 +68,12 @@ def doMarry(flag, choice, man_index, woman_index, current_man, current_woman):
 
         if proposed_fiance < current_fiance:
             print("she prefers him to", current_fiance_number)
-            print("he is:", proposing_man)
+            print("he is:", man)
             print("his choice: ", wifeChoice)
             print("unmarrying man number: ", current_fiance_number)
             setUnmarried(current_fiance_number)
-            menChoices["man-"+str(man_index)] = wifeChoice
-            womenChoices["woman-"+str(woman_index)] = man_index
+            menChoices["man-"+str(man)] = wifeChoice
+            womenChoices["woman-"+str(wifeChoice)] = man
             print("Marriage results:")
             print(menChoices)
             print(womenChoices)
@@ -76,7 +83,7 @@ def doMarry(flag, choice, man_index, woman_index, current_man, current_woman):
         else:
             #man.insert(0,wifeChoice)
             print("she rejected him")
-            print("cf, pf", current_fiance_number, proposing_man)
+            print("cf, pf", current_fiance_number, man)
             flag = -1
             return flag
     else:
@@ -93,8 +100,6 @@ def doMarry(flag, choice, man_index, woman_index, current_man, current_woman):
 def stableMatching(n, menPreferences, womenPreferences):
 
     allMarried = False
-    menList = dict()
-    womenList = dict()
     marriedList = dict()
 
     # Final list to return
@@ -122,27 +127,28 @@ def stableMatching(n, menPreferences, womenPreferences):
 
         for man in range(n):
             flag = -1
+            choice_index = 0
             print("man is: " + str(man))
             woman_index = 0
             it = str(woman_index)
             this_man = str(man)
-            print("doing: ", str(man))
 
             while flag != 1:
                 #print("inner loop doing: ", str(man), str(womenChoices["woman-"+it]))
-                choice = 0
                 while woman_index < n:
                     print("woman is: " + str(woman_index))
-                    flag = doMarry(flag, choice, man, woman_index, menList["man-"+this_man], womenList["woman-"+it])
+                    #flag = doMarry(flag, choice_index, man, woman_index, menList["man-"+this_man], womenList["woman-"+it])
+                    flag = doMarry(flag, choice_index, man)
                     if flag == 1:
                         break
                     woman_index += 1
                     it = str(woman_index)
-                #print("inner loop after: ", str(man), str(womenChoices["woman-"+it]))
-                print(womenChoices)
 
-                if flag != 1:
-                    choice += 1
+                    if flag != 1:
+                        choice_index += 1
+                #print("inner loop after: ", str(man), str(womenChoices["woman-"+it]))
+                #print(womenChoices)
+
 
 
 
@@ -451,17 +457,17 @@ def stableMatching(n, menPreferences, womenPreferences):
 #assert(stableMatching(2, [ [0,1], [1,0] ], [ [0,1], [1,0] ]) == [0, 1])
 
 
-#stableMatching(2, [ [0,1], [1,0] ], [ [0,1], [1,0] ])
+stableMatching(2, [ [0,1], [1,0] ], [ [0,1], [1,0] ])
 stableMatching(2, [ [0,1], [0,1] ], [ [1,0], [1,0] ])
 
-# stableMatching(5,
-#                 [ [3,1,2,0,4],
-#                 [4,2,1,0,3], 
-#                 [1,4,0,3,2],
-#                 [4,1,3,2,0],
-#                 [3,0,1,2,4] ],
-#                 [ [3,1,4,2,0],
-#                 [1,0,3,2,4],
-#                 [0,2,4,3,1],
-#                 [3,0,2,1,4],
-#                 [1,4,0,2,3] ])
+stableMatching(5,
+                [ [3,1,2,0,4],
+                [4,2,1,0,3], 
+                [1,4,0,3,2],
+                [4,1,3,2,0],
+                [3,0,1,2,4] ],
+                [ [3,1,4,2,0],
+                [1,0,3,2,4],
+                [0,2,4,3,1],
+                [3,0,2,1,4],
+                [1,4,0,2,3] ])

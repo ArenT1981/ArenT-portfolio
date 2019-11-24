@@ -217,6 +217,29 @@ PM:
 - Implementing a dice game using probabilistic modelling
 ** *Saturday November 16th:*
 PM: 
-- Readding: Data structures/mathematics of lists/stacks/queues
+- Reading: Data structures/mathematics of lists/stacks/queues
 - Coursera: Permutations/sorting algorithm 
 - Gale-Shapely matching algorithm
+** *Sunday November 17th:*
+PM:
+- Gale-Shapely matching algorithm 
+- RSA cryptographic algorithm 
+** *Monday November 18th:*
+- Gale-Shapely matching algorithm
+** *Tuesday November 19th:*
+- Coursera: Graph searching/permutation/NP complete problems
+- Travelling Salesman/Graph searching algorithms
+- Programming approximation algorithm
+** *Wednesday November 20th:*
+- Reading: Algorithms in C
+- Stacks/queues 
+** *Thursday November 21st:*
+- Reading: Algorithms in C
+- Stacks/queues 
+** *Friday November 22nd:*
+- Reading: Algorithms in C
+- Stacks/queues 
+** *Saturday November 23rd:*
+- Accelerated Computer Science Fundamentals (Coursera)
+- Stacks & Heap Memory
+- Pointers and memory safety

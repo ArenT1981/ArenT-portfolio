@@ -21,8 +21,11 @@ TIMESTAMP="`date +%Y-%m-%d-%H_%M_%S`"
 # Set up the initial main full backup tar.gz file
 initial_run()
 {
-    # Create an initial archive with snapshot.snar as the incremental file list
     #echo "Creating initial backup archive"
+    # Safely create backup/remote directories with -p (if needed)
+    mkdir -p $BACKUP_LOCATION
+    mkdir -p $REMOTE_LOCATION
+    # Create an initial archive with snapshot.snar as the incremental file list
     tar -cvzg $BACKUP_LOCATION/snapshot.snar -f $BACKUP_LOCATION/data-backup-01-main-$TIMESTAMP.tar.gz $BACKUP_DIR
     echo "\n================================="
     echo "Backup local SOURCE directory set to: "

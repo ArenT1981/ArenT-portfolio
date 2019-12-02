@@ -34,19 +34,19 @@ backup the day before (or whenever =rsync-incremental remote= was last run).
 
 * Quickstart (TL;DR)
 
-1. =git clone https://github.com/ArenT1981/ArenT-portfolio/tree/master/rsync-incremental-backup=
-2. *[[https://github.com/ArenT1981/ArenT-portfolio/tree/master/rsync-incremental-backup/rsync-inc-1.0.tar.gz][Download and extract the script]]* (=tar -zxvf rsync-inc-1.0.tar.gz=)  
-3. =cd rsync-incremental-backup=
-4. =chmod +x install.sh && chmod +x rsync-incremental.sh= 
-5. (Optional) Set =JOB_LOCATION= (line 3) of install.sh if you want the
+1. *[[https://github.com/ArenT1981/ArenT-portfolio/tree/master/rsync-incremental-backup/rsync-inc-1.0.tar.gz][Download and extract the script]]* (right click, "Save link as...",
+   then =tar -zxvf rsync-inc-1.0.tar.gz=)  
+2. =cd rsync-incremental-backup=
+3. =chmod +x install.sh && chmod +x rsync-incremental.sh= 
+4. (Optional) Set =JOB_LOCATION= (line 3) of install.sh if you want the
    script to be installed elsewhere than under =~/bin=. Edit line 7
    =CRON_SCHEDULE= if you want the script to run at a time other than
    05:00 every day (e.g. change =00 5 * * *= to =15 18 * * *= if you
    want it to run at 18:15 every day).
-6. Set: 
-7. =BACKUP_DIR= (line 4) 
-8. =BACKUP_LOCATION= (line 6)
-9. =REMOTE_LOCATION= (line 8) 
+5. Set: 
+6. =BACKUP_DIR= (line 4) 
+7. =BACKUP_LOCATION= (line 6)
+8. =REMOTE_LOCATION= (line 8) 
 to your required paths for your backup *source* directory, backup *storage*
 directory, and *remote storage* directory accordingly. 
 

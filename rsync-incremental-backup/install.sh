@@ -35,3 +35,21 @@ crontab -l
 echo "================================="
 echo "It is recommended to add ~/bin/rsync-incremental to your PATH for easy interactive"
 echo "manual use of \"rsync-incremental.sh\" with \"restore\", \"delete\", \"clean\" commands etc."
+
+# =============================================================
+# install.sh (for rsync-incremental.sh)
+# Author: Aren Tyr (aren.unix@yandex.com)
+#
+# Date: 2019-12-02
+# Version 1.0
+#
+# =============================================================
+# This script implements a simple but effective daily backup strategy
+# based on standard GNU gzip and tar utilities. It also remotely backs
+# up these archives using rsync. It uses the incremental capabilities of
+# tar when used with a snapshot file to make daily incremental backups
+# fast and efficient.
+#
+# Project created by me as my submission for the eduonix DevOps Foundation
+# final project.
+# =============================================================

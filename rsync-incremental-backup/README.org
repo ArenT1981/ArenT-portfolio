@@ -1,11 +1,12 @@
 #+STARTUP: indent
 * Description
 
-This program implements a simple scripted backup strategy.
+This program implements a simple scripted backup strategy after
+=install.sh= is run.
 
 1. An initial run of your selected backup directory is performed, giving
-   you a *.tar.gz backup in your specified backup location.
-2. A crontab entry is created (defaulting to run at 23:00 every day),
+   you a *.tar.gz backup in your specified backup storage location.
+2. A crontab entry is created (defaulting to run at 05:00 every day),
    that performs an incremental *.tar.gz backup, then uses rsync to
    store this at your specified remote directory.
 
@@ -14,9 +15,10 @@ You therefore have two backups:
 1. Local copies of your *.tar.gz backup files
 2. A remote copy of these files synchronised elsewhere
 
-Each day, an incremental backup is created and these are updated. The
-incremental backup should be quick to run, as it only needs to stored
-updated files.
+Each day, an incremental backup is run and a fresh timestamped archive
+is created. This incremental backup should be quick to run, as it only
+needs to store the updated/changed files since the last incremental
+backup the day before (or whenever =rsync-incremental remote= was last run).
 
 * Prerequisites
 
@@ -27,52 +29,53 @@ updated files.
 
 * Quickstart (TL;DR)
 
-1. git clone =blah=
-2. =chmod +x install.sh && chmod +x rsync-incremental.sh= 
-3. (Optional) Set JOB_LOCATION (line 3) of install.sh if you want the script to be
-   installed elsewhere than under =~/bin=. Edit line 6 if you want the
-   script to run at a time other than 05:00 every day (e.g. change =00
-   5 * * *= to =15 18 * * *= if you want it to run at 18:15 every day).
-4. Set 
-- BACKUP_DIR (line 4) 
-- BACKUP_LOCATION (line 6)
-- REMOTE_LOCATION (line 8) 
-to your required paths for your backup source directory, backup storage
-directory, and remote storage directory accordingly. For example, set:
-
+1. =git clone https://github.com/ArenT1981/ArenT-portfolio/tree/master/rsync-incremental-backup=
+2. =cd rsync-incremental-backup=
+3. =chmod +x install.sh && chmod +x rsync-incremental.sh= 
+4. (Optional) Set =JOB_LOCATION= (line 3) of install.sh if you want the
+   script to be installed elsewhere than under =~/bin=. Edit line 7
+   =CRON_SCHEDULE= if you want the script to run at a time other than
+   05:00 every day (e.g. change =00 5 * * *= to =15 18 * * *= if you
+   want it to run at 18:15 every day).
+5. Set 
+- =BACKUP_DIR= (line 4) 
+- =BACKUP_LOCATION= (line 6)
+- =REMOTE_LOCATION= (line 8) 
+to your required paths for your backup *source* directory, backup *storage*
+directory, and *remote storage* directory accordingly. For example, set:
 =BACKUP_DIR=/home/jane/Documents= \\
 =BACKUP_LOCATION=/home/jane/My_Backups= \\
 =REMOTE_LOCATION=/mnt/network/drive/My_Backups= \\
-
 If your home directory is =jane= and your personal files live under
 =~/Documents=, you wish to store the local backup files under
-=~/My_Backups=, and you wish to store you remote backups under some
+=~/My_Backups=, and you wish to store your remote backups under some
 network mount at =/mnt/network/drive/My_Backups=.
-5. Run =install.sh=. This will create a first initial backup (script
+6. Run =install.sh=. This will create a first initial backup (script
    might run a while if you have a lot of files to backup!) and then add
    your crontab entry to create an incremental backup every day and
-   remote sync. 
-6. Done. Your backup will be updated incrementally every day.
+   remote sync.
+7. Done. Your backup will be updated incrementally every day.
 
 * Configuration
 
-The only configuration necessary is (1.) to edit =install.sh= if you want it
-installed elsewhere than =~/bin=, and (2.), you *MUST* set your initial
-backup directories (line 4, 6, and 8).
+The only configuration necessary is:
+1. Edit =install.sh= if you want it installed elsewhere than =~/bin=
+2. You *MUST* set your initial backup directories (line 4, 6, and 8 of
+ =rsync-incremental.sh=):
 
 =BACKUP_DIR= Set this to the full path of the files you wish to backup
-(i.e. this is the SOURCE directory).
+(i.e. this is the SOURCE directory). \\
 =BACKUP_LOCATION= Set this to the full path where you wish your local backup
 archives to be stored (i.e. this is your local DESTINATION/archive
-directory).
+directory). \\
 =REMOTE_LOCATION= Set this to the full path where you wish your backup
-files to be rsync'd to, i.e. a network or cloud mount location.
+files to be rsync'd to, i.e. a network or cloud mount location. \\
 
 * Usage
 
 By default, the script is installed under ~/bin; change line 3 in
 =install.sh= if you want it installed elsewhere. For convenience, you
-should make sure that the script in installed somewhere in your PATH so
+should make sure that the script in installed somewhere in your =PATH= so
 you can run it conveniently.
 
 The installation script (=install.sh) by default will run an initial
@@ -96,19 +99,21 @@ fresh start).
 Manually invoke an incremental backup. Useful if you do not want to wait
 until the next scheduled incremental backup specified according to your
 crontab file (perhaps because your computer will be switched off at that
-time). Use the =remote= option if you also wish to manually invoke rsync
+time). Use the =remote= option if you also wish to manually invoke =rsync=
 as well.
 
 =rsync-incremental remote= \\
 
-Invoke an incremental backup and remotely sync. Useful as per previous.
+Invoke an incremental backup *and* remotely sync this new backup. Useful
+as per previous description for =inc=.
 
 =rsync-incremental delete= \\
 
 Delete all backup archives/files. Use if you no longer need the backup
-files. Remember to remove the crontab entry so it no longer attempts to
-run incremental backups every day. If you instead wish to start with new
-backup archives, make sure to use the =clean= option described above. 
+files. Remember to remove the crontab entry (i.e. run =crontab -e=) so
+it no longer attempts to run incremental backups every day. If you 
+wish to start with new backup archives, make sure to instead use the
+=clean= option described above.
 
 =rsync-incremental restore= \\
 
@@ -164,6 +169,7 @@ file (accidental deletion/clobbering), you can do so by locating it in
 the latest incremental backup file and just extract
 it accordingly.
 
+* About
 
 This script/installer/documentation is my submission for the the
 *eduonix DevOps Foundation E-degree* final project.

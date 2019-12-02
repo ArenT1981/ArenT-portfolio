@@ -1,11 +1,11 @@
 #!/bin/sh
 # ============= EDIT THESE THREE PATHS TO CONFIGURE ==================================
 # Set this to the SOURCE master directory you wish to BACKUP
-BACKUP_DIR=/home/aren/Downloads
+BACKUP_DIR=/edit/this/to/full/path/to/my/files/to/backup
 # Set this to the DESTINATION directory to store the resultant tar.gz backup archives
-BACKUP_LOCATION=/home/aren/Public/backups
+BACKUP_LOCATION=/edit/this/to/full/path/to/backup/storage/location
 # Set this path to the REMOTE/network directory to store the files off-site/non-local (rsync)
-REMOTE_LOCATION=/home/aren/Public/remote
+REMOTE_LOCATION=/edit/this/to/full/path/to/remote/storage/location
 # ============= END EDIT =============================================================
 # ====================================================================================
 
@@ -151,3 +151,25 @@ if [ "$#" = 0 ] || [ "$1" = "-help" ] || [ "$1" = "--help" ] || [ "$1" = "help" 
 fi
 
 exit 0
+
+# =============================================================
+# rsync-incremental.sh
+# Author: Aren Tyr (aren.unix@yandex.com)
+#
+# Date: 2019-12-02
+# Version 1.0
+#
+# =============================================================
+# This script implements a simple but effective daily backup strategy
+# based on standard GNU gzip and tar utilities. It also remotely backs
+# up these archives using rsync. It uses the incremental capabilities of
+# tar when used with a snapshot file to make daily incremental backups
+# fast and efficient.
+#
+# Project created by me as my submission for the eduonix DevOps Foundation
+# final project
+#
+# The only configuration required by the user it to edit BACKUP_DIR,
+# BACKUP_LOCATION, and REMOTE_LOCATION on lines 4, 6, and 8 above to
+# their desired paths.
+# =============================================================

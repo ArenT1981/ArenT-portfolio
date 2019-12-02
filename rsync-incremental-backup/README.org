@@ -37,7 +37,7 @@ backup the day before (or whenever =rsync-incremental remote= was last run).
    =CRON_SCHEDULE= if you want the script to run at a time other than
    05:00 every day (e.g. change =00 5 * * *= to =15 18 * * *= if you
    want it to run at 18:15 every day).
-5. Set 
+5. Set: 
 - =BACKUP_DIR= (line 4) 
 - =BACKUP_LOCATION= (line 6)
 - =REMOTE_LOCATION= (line 8) 
@@ -46,20 +46,24 @@ directory, and *remote storage* directory accordingly.
 
 For example, set: 
 
-=BACKUP_DIR=/home/jane/Documents= \\
-=BACKUP_LOCATION=/home/jane/My_Backups= \\
-=REMOTE_LOCATION=/mnt/network/drive/My_Backups= \\
+=BACKUP_DIR=/home/jane/Documents=
+
+=BACKUP_LOCATION=/home/jane/My_Backups=
+
+=REMOTE_LOCATION=/mnt/network/drive/My_Backups=
 
 If your home directory is =jane= and your personal files live under
 =~/Documents=, you wish to store the local backup files under
 =~/My_Backups=, and you wish to store your remote backups under some
 network mount at =/mnt/network/drive/My_Backups=.
 
-6. [@6] Run =install.sh=. This will create a first initial backup (script
+Finally:
+
+1. Run =install.sh=. This will create a first initial backup (script
    might run a while if you have a lot of files to backup!) and then add
    your crontab entry to create an incremental backup every day and
    remote sync.
-7. Done. Your backup will be updated incrementally every day.
+2. Done. Your backup will be updated incrementally every day.
 
 * Configuration
 
@@ -152,7 +156,17 @@ backup.
 
 Archives are filtered/compressed with =gzip=. 
 
-All the archive files are remotely backed up by =rsync=.
+All the archive files are remotely backed up by =rsync=. If you really wish
+that the remote location follows archive deletion/removal on the local system
+(e.g. if you run =rsync-incremental clean=), then add =-delete= to the
+end of the =RSYNC_COMMAND= on line 14 of the script, e.g.:
+
+=RSYNC_COMMAND="rsync -avHAX --info=progress2 -delete"=
+
+Note that this could be risky, as if you choose to delete all your local
+backup archives (perhaps by mistake), this will cause those same files
+to be deleted by rsync at the remote storage location to. Hence by
+default this option is not enabled.
 
 Restoring files from the backups is easy; use the supplied
 =rsync-incremental restore= command. 

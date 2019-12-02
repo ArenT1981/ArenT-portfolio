@@ -46,11 +46,11 @@ directory, and *remote storage* directory accordingly.
 
 For example, set: 
 
-=BACKUP_DIR=/home/jane/Documents=
-
-=BACKUP_LOCATION=/home/jane/My_Backups=
-
-=REMOTE_LOCATION=/mnt/network/drive/My_Backups=
+#+BEGIN_SRC bash 
+BACKUP_DIR=/home/jane/Documents
+BACKUP_LOCATION=/home/jane/My_Backups
+REMOTE_LOCATION=/mnt/network/drive/My_Backups
+#+END_SRC
 
 If your home directory is =jane= and your personal files live under
 =~/Documents=, you wish to store the local backup files under

@@ -1,9 +1,4 @@
 #+STARTUP: indent
-* About
-
-This script/installer/documentation is my submission for the the
-*eduonix DevOps Foundation E-degree* final project.
-
 * Description
 
 This program implements a simple scripted backup strategy after
@@ -223,3 +218,8 @@ Naturally if you wish to simply restore just a particular individual
 file (accidental deletion/clobbering), you can do so by locating it in
 the latest incremental backup file and just extract
 it accordingly.
+* About
+
+This script/installer/documentation is my submission for the *eduonix
+DevOps Foundation E-degree* final project.
+

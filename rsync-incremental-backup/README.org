@@ -161,7 +161,9 @@ that the remote location follows archive deletion/removal on the local system
 (e.g. if you run =rsync-incremental clean=), then add =-delete= to the
 end of the =RSYNC_COMMAND= on line 14 of the script, e.g.:
 
-=RSYNC_COMMAND="rsync -avHAX --info=progress2 -delete"=
+#+BEGIN_SRC bash
+RSYNC_COMMAND="rsync -avHAX --info=progress2 -delete"
+#+END_SRC
 
 Note that this could be risky, as if you choose to delete all your local
 backup archives (perhaps by mistake), this will cause those same files

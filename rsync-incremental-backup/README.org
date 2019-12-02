@@ -43,10 +43,10 @@ backup the day before (or whenever =rsync-incremental remote= was last run).
    =CRON_SCHEDULE= if you want the script to run at a time other than
    05:00 every day (e.g. change =00 5 * * *= to =15 18 * * *= if you
    want it to run at 18:15 every day).
-5. Set: 
-6. =BACKUP_DIR= (line 4) 
-7. =BACKUP_LOCATION= (line 6)
-8. =REMOTE_LOCATION= (line 8) 
+5. In =rsysnc-incremental.sh=, set: 
+- =BACKUP_DIR= (line 4) 
+- =BACKUP_LOCATION= (line 6)
+- =REMOTE_LOCATION= (line 8) 
 to your required paths for your backup *source* directory, backup *storage*
 directory, and *remote storage* directory accordingly. 
 

@@ -90,7 +90,7 @@ files to be rsync'd to, i.e. a network or cloud mount location.
 * Usage
 
 No manual intervention should be needed. (Various commands for
-manual/interactive use are, however, provided, as detailed below).
+manual/interactive use are however provided, as detailed below).
 
 After running the installer, an incremental backup strategy is in place
 that uses crontab to schedule daily backups. Obviously you must

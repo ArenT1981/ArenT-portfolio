@@ -1,7 +1,7 @@
 #!/bin/sh
 # EDIT below ==================================================
 # Edit this to your preferred location to store the script file:
-JOB_LOCATION=~/bin/rsync-incremental 
+JOB_LOCATION=~/bin
 # Edit this to your preferred scheduled time. See man crontab if you
 # are not sure how to specify crontab times. Do not remove the quotation marks.
 CRON_SCHEDULE="00 5 * * *"

@@ -89,11 +89,14 @@ files to be rsync'd to, i.e. a network or cloud mount location.
 
 * Usage
 
-No manual intervention should be needed. After running the installer,
-an incremental backup strategy is in place that uses crontab to schedule
-daily backups. Obviously you must double-check your settings and take the time
-to verify that this actually happening as you intended for a day or two
-before you rely on it! :-)
+No manual intervention should be needed. (Various commands for
+manual/interactive use are, however, provided, as detailed below).
+
+After running the installer, an incremental backup strategy is in place
+that uses crontab to schedule daily backups. Obviously you must
+double-check your settings and take the time to verify that this
+actually happening as you intended for a day or two before you rely on
+it! :-)
 
 By default, the script is installed under ~/bin; change line 3 in
 =install.sh= if you want it installed elsewhere. For convenience, you

@@ -42,15 +42,20 @@ backup the day before (or whenever =rsync-incremental remote= was last run).
 - =BACKUP_LOCATION= (line 6)
 - =REMOTE_LOCATION= (line 8) 
 to your required paths for your backup *source* directory, backup *storage*
-directory, and *remote storage* directory accordingly. For example, set:
+directory, and *remote storage* directory accordingly. 
+
+For example, set: 
+
 =BACKUP_DIR=/home/jane/Documents= \\
 =BACKUP_LOCATION=/home/jane/My_Backups= \\
 =REMOTE_LOCATION=/mnt/network/drive/My_Backups= \\
+
 If your home directory is =jane= and your personal files live under
 =~/Documents=, you wish to store the local backup files under
 =~/My_Backups=, and you wish to store your remote backups under some
 network mount at =/mnt/network/drive/My_Backups=.
-6. Run =install.sh=. This will create a first initial backup (script
+
+6. [@6] Run =install.sh=. This will create a first initial backup (script
    might run a while if you have a lot of files to backup!) and then add
    your crontab entry to create an incremental backup every day and
    remote sync.
@@ -60,16 +65,18 @@ network mount at =/mnt/network/drive/My_Backups=.
 
 The only configuration necessary is:
 1. Edit =install.sh= if you want it installed elsewhere than =~/bin=
-2. You *MUST* set your initial backup directories (line 4, 6, and 8 of
+2. You *MUST* set your initial backup directories (lines 4, 6, and 8 of
  =rsync-incremental.sh=):
 
 =BACKUP_DIR= Set this to the full path of the files you wish to backup
-(i.e. this is the SOURCE directory). \\
+(i.e. this is the SOURCE directory). 
+
 =BACKUP_LOCATION= Set this to the full path where you wish your local backup
 archives to be stored (i.e. this is your local DESTINATION/archive
-directory). \\
+directory). 
+
 =REMOTE_LOCATION= Set this to the full path where you wish your backup
-files to be rsync'd to, i.e. a network or cloud mount location. \\
+files to be rsync'd to, i.e. a network or cloud mount location.
 
 * Usage
 
@@ -163,6 +170,10 @@ From the directory the archive files are stored in on the machine you
 wish to restore the files on. Note that the archive filenames generated
 by timestamps ensures that they will extract correctly in the right
 order :-)
+
+(Note that the archives store the full path to files, so the extraction
+base directory must be set to the root filesystem directory (=/=) to
+ensure they are extracted to the correct location.)
 
 Naturally if you wish to simply restore just a particular individual
 file (accidental deletion/clobbering), you can do so by locating it in

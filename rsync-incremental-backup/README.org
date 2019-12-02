@@ -180,7 +180,7 @@ RSYNC_COMMAND="rsync -avHAX --info=progress2 -delete"
 
 Note that this could be risky, as if you choose to delete all your local
 backup archives (perhaps by mistake), this will cause those same files
-to be deleted by rsync at the remote storage location to. Hence by
+to be deleted by rsync at the remote storage location too. Hence by
 default this option is not enabled.
 
 Restoring files from the backups is easy; use the supplied

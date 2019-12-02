@@ -96,7 +96,10 @@ every day at 05:00.
 
 You can manually call the script with the following commands:
 
-=rsync-incremental clean= \\
+#+BEGIN_SRC bash 
+rsync-incremental clean
+#+END_SRC
+
 
 *Delete* all backup archives (including incremental backups) and start
 afresh with a *new backup*. Note that it does *NOT* delete any remotely
@@ -105,7 +108,9 @@ with caution. Useful if you wish to start with fresh backups rather than
 hundreds of incremental backup files; e.g. call this once per year for a
 fresh start).
 
-=rsync-incremental inc= \\
+#+BEGIN_SRC bash 
+rsync-incremental inc
+#+END_SRC
 
 Manually invoke an incremental backup. Useful if you do not want to wait
 until the next scheduled incremental backup specified according to your
@@ -113,12 +118,16 @@ crontab file (perhaps because your computer will be switched off at that
 time). Use the =remote= option if you also wish to manually invoke =rsync=
 as well.
 
-=rsync-incremental remote= \\
+#+BEGIN_SRC bash 
+rsync-incremental remote
+#+END_SRC
 
 Invoke an incremental backup *and* remotely sync this new backup. Useful
 as per previous description for =inc=.
 
-=rsync-incremental delete= \\
+#+BEGIN_SRC bash 
+rsync-incremental delete
+#+END_SRC
 
 Delete all backup archives/files. Use if you no longer need the backup
 files. Remember to remove the crontab entry (i.e. run =crontab -e=) so
@@ -126,12 +135,16 @@ it no longer attempts to run incremental backups every day. If you
 wish to start with new backup archives, make sure to instead use the
 =clean= option described above.
 
-=rsync-incremental restore= \\
+#+BEGIN_SRC bash 
+rsync-incremental restore
+#+END_SRC
 
 Restore your files from your latest daily backup! If something
 catastrophic happens to your files, this will get them back :-)
 
-=rsync-incremental init= \\
+#+BEGIN_SRC bash 
+rsync-incremental init
+#+END_SRC
 
 Using =clean= above is the preferred method for a fresh start, but if
 you've manually invoked =delete= and wish to now start a new backup, you

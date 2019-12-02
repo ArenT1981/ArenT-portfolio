@@ -1,0 +1,169 @@
+#+STARTUP: indent
+* Description
+
+This program implements a simple scripted backup strategy.
+
+1. An initial run of your selected backup directory is performed, giving
+   you a *.tar.gz backup in your specified backup location.
+2. A crontab entry is created (defaulting to run at 23:00 every day),
+   that performs an incremental *.tar.gz backup, then uses rsync to
+   store this at your specified remote directory.
+
+You therefore have two backups: 
+
+1. Local copies of your *.tar.gz backup files
+2. A remote copy of these files synchronised elsewhere
+
+Each day, an incremental backup is created and these are updated. The
+incremental backup should be quick to run, as it only needs to stored
+updated files.
+
+* Prerequisites
+
+1. Standard Linux/UNIX GNU =tar= and =gzip= utilities (for local
+   backups).
+2. =rsync= for remotely synchronising these backups with a secondary
+   backup location.
+
+* Quickstart (TL;DR)
+
+1. git clone =blah=
+2. =chmod +x install.sh && chmod +x rsync-incremental.sh= 
+3. (Optional) Set JOB_LOCATION (line 3) of install.sh if you want the script to be
+   installed elsewhere than under =~/bin=. Edit line 6 if you want the
+   script to run at a time other than 05:00 every day (e.g. change =00
+   5 * * *= to =15 18 * * *= if you want it to run at 18:15 every day).
+4. Set 
+- BACKUP_DIR (line 4) 
+- BACKUP_LOCATION (line 6)
+- REMOTE_LOCATION (line 8) 
+to your required paths for your backup source directory, backup storage
+directory, and remote storage directory accordingly. For example, set:
+
+=BACKUP_DIR=/home/jane/Documents= \\
+=BACKUP_LOCATION=/home/jane/My_Backups= \\
+=REMOTE_LOCATION=/mnt/network/drive/My_Backups= \\
+
+If your home directory is =jane= and your personal files live under
+=~/Documents=, you wish to store the local backup files under
+=~/My_Backups=, and you wish to store you remote backups under some
+network mount at =/mnt/network/drive/My_Backups=.
+5. Run =install.sh=. This will create a first initial backup (script
+   might run a while if you have a lot of files to backup!) and then add
+   your crontab entry to create an incremental backup every day and
+   remote sync. 
+6. Done. Your backup will be updated incrementally every day.
+
+* Configuration
+
+The only configuration necessary is (1.) to edit =install.sh= if you want it
+installed elsewhere than =~/bin=, and (2.), you *MUST* set your initial
+backup directories (line 4, 6, and 8).
+
+=BACKUP_DIR= Set this to the full path of the files you wish to backup
+(i.e. this is the SOURCE directory).
+=BACKUP_LOCATION= Set this to the full path where you wish your local backup
+archives to be stored (i.e. this is your local DESTINATION/archive
+directory).
+=REMOTE_LOCATION= Set this to the full path where you wish your backup
+files to be rsync'd to, i.e. a network or cloud mount location.
+
+* Usage
+
+By default, the script is installed under ~/bin; change line 3 in
+=install.sh= if you want it installed elsewhere. For convenience, you
+should make sure that the script in installed somewhere in your PATH so
+you can run it conveniently.
+
+The installation script (=install.sh) by default will run an initial
+backup (creating a *.tar.gz backup archive and snapshot file), and add a
+crontab entry to your user account that will run an incremental backup
+every day at 05:00.
+
+You can manually call the script with the following commands:
+
+=rsync-incremental clean= \\
+
+*Delete* all backup archives (including incremental backups) and start
+afresh with a *new backup*. Note that it does *NOT* delete any remotely
+backed up files stored in your =REMOTE_LOCATION=; this is by design. Use
+with caution. Useful if you wish to start with fresh backups rather than
+hundreds of incremental backup files; e.g. call this once per year for a
+fresh start).
+
+=rsync-incremental inc= \\
+
+Manually invoke an incremental backup. Useful if you do not want to wait
+until the next scheduled incremental backup specified according to your
+crontab file (perhaps because your computer will be switched off at that
+time). Use the =remote= option if you also wish to manually invoke rsync
+as well.
+
+=rsync-incremental remote= \\
+
+Invoke an incremental backup and remotely sync. Useful as per previous.
+
+=rsync-incremental delete= \\
+
+Delete all backup archives/files. Use if you no longer need the backup
+files. Remember to remove the crontab entry so it no longer attempts to
+run incremental backups every day. If you instead wish to start with new
+backup archives, make sure to use the =clean= option described above. 
+
+=rsync-incremental restore= \\
+
+Restore your files from your latest daily backup! If something
+catastrophic happens to your files, this will get them back :-)
+
+=rsync-incremental init= \\
+
+Using =clean= above is the preferred method for a fresh start, but if
+you've manually invoked =delete= and wish to now start a new backup, you
+need to first call =init= to create the initial full backup, then the
+daily crontab will take care of the incremental backups.
+
+Called without any arguments the script will simply list the above
+options.
+
+In practice, =remote= (or =inc=), to manually create a new incremental
+backup,  are likely the only options you'll want/need to
+use on any regular basis. =restore= is there if something terrible
+happens and you actually do need to get your files back :-) 
+
+* Notes
+
+This script makes use of =tar='s incremental capabilities in conjunction
+with a snapshot file to very quickly create a daily incremental backup.
+This means that each daily backup should be very quick to run, as it
+will only need to account for any new/changed files since the last
+backup.
+
+Archives are filtered/compressed with =gzip=. 
+
+All the archive files are remotely backed up by =rsync=.
+
+Restoring files from the backups is easy; use the supplied
+=rsync-incremental restore= command. 
+
+Or manually invoke if you prefer:
+
+#+BEGIN_SRC bash
+for archive in *.tar.gz
+do
+    tar -xvf $archive -C /
+done
+#+END_SRC
+
+From the directory the archive files are stored in on the machine you
+wish to restore the files on. Note that the archive filenames generated
+by timestamps ensures that they will extract correctly in the right
+order :-)
+
+Naturally if you wish to simply restore just a particular individual
+file (accidental deletion/clobbering), you can do so by locating it in
+the latest incremental backup file and just extract
+it accordingly.
+
+
+This script/installer/documentation is my submission for the the
+*eduonix DevOps Foundation E-degree* final project.

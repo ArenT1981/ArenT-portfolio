@@ -113,7 +113,7 @@ PM:
 AM/PM:
 - Note conversion and integration 
 - Overview/review of current pending projects/tasks
-** *Sunday Octboer 20th:*
+** *Sunday October 20th:*
 - Note organisation/review
 - File tidying
 - Bash prompt/configuration customisation
@@ -123,7 +123,7 @@ AM/PM:
 ** *Tuesday October 22nd:*
 - Further note/knowledge management
 - Finalised rsync backups 
-** *Wednesday Octboer 23rd:*
+** *Wednesday October 23rd:*
 PM:
 - Task consolidation
 ** *Thursday October 24th:*
@@ -226,6 +226,7 @@ PM:
 - RSA cryptographic algorithm 
 ** *Monday November 18th:*
 - Gale-Shapely matching algorithm
+- Bjarne Stroustrup C++ podcast 
 ** *Tuesday November 19th:*
 - Coursera: Graph searching/permutation/NP complete problems
 - Travelling Salesman/Graph searching algorithms
@@ -240,6 +241,23 @@ PM:
 - Reading: Algorithms in C
 - Stacks/queues 
 ** *Saturday November 23rd:*
+- Studied functional vs imperative paradigm:
+  - Mutability vs immutability
+  - How to code based on stateless references/"object copies"
+- Linear Algebra:
+  - Solution methods based on two unknowns
+  - Three unknowns; substitution & elimination
 - Accelerated Computer Science Fundamentals (Coursera)
 - Stacks & Heap Memory
 - Pointers and memory safety
+** *Sunday November 24th:*
+- Accelerated Computer Science Fundamentals: C++ programming
+- Linear Algebra/Matrices
+** *Monday November 25th:*
+- C++ programming
+- Linear Algebra
+- Ethics of algorithms podcast
+** *Tuesday November 26th:*
+- C++ programming: classes/templates
+- C++ inheritance 
+- C++ project

@@ -13,6 +13,8 @@
 
 #include <iostream>
 
+// Simple node class including some tidy
+// class constructors and destructors
 class Node
 {
 public:
@@ -46,12 +48,13 @@ int count(Node *n)
       init = false;
       ++counter;
 
+      // Are both child nodes present? Binary recurse
       if(n->left != nullptr && n->right != nullptr)
         {  return (count(n->left) + count(n->right)); }
-      else if(n->left != nullptr)
-        { return count(n->left); } //++counter;}
-      else if(n->right != nullptr)
-        {  return count(n->right); } //+counter;}
+      else if(n->left != nullptr) // Left child recurse
+        { return count(n->left); }
+      else if(n->right != nullptr) // Right child recurse
+        {  return count(n->right); }
     }
 }
 

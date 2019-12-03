@@ -4,7 +4,7 @@ Portfolio of my projects and work (in alphabetical order as per file listing abo
 
 - [PIC Microcontroller Traffic Light Simulator](./PIC-traffic-light)
 
-Simulates a rudimentary traffic light simulation on the Millennium board using the LEDs and button. Written in embedded **C**.  
+Simulates a rudimentary traffic light simulation on the Millennium board using the LEDs and button. Written in embedded **C**. Complete with extensive documentation detailing the design, implementation, and testing process/framework.  
 
 - [Agent Maze Searcher](./agent-maze-searcher)
 
@@ -23,7 +23,7 @@ A variety of algorithms I have implemented:
 
 My personal configuration/dotfiles for various tools I use, together with my customisations to various window managers and other usability settings.  
 
-- [Emacs backup and switch](./emacs-backup-and-switch)
+- [Emacs switch and backup](./emacs-switch-and-backup)
 
 A **bash** convenience wrapper/customisation script that automates multiple profile switching using [chemacs](https://github.com/plexus/chemacs) together with a configuration backup. The primary purpose behind this was to ease having both a "stable" (known good) and "development/daily" setup, so that if you should accidentally break your Emacs setup, you would still have a known good setup you could immediately use if you have urgent work pending.  
 
@@ -37,7 +37,7 @@ A rudimentary multi-threaded web server written in **Java** that serves static H
 
 - [Rsync + tar incremental backup system](./rsync-incremental-backup) 
 
-A **bash** project that combines standard GNU `tar/gzip` with `rsync` to create an automated incremental backup solution, including a remote destination. Only three paths need to be set (local source, local destination, remote destination) and you have a fully automated backup solution all in place; no complex configuration or options required.  
+A **bash** project that combines standard GNU `tar/gzip` with `rsync` to create an automated incremental backup solution, including a remote destination. Only three paths need to be set (local source, local destination, remote destination) and you have a fully automated backup solution all in place; no complex configuration or options required. Detailed documentation in README file in project directory.  
 
 - [Secretary](./secretary)
 

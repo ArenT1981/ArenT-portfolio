@@ -261,3 +261,18 @@ PM:
 - C++ programming: classes/templates
 - C++ inheritance 
 - C++ project
+** *Wednesday November 26th:*
+- Portfolio development
+** *Friday November 26th:*
+- Portfolio development
+** *Saturday November 26th:*
+- C++ programming: linked lists + merge sort
+- Python object orientated features
+** *Sunday November 26th:*
+- C++ programming: linked lists + merge sort
+- C++ Trees/Binary Search Trees (BSTs)
+** *Monday November 27th:*
+- C++ recrursive BST search algorithm 
+- Data structures run-time complexity comparison
+- Bash shell scripting: crontab + tar + rsync
+- Documentation for bash project 

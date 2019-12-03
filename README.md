@@ -1,8 +1,8 @@
-# Portfolio
+# Aren's Portfolio
 
 Portfolio of my projects and work (in alphabetical order as per file listing above).  
 
-- [PIC Microcontroller Traffic Light Simulator](./PIC-traffic-light)
+- [PIC Microcontroller Pedestrian Crossing/Traffic Light Simulator](./PIC-traffic-light)
 
 Simulates a rudimentary traffic light simulation on the Millennium board using the LEDs and button. Written in embedded **C**. Complete with extensive documentation detailing the design, implementation, and testing process/framework.  
 

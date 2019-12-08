@@ -59,7 +59,7 @@ std::vector<T> traverseLevels(GenericTree<T>& tree) {
 				// If it is a node, not nullptr...
 				if (childPtr)
 				{
-					//	Add it to the back of the print list
+					// Add it to the back of the print list
 					nodesToPrint.push_back(childPtr);
 				}
 		}

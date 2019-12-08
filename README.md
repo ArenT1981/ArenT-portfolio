@@ -1,5 +1,10 @@
-# Aren's Portfolio
+# Aren's Learning Log + Portfolio
 
+## Learning Log 
+
+See my [daily log](./daily-log.org) for a brief day-to-day summary of my learning.
+
+## Portfolio
 Portfolio of my projects and work (in alphabetical order as per file listing above).  
 
 - [PIC Microcontroller Pedestrian Crossing/Traffic Light Simulator](./PIC-traffic-light)

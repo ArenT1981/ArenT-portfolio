@@ -252,27 +252,43 @@ PM:
 - Pointers and memory safety
 ** *Sunday November 24th:*
 - Accelerated Computer Science Fundamentals: C++ programming
+- C++ programming: classes/templates
+- C++ inheritance 
+- C++ project
 - Linear Algebra/Matrices
 ** *Monday November 25th:*
 - C++ programming
 - Linear Algebra
 - Ethics of algorithms podcast
 ** *Tuesday November 26th:*
-- C++ programming: classes/templates
-- C++ inheritance 
-- C++ project
-** *Wednesday November 26th:*
+- C++ constructors/destructors
+- C++ copy constructor
+- C++ operator overloading
+- C++ templating
+** *Wednesday November 27th:*
 - Portfolio development
-** *Friday November 26th:*
+** *Friday November 29th:*
 - Portfolio development
-** *Saturday November 26th:*
+** *Saturday November 30th:*
 - C++ programming: linked lists + merge sort
 - Python object orientated features
-** *Sunday November 26th:*
+** *Sunday December 1st:*
 - C++ programming: linked lists + merge sort
 - C++ Trees/Binary Search Trees (BSTs)
-** *Monday November 27th:*
-- C++ recrursive BST search algorithm 
+** *Monday December 2nd:*
+- C++ recursive BST search algorithm 
 - Data structures run-time complexity comparison
 - Bash shell scripting: crontab + tar + rsync
 - Documentation for bash project 
+** *Wednesday December 4th:*
+- C++ Binary Search Trees
+** *Thursday December 5th:*
+- AVL trees & B-Trees
+- =mysql=, =eclipse=, and =wildfly= installation/configuration
+- Eclipse IDE + maven
+- Java EE maven build automation
+** *Friday December 6th:*
+- C++ programming: tree traversal algorithms
+** *Saturday December 7th*:
+- Java EE: maven =pom= dependency management; inheritance/aggregation
+- Java EE: maven modules/web applications (WARS)

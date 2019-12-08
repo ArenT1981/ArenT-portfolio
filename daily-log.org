@@ -1,26 +1,21 @@
 #+STARTUP: indent
 * Diary/Daily Log                                         :ossu:learninglog:
 ** *Monday September 23rd:*
-  AM:
   -  Basic Probability Theory
   -  Galton Board
   -  Probability Spaces
   -  Binomial Coefficient/Distribution
-  PM:
   -  Reading "The DevOps Handbook"
   -  Introductory DevOps
   -  Basic Linux overview
 ** *Tuesday September 24th:*
-  AM/PM:
   -  Configuring FreeBSD under VirtualBox:
     -  Installed apache httpd
     -  Installed mysql80
     -  Installed Xorg (for access to high-resolution console)
     -  Set up guest additions (required for Xorg driver)
     -  xrandr to setup display
-  PM:
   -  Continued with eduonix DevOps E-degree ("Part 1 DevOps Foundation")
-  PM:
   -  Further reading of "DevOps Handbook"
   -  Reading "Sed and Awk" by O'Reilly
 ** *Wednesday September 25th:*
@@ -32,14 +27,11 @@
   -  Studying Haskell/confinguring xmonad
   -  Learning about .xprofile/.profile/.xsession/.xsessionrc
 ** *Friday September 27th:*
-  AM:
   -  DevOps E-degree (various Linux shell commands)
-  PM:
   -  More Probability theory; probability spaces
   -  FreeBSD System/FAMP/VirtualBox configuration
   -  Kernel modules, Xorg modeline, loader.conf settings
 ** *Saturday September 28th:*
-  PM:
   - VIM practice, cheatsheet building
 ** *Wednesday October 2nd:*
   - Initial development of secretary file automation software
@@ -50,26 +42,22 @@
   - Import configuration from Laptop setup from earlier in Janaury
 ** *Monday October 7th:* 
   - Development of spacemacs/emacs profile switcher
-
-  Based on chemacs package in conjuction with a bash automation script.
+  (Based on =chemacs= package in conjunction with a bash automation script.)
 ** *Tuesday October 8th:*
   - Survey of overall projects/work to do
   - Installation of Windows 10 under VirtualBox
   - Installation of Xubuntu 19.04 under VirtualBox
   - Further tests/development of emacs profile switcher under VirtualBox
 ** *Wednesday October 9th:*
-  PM: 
   - Setup email system on Linux desktop:
     - mbsync (isync): IMAP mail retrieval
     - msmtp: Lightweight sendmail replacement for home computers
     - notmuch: Email system for Emacs based on tagging
       - Various filters based on my configuration script
-
   - Setup of Canon printer on other Linux laptop
   - First real-world production test of secretary program to migrate photos and
     images from camera onto computer (resounding success!). Captured screencast.
 ** *Thursday October 10th:*
-  PM: 
   - Migrated this daily learning/activity log into org-mode. Attempted to
     upate/fill in gaps due to lack of systematic logging prior to today's date
   - Refresher on various Emacs packages
@@ -78,18 +66,16 @@
   - Configured various filters/regular expressions for e-mail automation
   - Further org-mode conversion and practice with various export format parameters
 ** *Friday October 11th:*
-   PM:
-  - Further extensive work on secretary file management program
+  - Further extensive work on =secretary= file management program
 ** *Saturday October 12th:*
-   PM:
    - Significant work on secretary. Almost finished for core functionality.
    - Further org-mode organisation
 ** *Sunday October 13th:*
-PM:
 - Grokking Garmin FIT file format in order to convert to CSV and use gnuplot
 ** *Monday October 14th:*
-- Many hours spent on garmin FIT file conversion to CSV, 
-automatic plotting with gnuplot. and automated file sorting
+- Garmin FIT file conversion to CSV
+- Determining plotting with gnuplot 
+- Automated file sorting using =bash=
 ** *Tuesday October 15th:*
 - Windows 10 installation under VirtualBox on Arch Linux laptop
 - Arch system update and bug fix of broken systemd unit / installtion of rng-tools
@@ -98,19 +84,15 @@ automatic plotting with gnuplot. and automated file sorting
 - Studied conditional probability and Bayes theorem
 - Org-mode tweaks
 ** *Thursday October 17th:*
-PM:
 - Org-brain conversion/setup
 - Printer setup
 ** *Friday October 18th:*
-AM: 
-- Org-brain refactoring - WHAT DOES T HI look like???
+- Org-brain refactoring 
 - Tidying and improving mathematics notes
-PM:
 - Garmin FIT file conversion/export/script
 - Scripted new automated file modified date based on filename
 - Yas snippet work in EMACS
 ** *Saturday October 19th:*
-AM/PM:
 - Note conversion and integration 
 - Overview/review of current pending projects/tasks
 ** *Sunday October 20th:*
@@ -124,7 +106,6 @@ AM/PM:
 - Further note/knowledge management
 - Finalised rsync backups 
 ** *Wednesday October 23rd:*
-PM:
 - Task consolidation
 ** *Thursday October 24th:*
 - Study/reading on Lisp and Lisp dialects
@@ -140,67 +121,47 @@ PM:
 ** *Sunday October 27th:*
 - Configuration fixes
 ** *Monday October 28th:*
-AM:
 - Setting up org-mode to publish to Jekyll blog, yasnippet templates
-PM: 
 - Coursera: Graph Theory
 - Config bux fixing
 ** *Tuesday October 29th:*
-AM:
 - Reading: Structure and Interpretation of Computer Programs
-PM:
 - Coursera: Graph Theory
 - DevOps e-Degree / bash shell scripting
 ** *Wednesday October 30th:*
-PM:
 - DevOps e-Degree
 - Lisp programming
 ** *Thursday October 31st:*
-AM:
 - Reading: Structure and Interpretation of Computer Programs
 - Coursera: Graph Theory
-PM:
 - Coursera: Graph Theory
 ** *Friday November 1st:*
-PM: 
 - Coursera: Graph Theory
 - edudonix: DevOps 
 ** *Saturday November 2nd:*
-PM: 
 - Coursera: Graph Theory
 ** *Sunday November 3rd*
-PM: 
 - Secretary bash script program
 ** *Monday November 4th:*
-PM:
 - Coursera - Number theory/cryptography
 ** *Tuesday November 5th:*
-PM:
 - Coursera - Number theory/cryptography
 ** *Wednesday November 6th:*
-AM:
 - Reading: Computer Science number systems
-PM: 
 - Coursera - Number theory/cryptography
 ** *Thursday November 7th:*
-PM: 
 - DevOps e-Degree / Linux shell + networking
 ** *Friday November 8th:*
-PM: 
 - Coursera: Number theory/Euclid's algorithm
 - edX How to Code: Review of data definitions
 ** *Saturday November 9th:*
-AM:
 - DNS / DNS over HTTPS protocol
 - Firefox configuration settings
-PM:
 - Coursera: Number theory/cryptography
 ** *Sunday November 10th:*
-PM:
 - Coursera: Programming modular arithmetic algorithms
 - Coursera: Cryptography / integer factorisation
 ** *Monday November 11th:*
-PM: 
 - Coursera: Cryptographic theory
 - Modular arithmetic/exponential, Euler's theorem
 ** *Tuesday November 12th:*
@@ -216,12 +177,10 @@ PM:
 ** *Friday November 15th:*
 - Implementing a dice game using probabilistic modelling
 ** *Saturday November 16th:*
-PM: 
 - Reading: Data structures/mathematics of lists/stacks/queues
 - Coursera: Permutations/sorting algorithm 
 - Gale-Shapely matching algorithm
 ** *Sunday November 17th:*
-PM:
 - Gale-Shapely matching algorithm 
 - RSA cryptographic algorithm 
 ** *Monday November 18th:*
@@ -269,6 +228,7 @@ PM:
 - Portfolio development
 ** *Friday November 29th:*
 - Portfolio development
+- Reading: C++ Programming Language by Stroustrup
 ** *Saturday November 30th:*
 - C++ programming: linked lists + merge sort
 - Python object orientated features
@@ -282,13 +242,16 @@ PM:
 - Documentation for bash project 
 ** *Wednesday December 4th:*
 - C++ Binary Search Trees
+- Reading: C++ Programming Language by Stroustrup
 ** *Thursday December 5th:*
 - AVL trees & B-Trees
 - =mysql=, =eclipse=, and =wildfly= installation/configuration
 - Eclipse IDE + maven
 - Java EE maven build automation
+- Reading: C++ Programming Language by Stroustrup
 ** *Friday December 6th:*
 - C++ programming: tree traversal algorithms
+- Reading: C++ Programming Language by Stroustrup
 ** *Saturday December 7th*:
 - Java EE: maven =pom= dependency management; inheritance/aggregation
 - Java EE: maven modules/web applications (WARS)

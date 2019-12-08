@@ -198,7 +198,7 @@
 - Stacks/queues 
 ** *Friday November 22nd:*
 - Reading: Algorithms in C
-- Stacks/queues 
+- lists/linked-lists (single + double) 
 ** *Saturday November 23rd:*
 - Studied functional vs imperative paradigm:
   - Mutability vs immutability
@@ -238,8 +238,9 @@
 ** *Monday December 2nd:*
 - C++ recursive BST search algorithm 
 - Data structures run-time complexity comparison
-- Bash shell scripting: crontab + tar + rsync
-- Documentation for bash project 
+- DevOps Foundation project:
+ - Bash shell scripting: =crontab= + =tar= + =rsync=
+ - Documentation for bash project 
 ** *Wednesday December 4th:*
 - C++ Binary Search Trees
 - Reading: C++ Programming Language by Stroustrup

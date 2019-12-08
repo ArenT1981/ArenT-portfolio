@@ -23,6 +23,8 @@ A variety of algorithms I have implemented:
 `bst-node-count.cpp` - **C++** program that uses a recursive algorithm to calculate the total number of nodes in a binary search tree.  
 `dicegame.py` - **Python** script that computes a statistically guaranteed winning strategy (in the long run) based on a one-throw dice game with an arbitrarily large selection of six-sided dice each of which has different scoring weights/probabilistic outcomes.  
 `gsmatching.py` - **Python** script implements a solution to the classic so-called "marriage" or "matching" algorithm based on two sets/groups of individuals/entities each of whom has a ranked set of preferences (i.e. a combination) of the other set/group, and pairs them off accordingly until an optimal stable solution is found.  
+`insertion-and-merge-sort.cpp` - **C++** snippet that shows implementation to insertion and merge sort algorithms. Insertion sort uses low-level manual pointer manipulation.
+`tree-level-traversal.cpp` - **C++** snippet that shows implementation of a tree level order based traversal using C++ iterator constructs.
 
 - [My Configuration/Linux Setup](./config)
 

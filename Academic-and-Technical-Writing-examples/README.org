@@ -1,0 +1,158 @@
+* Academic and Technical Writing
+
+One of the key qualities of being a successful software or system
+engineer is the ability to communicate complex information effectively
+and clearly. This can take several forms: documentation, whether
+that be official or for internal only use; presentations, both of a
+technical and business orientated nature; and written technical
+documents, whitepapers, and research papers. 
+
+This directory contains a representative selection of my recent academic
+work, that showcases my ability to produce high quality material that
+comprises detailed and precise English together with high quality
+diagrams, smart presentation, and coherent logical ordering.
+
+[[file:./Hermeneutics-algorithms.pdf][Hermeneutics Towards Autonomous Systems]]
+
+Full title: *"Attack of the Algorithm: The Demand for a new Hermeneutics
+Towards Autonomous Systems"*.
+
+This is an accessible philosophical paper on the ethical implications of
+algorithms as deployed by autonomous/machine learning systems and their
+increasing prevalence in day-to-day life.
+
+Abstract:
+
+#+BEGIN_SRC text 
+This paper presents a brief survey of some of the contemporary ethical issues surrounding
+the ever more pervasive presence of autonomous systems and the algorithms running
+them, using self-driving vehicles and autonomous weapon systems as key studies. The issue
+of codifying ‘morality’ is considered, concluding with a phenomenological aside on the
+affect of such technology drawing on Heidegger.
+#+END_SRC
+
+
+Also included are the two mind-maps used to research, structure, and
+draft this paper; [[file:/Algorithms-mindmap-notes.png][one including all the quotations, and notes]], the [[file:./Algorithms-mindmap.png][other]]
+omitting these. Zoom into the images as they are high resolution.
+
+[[file:./Learning-skills-reflective-journal.pdf][Learning Skills: A Reflective Journal]]
+
+In the modern age we all need to learn at an unprecedented rate in order
+to even simply keep up with current trends within any one particular
+sector or industry. Yet the actual meta-cognitive skills and
+requirements of /learning/ itself often receive scant attention: we do
+not teach people /how/ to learn. Yet it precisely the set of practices
+and skills that a person adopts in approaching learning that directly
+relate to how well they actually accomplish that learning. 
+
+In short, we need to /learn/ how to /learn/ first; this is a skill that
+should be revisited periodically, as it is something that can be
+improved with explicit attention, just like any other learnable skill.
+
+[[file:./Meta-learning-Learning2.pdf][Learning How To Learn]]
+
+This is an accompanying very short visual presentation that illustrates
+the huge value that effective mind-mapping brings to the learning
+process. Do you mind-map? If not, you probably should!
+
+[[file:./Second-Language-Testing.pdf][Second Language Testing]]
+
+How do we know whether our teaching is effective, unless we have some
+metric by which to measure progress? If we are not testing, we are
+guessing! 
+
+Yet successful testing, whether it is for second language acquisition or
+any other skill, is not so straightforward. 
+
+Tests need to be extremely well designed and actually test what they
+purport to test. This may seem obvious, but the fact remains that many
+tests do not in fact /actually/ test the skill we are primarily interested in
+testing, but rather test something different, which we erroneously
+believe to be testing our intended skill. 
+
+This applies equally to software engineering: Just because the software
+works find with your small dataset or expected set of test inputs, does
+not guarantee that the performance will be as expected in a real-world
+production environment! Tests must accurately represent the actual
+environment upon which the production system is to be deployed.
+
+[[file:./Teaching-Reading.pdf][Teaching Reading]] 
+
+A vital skill is the ability to reflect both on other's work and your
+own in a critical and dispassionate manner, to evaluate its strengths
+and weaknesses, respective merits, degree of accuracy, and level of
+insight. Even the simple act of /reading/ is actually a /process/, not a
+simple event. 
+
+This piece of work examines the nature of reading, together with
+critical reflections on group observations and others work.
+
+[[file:./Teaching-Writing.pdf][Teaching Writing]]
+
+Writing itself is also an iterative strategy. Software is the art of
+both writing code and documentation; both are critical. Without one, you
+have no product; without the other you have no maintainability, and you
+place a heavy and unnecessary conceptual burden on your users to have to
+interpret and abstract how it functions or is used. 
+
+Good communicative documentation should always make use of diagrams,
+which is precisely what this document does.
+
+[[file:./Understanding-Learning-and-Teaching.pdf][Understanding Learning and Teaching]]
+
+We are all teachers, and we are all learners. The only way we can cope
+with the conceptual complexity of the world we inhabit is to pool and
+distribute our knowledge; we can become domain experts or develop
+proficiencies in one area, and then /communicate/ those insights concisely
+to another, condensing what is vital or critical. And in fact, this is
+how businesses operate, and how successful teams work together. The
+difficulty of the task is distributed across the team members, and by
+each member addressing their particular role and feeding that
+information back into the collective knowledge pool, so expertise at
+tacking extremely complex problems gets delivered. The solving of such
+problems is where businesses generate their commercial value. 
+
+The business identifies a problem to be solved; they solve it; they
+market the solution to others for whom that solution is extremely
+valuable to their operational goals. 
+
+
+The full resolution mind-maps documenting each day of this course are also
+included as separate files as an illustration of their usefulness for
+both note taking and conceptual thinking/analysis:
+[[file:./day1.png][Day 1]], [[file:./day2a.png][Day 2 (1)]], [[file:./day2b.png][Day 2 (2)]], [[file:./day2c.png][Day 2 (3)]], [[file:./day3.png][Day 3]], and
+[[file:./day4.png][Day 4]].
+
+
+[[file:./Ignite-system.pdf][A technical analysis of the Ignite retail system]]
+
+This is an extended white-paper that conducts a detailed analysis of the
+real-world impact of deploying a digital stock control system. There is
+a common assumption, a serious misconception, that merely deploying a
+new technology will automatically lead to increased productivity gains
+in a company.
+
+This is fatally flawed viewpoint. Technology only leads to productivity
+gains when it is fully integrated into the work practices and workflow
+the business that is deploying it, with particular attention paid to the
+highly particular real-world constraints under which it operates. These
+constraints can be, and often are, quite different to the constraints
+under which a system might be idealised to operate in, or in the
+abstract notions under which it is designed. 
+
+In short, it is only when the system is put into the real world can we
+evaluate its performance. The conditions under which the technology is
+used are also as vital as the technology itself; insufficient staffing,
+inadequate expertise, or failure to address the environment upon which
+it operates are all critical factors. A warehouse robot is only useful
+if the floor it operates upon is sufficiently smooth and well-finished
+for it to be able to trundle around without impediment for example; yet
+it is precisely small details like these that can get overlooked by
+businesses.
+
+This document was a critical assessment of how a failure to adequately
+design a system, both in terms of its functionality and operating
+logistics, and a failure in terms of fully addressing the environment
+and factors surrounding its use actual led to an observable /decline/ in
+productivity, not gain, as a result of this new technology.  

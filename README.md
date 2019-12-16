@@ -4,11 +4,12 @@
 
 See my [daily log](./daily-log.org) for a brief day-to-day summary of my learning.  
 
-## Academic & (non-IT specific) Technical Writing
+## [Academic & (non-IT specific) Technical Writing](./Academic-and-Technical-Writing-examples)
 
 This contains a representative sample of the quality of my general writing and documentation ability. A detailed summary is presented inside the README inside the directory. Though not IT specific, I feel it is very important to include it in this portfolio because software engineering is about *far* more than just writing code; the production of clear, high quality, and professional documents is crucial.  
 
 ## Development Portfolio
+
 Portfolio of my projects and work (in alphabetical order as per file listing above).  
 
 - [PIC Microcontroller Pedestrian Crossing/Traffic Light Simulator](./PIC-traffic-light)

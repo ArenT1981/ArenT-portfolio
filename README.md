@@ -1,10 +1,14 @@
-# Aren's Learning Log + Portfolio
+# Aren's Development Portfolio
 
 ## Learning Log 
 
-See my [daily log](./daily-log.org) for a brief day-to-day summary of my learning.
+See my [daily log](./daily-log.org) for a brief day-to-day summary of my learning.  
 
-## Portfolio
+## Academic & (non-IT specific) Technical Writing
+
+This contains a representative sample of the quality of my general writing and documentation ability. A detailed summary is presented inside the README inside the directory. Though not IT specific, I feel it is very important to include it in this portfolio because software engineering is about *far* more than just writing code; the production of clear, high quality, and professional documents is crucial.  
+
+## Development Portfolio
 Portfolio of my projects and work (in alphabetical order as per file listing above).  
 
 - [PIC Microcontroller Pedestrian Crossing/Traffic Light Simulator](./PIC-traffic-light)
@@ -13,7 +17,7 @@ Simulates a rudimentary traffic light simulation on the Millennium board using t
 
 - [Agent Maze Searcher](./agent-maze-searcher)
 
-A program written in **Scheme/Racket** that reads in a maze/2D world input from a file, and then presents a valid solution path to the destination/treasure (if it exists).  
+A program written in **Scheme/Racket** that reads in a maze/2D world input from a file, and then presents a valid solution path to the destination/treasure (if it exists). Needs refactoring.  
 
 - [Algorithms](./algorithms)
 

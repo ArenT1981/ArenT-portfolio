@@ -13,7 +13,7 @@ a full Emacs package on [[https://melpa.org/][MELPA]], whereupon it will act as 
 diary package, enabling summary statistics and easily automated logging,
 all directly called from within Emacs with a single command.
 
-It is a complementary package to my [[../secretary][secretary]] =bash= program, which is
+It is a complementary package to my *[[../secretary][secretary]]* =bash= program, which is
 designed to easily create automated file transfer patterns based on file
 date/metadata/globbing patterns, and specific target directories; in
 short, with one singe command to automatically copy all the files off

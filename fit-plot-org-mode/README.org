@@ -1,0 +1,67 @@
+* Description
+
+The objective of this script is to fully automate converting Garmin
+=FIT= files to standard interchangeable =CSV= format (compressed with
+gzip to save space) by making use of Max Candocia's Python [[https://github.com/mcandocia/fit_processing][script]], and
+then generating attractive graphs from the data via [[http://www.gnuplot.info/][Gnuplot]] and finally
+attach and insert them into a pre-formatted
+[[https://orgmode.org/][org-mode]] file. 
+
+In short, to create a fully *plain text workout diary* as an offline and
+easily processed workout log. The longer term plan is to build this into
+a full Emacs package on [[https://melpa.org/][MELPA]], whereupon it will act as a full workout
+diary package, enabling summary statistics and easily automated logging.
+
+It is a complementary package to my [[../secretary][secretary]] =bash= program, which is
+designed to easily create automated file transfer patterns based on file
+date/metadata/globbing patterns, and specific target directories; in
+short, with one singe command to automatically copy all the files off
+your Garmin watch/device, neatly organised into an appropriate directory
+structure.
+
+The directory also includes a small helper script used to add the
+appropriate timestamp information to =FIT= files which have been
+imported by [[https://www.goldencheetah.org/][Golden Cheetah]] for users who have imported all their
+workouts via that software (it can download them via [[https://www.trainingpeaks.com/][Training Peaks]] and
+other such cloud sites are synced with the Garmin Connect API.
+
+At the moment the script is not quite production ready, but it can
+successfully convert and recognise most major workout types (Rowing,
+Strength Training, Cycling, etc.) and appropriately store them in a
+date-ordered directory complete with neatly generated =png= files and
+the resultant compressed =csv= files containing all the source data.
+
+* TODO 
+
+- Make some tidying adjustments to the GNU Plot templates for better
+  column selection using the original =csv= generated from Candocia's
+  script  
+- Improve the aesthetics of the graphs. At the moment the duration is
+  represented by a time-of-day axis, but a duration calculated from the
+  start-time of the actual HR data would be far better, and good appear
+  along the other x-axis 
+- Write the boilerplate for automatically generating the appropriate
+  org-mode text 
+- Write an Emacs-lisp script to integrate it fully into Emacs. The end
+  goal should be one command called within Emacs automatically scans,
+  imports, converts, generates the graphs, generates the workout
+  org-files, and adds them as nodes in your main =exercise.org=
+  date-time tree. All that would remain is for you to write your summary
+  comments/notes, add any details of specific weight-training (sadly the
+  weight-reps information is not extractable from the FIT file; it must
+  be stored in a proprietary block) and you have a fully offline exercise log.
+  
+* Example Graphs
+
+Below are a couple of example graphs generated automatically by the
+script given an input =FIT= file:
+
+[[./example-data/cycling_2019-10-06_18-26-49-hr-power-cadence.png]]
+
+[[./example-data/rowing_2019-10-06_17-36-56.png]] 
+
+[[./example-data/training_2019-10-06_18-03-03-strength-hr.png]]
+
+[[./example-data/walking_2019-10-06_15-26-01-hr.png]]
+
+

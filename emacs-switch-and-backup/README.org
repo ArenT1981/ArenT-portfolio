@@ -15,4 +15,5 @@ By default all your emacs configurations will be stored under
 parameters =EMACS_CONFIG_BASE_DIR=, =SPACEMACS_STABLE=, and
 =SPACEMACS_DAILY=, where =EMACS_CONFIGS_BASE_DIR= is the root directory,
 and =SPACEMACS_DAILY= is your latest =emacs= configuration, with
-=SPACEMACS_STABLE= as your (read-only) backup =emacs=.
+=SPACEMACS_STABLE= as your (read-only) backup =emacs= configuration that
+represents a last known good configuration.

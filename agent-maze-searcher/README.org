@@ -7,7 +7,7 @@ Maze searching program implemented in =Scheme/Racket=.
 Screencast above demonstrates the program running and the structure of
 its data files.
 
-Originally written in Scheme and then ported to Racket (only minor
+Originally written in =Scheme= and then ported to =Racket= (only minor
 adjustments needed), this program implements a maze/path searching
 algorithm that simulates a robot reaching a destination goal.
 

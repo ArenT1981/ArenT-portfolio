@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Refactor code fully (ugly/duplication).
 - Implement other search algorithms (e.g. A\* search).
 - Calculate path costs based on numerical cell values (simulating more difficult terrain).
-- Show possible paths and optimal path (e.g. 'shortest path' vs 'cheapest path'
+- Show possible paths and optimal path (e.g. 'shortest path' vs 'cheapest path')
 - Correctly implement full error checking and graceful handling on errors
 
 ## [0.2.0] - 2019-09-18

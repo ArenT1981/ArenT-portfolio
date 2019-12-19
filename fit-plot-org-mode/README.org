@@ -15,10 +15,11 @@ all directly called from within Emacs with a single command.
 
 It is a complementary package to my *[[../secretary][secretary]]* =bash= program, which is
 designed to easily create automated file transfer patterns based on file
-date/metadata/globbing patterns, and specific target directories; in
-short, with one singe command to automatically copy all the files off
-your Garmin watch/device, neatly organised into an appropriate directory
-structure.
+date/metadata/globbing patterns, and specific target directories with
+optional date ordered sub-directories; essentially, by issuing one
+single command it will automatically copy all the files off your Garmin
+watch/device, and neatly organise them into an appropriate directory
+structure (ordered sensibly by date, in this case).
 
 The directory also includes a small helper script used to add the
 appropriate timestamp information to =FIT= files which have been

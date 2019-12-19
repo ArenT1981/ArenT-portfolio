@@ -40,7 +40,7 @@ aforementioned =FIT= to =CSV= conversion script based on my own hacking,
 but I plan to update it with a version that will work with the script
 "out of the box". 
 
-* =TODO= 
+* TO-DO 
 
 - Make some tidying adjustments to the GNU Plot templates for better
   column selection using the original =csv= generated from Candocia's

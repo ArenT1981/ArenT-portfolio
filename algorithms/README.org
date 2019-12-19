@@ -1,0 +1,6 @@
+* Algorithms
+
+Please view the individual source files for further information.
+
+Each file is extensively commented with a summary description in the file header.
+

@@ -2,7 +2,7 @@
 
 This program implements a full simulation of a pedestrian crossing
 system on the =PIC 16F84A= Millennium development board and is written
-in =C=/embedded =C=.
+in =C= (embedded =C=).
 
 It produces this simulation on the board using the inbuilt lights, buzzer and
 buttons. It implements the standard light sequence used by

@@ -7,10 +7,11 @@ then generating attractive graphs from the data via [[http://www.gnuplot.info/][
 attach and insert them into a pre-formatted
 [[https://orgmode.org/][org-mode]] file. 
 
-In short, to create a fully *plain text workout diary* as an offline and
+In short, to create a fully automated *plain text workout diary* as an offline and
 easily processed workout log. The longer term plan is to build this into
 a full Emacs package on [[https://melpa.org/][MELPA]], whereupon it will act as a full workout
-diary package, enabling summary statistics and easily automated logging.
+diary package, enabling summary statistics and easily automated logging,
+all directly called from within Emacs with a single command.
 
 It is a complementary package to my [[../secretary][secretary]] =bash= program, which is
 designed to easily create automated file transfer patterns based on file
@@ -23,37 +24,51 @@ The directory also includes a small helper script used to add the
 appropriate timestamp information to =FIT= files which have been
 imported by [[https://www.goldencheetah.org/][Golden Cheetah]] for users who have imported all their
 workouts via that software (it can download them via [[https://www.trainingpeaks.com/][Training Peaks]] and
-other such cloud sites are synced with the Garmin Connect API.
+other such cloud sites are synced with the Garmin Connect API). The
+files that Golden Cheetah import have their timestamps in the filename
+but the actual file timestamp is, of course, their creation time, which
+is not so helpful in terms of storing them in a neat directory structure
+automatically based on the file timestamp metadata.
 
 At the moment the script is not quite production ready, but it can
 successfully convert and recognise most major workout types (Rowing,
 Strength Training, Cycling, etc.) and appropriately store them in a
 date-ordered directory complete with neatly generated =png= files and
 the resultant compressed =csv= files containing all the source data.
+Currently it makes use of a slightly customised version of the
+aforementioned =FIT= to =CSV= conversion script based on my own hacking,
+but I plan to update it with a version that will work with the script
+"out of the box". 
 
-* TODO 
+* =TODO= 
 
 - Make some tidying adjustments to the GNU Plot templates for better
   column selection using the original =csv= generated from Candocia's
   script  
 - Improve the aesthetics of the graphs. At the moment the duration is
-  represented by a time-of-day axis, but a duration calculated from the
-  start-time of the actual HR data would be far better, and good appear
-  along the other x-axis 
+  represented by a time-of-day axis (inspect the graphs to see what I
+  mean!), but a duration calculated from the start-time of the actual HR
+  data would be far better, and could appear along the other x-axis at
+  the top of the graph (currently not used, just where the title is) 
 - Write the boilerplate for automatically generating the appropriate
   org-mode text 
 - Write an Emacs-lisp script to integrate it fully into Emacs. The end
-  goal should be one command called within Emacs automatically scans,
-  imports, converts, generates the graphs, generates the workout
-  org-files, and adds them as nodes in your main =exercise.org=
-  date-time tree. All that would remain is for you to write your summary
+  goal is that only /one/ command need be called within Emacs to
+  automatically scan, import, convert, generate all graphs, generate all
+  the workout org-files, and add them as nodes in your main
+  =exercise.org= date-time tree, for all such files as since your last
+  invocation. All that would remain is for you to write your summary
   comments/notes, add any details of specific weight-training (sadly the
   weight-reps information is not extractable from the FIT file; it must
-  be stored in a proprietary block) and you have a fully offline exercise log.
+  be stored in a proprietary binary block within the =FIT= file) and you
+  have a fully offline exercise log.
+
+I will add an example fully completed =org-mode= file on here when I get
+a chance, to illustrate what the finished result will look like.
   
 * Example Graphs
 
-Below are a couple of example graphs generated automatically by the
+Below are a some example graphs generated automatically by the
 script given an input =FIT= file:
 
 [[./example-data/cycling_2019-10-06_18-26-49-hr-power-cadence.png]]

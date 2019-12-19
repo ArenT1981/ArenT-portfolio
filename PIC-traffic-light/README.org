@@ -1,28 +1,29 @@
 * Description
 
 This program implements a full simulation of a pedestrian crossing
-system on the PIC 16F84A Millennium development board.
+system on the =PIC 16F84A= Millennium development board and is written
+in =C/embedded C=.
 
-It produces this simulation on the board using the inbuilt lights and
+It produces this simulation on the board using the inbuilt lights, buzzer and
 buttons. It implements the standard light sequence used by
 British traffic lights, and listens for a button interrupt to
 appropriately trigger the "crossing" sequence, whereupon the appropriate
 light sequence and a buzzer are triggered to simulate the audible
 warning heard on real-world British pedestrian crossings.
 
-The project makes use of a full *test case scenarios*, structured program
-design with *modelled data flows and state transitions*, together with
-subsequent iterations of the source code.
+The project makes use of a full *test case scenarios*, structured *program
+design* with *modelled data flows and state transitions*, together with
+subsequent iterations of the source code (originally outside =git=).
 
 Fully illustrated complete *documentation* (overview; design; testing;
-codebase) is provided in the project [[PIC-traffic-light.pdf][PDF] file,
-and the complete source code is provided in the [[./src][src]] directory. Some
-sample images from the documentation are show below.
+codebase) is provided in the project [[PIC-traffic-light.pdf][PDF]] file, and the complete source
+code is provided in the [[./src][src]] directory. Some sample images from the
+documentation are show below; view the PDF for the full elaboration.
 
 * About
 
-This project came about whilst playing/experimenting with a PIC
-microntroller. I wanted to increase my understanding of embedded systems
+This project came about whilst playing/experimenting with a borrowed PIC
+microcontroller. I wanted to increase my understanding of embedded systems
 by coding a small project, as previously most of my software development
 experience had been with higher level languages such as Java..
 

@@ -24,6 +24,7 @@ the goal, if one exists. This path is then shown as a list of tuples
 specifying the path. The maze data structure is stored internally as a
 matrix.
 
-Source code is in the [src](./src/) directory. Documentation pending.
+Source code is in the [[./src][src]] directory, some sample [[./test-mazes][test mazes]] are also
+provided. Further documentation pending.
 
-See the [CHANGELOG](./src/CHANGELOG.md) for release notes.
+See the [[./src/CHANGELOG.md][CHANGEOG]] for release notes.

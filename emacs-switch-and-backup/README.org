@@ -1,0 +1,18 @@
+* Description
+
+A =bash= convenience wrapper/customisation script for [[https://www.gnu.org/software/emacs/][Emacs]] that automates
+multiple profile switching using [[https://github.com/plexus/chemacs][chemacs]] together with a configuration
+backup, orientated towards [[http://spacemacs.org/][Spacemacs]] users. The primary purpose behind
+this  was to ease having both a "stable" (known good) and
+"development/daily" setup, so that if you should accidentally break your
+Emacs setup, you would still have a known good setup you could
+immediately use if you have urgent work pending.
+
+* Usage
+
+By default all your emacs configurations will be stored under
+=~/.emacs-configs=. If you want them stored elsewhere, edit the
+parameters =EMACS_CONFIG_BASE_DIR=, =SPACEMACS_STABLE=, and
+=SPACEMACS_DAILY=, where =EMACS_CONFIGS_BASE_DIR= is the root directory,
+and =SPACEMACS_DAILY= is your latest =emacs= configuration, with
+=SPACEMACS_STABLE= as your (read-only) backup =emacs=.

@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # If you want emacs installations/configs to reside elsewhere, change these variables as necessary
 # If you do so, you'll also have to edit ~/.emacs-profiles.el when generated, or manually edit the

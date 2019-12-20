@@ -2,7 +2,9 @@
 
 ![](./img/portfolio-banner1.png)
 
-## [<img src="./img/development-log-banner.png">](./daily-log.org) 
+[<img src="./img/development-log-banner.png">](./daily-log.org) 
+
+## [Development Log](./daily-log.org)
 
 See my [daily log](./daily-log.org) for a detailed time-tracked summary of my learning. This also reflects my **attention to detail**, **organisation/project management skills**, and above all, **work ethic/consistency**.  
 
@@ -45,9 +47,13 @@ A variety of algorithms I have implemented:
 
 An unfinished program that reads in any number of definition files for a weighted directed graph (concept map) and stores them on the heap. The idea is they can then be used to represent any structured collection of "concepts" or "ideas" that exist in a weighted network. Mostly written as a learning exercise to improve my **C** coding, but thought it worthwhile to include here anyway. In practice, it would be more suited to implementing in an OO language like C++, Python, or Java.  
 
+[<img src="./img/my-setup-banner.png">](./config)
+
 - [**My Configuration/Linux Setup**](./config)
 
 My personal configuration/dotfiles for various tools I use, together with my customisations to various window managers and other usability settings.  
+
+[<img src="./img/emacs-switch-banner.png">](./emacs-switch-and-backup)
 
 - [**Emacs switch and backup**](./emacs-switch-and-backup)
 
@@ -68,3 +74,4 @@ A **bash** project that combines standard GNU `tar/gzip` with `rsync` to create 
 - [**Secretary**](./secretary)
 
 A **bash** shell project that automatically tidies, organises and reorders your files. It allows automated file backup/copying/filtering based on a simple input file that specifies a globbing pattern derived from either the file extension or the reported file header metadata.  
+ 

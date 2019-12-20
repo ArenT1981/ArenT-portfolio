@@ -14,6 +14,8 @@ This contains a representative sample of the quality of my general writing and d
 
 Portfolio of my projects and work (in alphabetical order as per file listing above). Please see each individual project page for detailed information, together with supporting documentation, images, diagrams, and other materials (such as screencasts).  
 
+![](./img/pic-project-banner.png)
+
 - [**PIC Microcontroller Pedestrian Crossing/Traffic Light Simulator**](./PIC-traffic-light)
 
 Simulates a rudimentary traffic light simulation on the Millennium board using the LEDs and button. Written in embedded **C**. Complete with extensive documentation detailing the design, implementation, and testing process/framework.  

@@ -1,4 +1,6 @@
 #+STARTUP: indent
+* Daily Study/Work/Development Log
+
 I track my time rigorously; if you are serious about applying yourself
 properly to learning/study it is /no different/ to working in a
 full-time job. More precisely, the study /is/ your full-time job if you
@@ -14,18 +16,17 @@ program that generates some extremely useful and very attractive
 interactive charts in your web-browser based on the time tracking
 information stored in Emacs [[https://orgmode.org][org-mode]] files. Emacs is my essential
 organisation, non-linear notetaking, life management, editor/IDE, and
-all round powerhouse tool! 
+all round kitchen sink powerhouse tool! 
 
 Anyone that has used Emacs before will understand what I mean... :-)
 
-*October 2019*:
+*October 2019 (117 hours)*:
 
 [[./img/oct2019-time.png]]
 
-*November 2019*:
+*November 2019 (111 hours)*:
 
 [[./img/nov2019-time.png]] 
-
 
 * Diary/Daily Log                                         :ossu:learninglog:
 ** *Monday September 23rd:*
@@ -203,7 +204,7 @@ Anyone that has used Emacs before will understand what I mean... :-)
 - Expectation, and Monty Hall paradox
 - Random variables and Markov's inequality
 ** *Friday November 15th:*
-- Implementing a dice game using probabilistic modelling
+- Python coding: Implementing a dice game using probabilistic modelling
 ** *Saturday November 16th:*
 - Reading: Data structures/mathematics of lists/stacks/queues
 - Coursera: Permutations/sorting algorithm 
@@ -226,7 +227,7 @@ Anyone that has used Emacs before will understand what I mean... :-)
 - Stacks/queues 
 ** *Friday November 22nd:*
 - Reading: Algorithms in C
-- lists/linked-lists (single + double) 
+- Lists/linked-lists (single + double) 
 ** *Saturday November 23rd:*
 - Studied functional vs imperative paradigm:
   - Mutability vs immutability
@@ -235,8 +236,8 @@ Anyone that has used Emacs before will understand what I mean... :-)
   - Solution methods based on two unknowns
   - Three unknowns; substitution & elimination
 - Accelerated Computer Science Fundamentals (Coursera)
-- Stacks & Heap Memory
-- Pointers and memory safety
+ - Stacks & Heap Memory
+ - Pointers and memory safety
 ** *Sunday November 24th:*
 - Accelerated Computer Science Fundamentals: C++ programming
 - C++ programming: classes/templates
@@ -254,14 +255,15 @@ Anyone that has used Emacs before will understand what I mean... :-)
 - C++ templating
 ** *Wednesday November 27th:*
 - Portfolio development
+- C++ coding
 ** *Friday November 29th:*
 - Portfolio development
 - Reading: C++ Programming Language by Stroustrup
 ** *Saturday November 30th:*
-- C++ programming: linked lists + merge sort
+- C++ programming: Linked lists + merge sort
 - Python object orientated features
 ** *Sunday December 1st:*
-- C++ programming: linked lists + merge sort
+- C++ programming: Linked lists + merge sort
 - C++ Trees/Binary Search Trees (BSTs)
 ** *Monday December 2nd:*
 - C++ recursive BST search algorithm 

@@ -1,6 +1,6 @@
 # Aren's Development Portfolio
 
-!(./img/portfolio-banner.png)
+![](./img/portfolio-banner.png)
 
 ## [Learning Log](./daily-log.org) 
 

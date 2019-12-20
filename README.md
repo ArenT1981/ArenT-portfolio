@@ -22,9 +22,9 @@ Simulates a rudimentary traffic light simulation on the Millennium board using t
 
 A program written in **Scheme/Racket** that reads in a maze/2D world input from a file, and then presents a valid solution path to the destination/treasure (if it exists). Needs refactoring.  
 
-- [**Algorithms**](./algorithms)
-
 ![](./img/algorithms-banner.png)
+
+- [**Algorithms**](./algorithms)
 
 A variety of algorithms I have implemented:
 

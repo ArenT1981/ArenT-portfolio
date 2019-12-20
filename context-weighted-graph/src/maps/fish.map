@@ -1,0 +1,15 @@
++ map fish;
+
++ node gourami;
++ node tetra;
++ node minnow;
++ node shark;
++ node tuna;
+
+@ tetra minnow 4;
+@ tetra tuna 1;
+@ shark tuna 12;
+@ tetra shark 6;
+@ shark minnow 7;
+@ gourami minnow 6;
+

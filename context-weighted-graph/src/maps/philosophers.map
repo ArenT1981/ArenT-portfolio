@@ -1,0 +1,28 @@
+
++ map philosophers;
+
+
++ node socrates;
++ node kant;
++ node marx;
++ node engles;
++ node nietzsche;
++ node derrida;
++ node adorno;
++ node horkheimer;
++ node badiou;
++ node heidegger;
+
+ 
+@ socrates kant 3;
+@ kant nietzsche 1;
+@ kant heidegger 8;
+@ kant foucault 2;
+@ kant badiou 2;
+@ kant adorno 7;
+@ kant horkheimer 7;
+@ kant marx 6;
+@ kant engels 5;
+@ heidegger derrida 7;
+@ marx adorno 4;
+@ marx horkheimer 4;

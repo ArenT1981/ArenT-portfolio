@@ -1,0 +1,140 @@
+* Description 
+
+The initial aim of this program is to implement storing a library of "context
+map" - i.e. a weighted, directional graph of nodes connecting
+concepts/objects/ideas - based on a simple input file format. All of
+these context/concept maps are then stored in one coherent memory
+allocated structure; the potential is then to have linkages /between/
+maps as well.
+
+It was mostly written as a learning exercise in =C=, though it would be
+nice to add some pretty-printed visual representation of the maps, and
+potentially add a [[https://graphviz.org/][graphviz]] output back-end, or even a more interactive
+solution based on JQuery for use in a web browser (this would enable
+live interactions with a node map).
+
+At the moment the parsing engine is not fully consistent, and would
+benefit from being rewritten using =strtok= or another tokenizing
+library. Of course, it would also be a lot easier to write using
+something like Python or Java; but the principle aim of it was as a C
+learning exercise. A project like this would be ideally suited to a
+language like Java/C++ that is designed as an object orientated
+language from the ground up, and whose fundamental language features
+would make development far easier/quicker than using C.
+
+In any case, the notion behind it is to consider how explicitly weighted
+context/concept maps could be used as a classification system for
+decision making (as opposed to heuristic based machine learning systems
+which instead derive results based on statistical analysis).
+
+It would be nice to have some representation of images such as this:
+
+[[./img/philkant.png]]
+
+* Example
+
+Given an input map of tropical fish:
+
+#+BEGIN_SRC text  
++ map fish;
+
++ node gourami;
++ node tetra;
++ node minnow;
++ node shark;
++ node tuna;
+
+@ tetra minnow 4;
+@ tetra tuna 1;
+@ shark tuna 12;
+@ tetra shark 6;
+@ shark minnow 7;
+@ gourami minnow 6;
+#+END_SRC
+
+Where the first line "+ map fish" indicates that a new map is being
+created, each line starting with "+ node ..." indicates that a new
+node should be allocated, and each line of the form "@ <node1> <node2>
+x" indicates that a directed edge should be created from =<node1>= to
+=<node2>=, with weight =x=, where =x= is any integer.
+
+The above map graphically corresponds to the following image:
+
+ [[./img/fish-map.png]]
+
+(Image taken from https://philoforchange.files.wordpress.com/2014/03/philkant1.png).
+
+The program generates the following output:
+
+#+BEGIN_SRC text 
+* ACTION: *** Parsing context files in... ***
+* ACTION: Parsing in context files
+  -> UPDATE: Parsing file: fish.map
+  -> UPDATE: Valid map line definition detected.
+  -> UPDATE: Valid node line definition detected. Node total: 1
+  -> UPDATE: Valid node line definition detected. Node total: 2
+  -> UPDATE: Valid node line definition detected. Node total: 3
+  -> UPDATE: Valid node line definition detected. Node total: 4
+  -> UPDATE: Valid node line definition detected. Node total: 5
+  -> UPDATE: Valid node connection definition detected. Connection total: 1
+  -> UPDATE: Valid node connection definition detected. Connection total: 2
+  -> UPDATE: Valid node connection definition detected. Connection total: 3
+  -> UPDATE: Valid node connection definition detected. Connection total: 4
+  -> UPDATE: Valid node connection definition detected. Connection total: 5
+  -> UPDATE: Valid node connection definition detected. Connection total: 6
+* ACTION: Map successfully added: fish
+  -> UPDATE: Node successfully added: gourami
+  -> UPDATE: Node successfully added: tetra
+  -> UPDATE: Node successfully added: minnow
+  -> UPDATE: Node successfully added: shark
+  -> UPDATE: Node successfully added: tuna
+  -> UPDATE: Connection successfully created from node: tetra
+  -> UPDATE: Connection successfully created from node: tetra
+  -> UPDATE: Connection successfully created from node: shark
+  -> UPDATE: Connection successfully created from node: tetra
+  -> UPDATE: Connection successfully created from node: shark
+  -> UPDATE: Connection successfully created from node: gourami
+* ACTION: *** File input complete. ***
+
+Context maps stored: 
+--------------------
+Map: fish
+=======================
+
+Nodes in map "fish":
+--------------------
+Node: tuna, id = 5
+        Connection list: 
+         * 0 Connections
+Node: shark, id = 4
+        Connection list: 
+        -> minnow, weight = 7
+        -> tuna, weight = 12
+Node: minnow, id = 3
+        Connection list: 
+         * 0 Connections
+Node: tetra, id = 2
+        Connection list: 
+        -> shark, weight = 6
+        -> tuna, weight = 1
+        -> minnow, weight = 4
+Node: gourami, id = 1
+        Connection list: 
+        -> minnow, weight = 6
+=======================
+#+END_SRC
+
+* Usage / Status 
+
+To build just issue "make" in the =src= directory after
+downloading/cloning this repository.
+
+It correctly identifies all of the nodes in the =philosophers.map= file,
+but not all connections are correctly generated (some are missing).
+
+See =CHANGELOG= for history.
+
+The intention is to return to this project and fix/improve it when I
+have time; I thought it worth putting here even in its current
+unfinished state. 
+

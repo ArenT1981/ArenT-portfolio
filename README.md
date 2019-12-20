@@ -2,7 +2,7 @@
 
 ![](./img/portfolio-banner1.png)
 
-## [Learning Log](./daily-log.org) 
+## [<img src="./img/development-log-banner.png">](./daily-log.org) 
 
 See my [daily log](./daily-log.org) for a detailed time-tracked summary of my learning. This also reflects my **attention to detail**, **organisation/project management skills**, and above all, **work ethic/consistency**.  
 

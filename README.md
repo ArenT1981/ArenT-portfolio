@@ -59,6 +59,8 @@ My personal configuration/dotfiles for various tools I use, together with my cus
 
 A **bash** convenience wrapper/customisation script that automates multiple profile switching using [chemacs](https://github.com/plexus/chemacs) together with a configuration backup. The primary purpose behind this was to ease having both a "stable" (known good) and "development/daily" setup, so that if you should accidentally break your Emacs setup, you would still have a known good setup you could immediately use if you have urgent work pending.  
 
+[<img src="./img/fit-plot-org-mode.png">](./fit-plot-org-mode)
+
 - [**Fit Plot Org-Mode**](./fit-plot-org-mode) 
 
 A **bash** project that automatically generates plots (Heart Rate, Power, Cadence) using [Gnuplot](http://www.gnuplot.info/) from Garmin `FIT` files that have been converted to `CSV` files. This makes it easy to incorporate the graphs in a workout diary/log (for those of us that like to log outside of Garmin Connect's cloud service!). The script makes use of Max Candocia's Python FIT to CSV conversion script which can be found [here](https://github.com/mcandocia/fit_processing).  
@@ -66,6 +68,8 @@ A **bash** project that automatically generates plots (Heart Rate, Power, Cadenc
 - [**Java Web Server**](./java-mt-webserver)
 
 A rudimentary multi-threaded web server written in **Java** that serves static HTML pages and basic MIME content to any connecting web browser or client.  
+
+[<img src="./img/rsync-banner.png">](./rsync-incremental-backup)
 
 - [**Rsync + tar incremental backup system**](./rsync-incremental-backup) 
 

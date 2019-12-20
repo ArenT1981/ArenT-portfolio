@@ -8,7 +8,7 @@ See my [daily log](./daily-log.org) for a detailed time-tracked summary of my le
 
 ## [Academic & (non-IT specific) Technical Writing](./Academic-and-Technical-Writing-examples)
 
-This contains a representative sample of the quality of my general writing and documentation ability. A detailed summary is presented inside the README inside the directory. Though not IT specific, I feel it is very important to include it in this portfolio because software engineering is about *far* more than just writing code; the production of clear, high quality, and professional documents is crucial.  
+This contains a representative sample of the quality of my general writing and documentation ability. A detailed summary is presented in the README inside the directory. Though not IT specific, I feel it is very important to include it in this portfolio because software engineering is about *far* more than just writing code; the production of clear, high quality, and professional documents is crucial.  
 
 ## Development Portfolio Projects
 
@@ -32,6 +32,10 @@ A variety of algorithms I have implemented:
 `gsmatching.py` - **Python** script implements a solution to the classic so-called "marriage" or "matching" algorithm based on two sets/groups of individuals/entities each of whom has a ranked set of preferences (i.e. a combination) of the other set/group, and pairs them off accordingly until an optimal stable solution is found.  
 `insertion-and-merge-sort.cpp` - **C++** snippet that shows implementation to insertion and merge sort algorithms. Insertion sort uses low-level manual pointer manipulation.  
 `tree-level-traversal.cpp` - **C++** snippet that shows implementation of a tree level order based traversal using C++ iterator constructs.
+
+- [**Context Map/Weight Graph**](./context-weighted-graph)
+
+An unfinished program that reads in any number of definition files for a weighted directed graph (concept map) and stores them on the heap. The idea is they can then be used to represent any structured collection of "concepts" or "ideas" that exist in a weighted network. Mostly written as an exercise to improve my =C= coding. In practice, it would be more suited to implementing in an OO language like C++, Python, or Java.  
 
 - [**My Configuration/Linux Setup**](./config)
 

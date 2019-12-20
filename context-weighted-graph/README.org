@@ -31,6 +31,8 @@ It would be nice to have some representation of images such as this:
 
 [[./img/philkant.png]]
 
+(Image taken from https://philoforchange.files.wordpress.com/2014/03/philkant1.png).
+
 * Example
 
 Given an input map of tropical fish:
@@ -58,11 +60,9 @@ node should be allocated, and each line of the form "@ <node1> <node2>
 x" indicates that a directed edge should be created from =<node1>= to
 =<node2>=, with weight =x=, where =x= is any integer.
 
-The above map graphically corresponds to the following image:
+The above map graphically corresponds to the following diagram:
 
  [[./img/fish-map.png]]
-
-(Image taken from https://philoforchange.files.wordpress.com/2014/03/philkant1.png).
 
 The program generates the following output:
 

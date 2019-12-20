@@ -1,8 +1,8 @@
 # Aren's Development Portfolio
 
-## Learning Log 
+## [Learning Log](./daily-log.org) 
 
-See my [daily log](./daily-log.org) for a brief day-to-day summary of my learning.  
+See my [daily log](./daily-log.org) for a detailed time-tracked summary of my learning. This also reflects my attention to detail, organisation skills, and above all, work ethic/consistency.  
 
 ## [Academic & (non-IT specific) Technical Writing](./Academic-and-Technical-Writing-examples)
 

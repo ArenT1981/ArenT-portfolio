@@ -39,6 +39,8 @@ A variety of algorithms I have implemented:
 `insertion-and-merge-sort.cpp` - **C++** snippet that shows implementation to insertion and merge sort algorithms. Insertion sort uses low-level manual pointer manipulation.  
 `tree-level-traversal.cpp` - **C++** snippet that shows implementation of a tree level order based traversal using C++ iterator constructs.
 
+[<img src="./img/concept-map-banner.png">](./context-weighted-graph)
+
 - [**Context Map/Weight Graph**](./context-weighted-graph)
 
 An unfinished program that reads in any number of definition files for a weighted directed graph (concept map) and stores them on the heap. The idea is they can then be used to represent any structured collection of "concepts" or "ideas" that exist in a weighted network. Mostly written as a learning exercise to improve my **C** coding, but thought it worthwhile to include here anyway. In practice, it would be more suited to implementing in an OO language like C++, Python, or Java.  

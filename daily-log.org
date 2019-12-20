@@ -1,4 +1,32 @@
 #+STARTUP: indent
+I track my time rigorously; if you are serious about applying yourself
+properly to learning/study it is /no different/ to working in a
+full-time job. More precisely, the study /is/ your full-time job if you
+wish to succeed.
+
+I started in earnest at the beginning of September, but only got into a
+systematic pattern of recording/time tracking on a daily basis once I'd
+fully got my workflow/tooling fully established from mid-September
+onwards.
+
+The charts below are courtesy of the wonderful [[https://github.com/rksm/clj-org-analyzer/][org-analyzer]] Java/Clojure
+program that generates some extremely useful and very attractive
+interactive charts in your web-browser based on the time tracking
+information stored in Emacs [[https://orgmode.org][org-mode]] files. Emacs is my essential
+organisation, non-linear notetaking, life management, editor/IDE, and
+all round powerhouse tool! 
+
+Anyone that has used Emacs before will understand what I mean... :-)
+
+*October 2019*:
+
+[[./img/oct2019-time.png]]
+
+*November 2019*:
+
+[[./img/nov2019-time.png]] 
+
+
 * Diary/Daily Log                                         :ossu:learninglog:
 ** *Monday September 23rd:*
   -  Basic Probability Theory
@@ -256,3 +284,42 @@
 ** *Saturday December 7th*:
 - Java EE: maven =pom= dependency management; inheritance/aggregation
 - Java EE: maven modules/web applications (WARS)
+** *Sunday December 8th*:
+- Java EE: Java Persistence API/Architecture  
+- Java EE: Object Relational Mapping (ORM)
+** *Monday December 9th*:
+- C++ Heap Sort/min(Heap) data structure 
+- C++ Priority Queues
+** *Tuesday December 10th*:
+- MySQL database/SQL table construction
+- Bash scripting/shell details
+** *Wednesday December 11th*:
+- MySQL database design 
+- SQL table joins/structure
+** *Thursday December 12th*:
+- MongoDB design/implementation of non-RDMBS
+- Create MongoDB database/JSON syntax   
+** *Friday December 13th*:
+- C++ hash tables
+- Hash table hash function strategies/time-complexity/balance factor trade-offs
+- Apache Cassandra architecture
+- Java EE: JPA CRUD Operations (create/read/update/delete) 
+** *Saturday December 14th*:
+- Java EE: JPA queries / annotations 
+- JPA Entity relationships 
+** *Sunday December 15th*:
+- Java EE: JPA =mappedSuperclass= and JPA inheritance
+- C++ hashing algorithms/coding 
+** *Monday December 16th*:
+- Apache Cassandra database creation
+- Extensive portfolio update/tidy/READMEs
+** *Tuesday December 17th*:
+- Apache Cassandra + nodeJS interfacing + jade Javascript templating 
+- Extensive portfolio update/additions/READMEs
+** *Wednesday December 18th*:
+- Apache Cassandra + nodeJS interfacing + jade Javascript templating 
+- Futher portfolio update/additions/READMEs
+- C++ UpTrees/Disjoint sets
+** *Thursday December 19th*:
+- Apache Cassandra nodeJS interface/simple web application
+- Additional portfolio presentation work

@@ -41,7 +41,7 @@ A **bash** convenience wrapper/customisation script that automates multiple prof
 
 - [Fit Plot Org-Mode](./fit-plot-org-mode) 
 
-A **bash** project that automatically generates plots (Heart Rate, Power, Cadence) using GNU plot from Garmin `FIT` files that have been converted to `CSV` files. This makes it easy to incorporate the graphs in a workout diary/log (for those of us that like to log outside of Garmin Connect's cloud service!). The script makes use of Max Candocia's Python FIT to CSV conversion script which can be found [here](https://github.com/mcandocia/fit_processing).  
+A **bash** project that automatically generates plots (Heart Rate, Power, Cadence) using [Gnuplot](http://www.gnuplot.info/) from Garmin `FIT` files that have been converted to `CSV` files. This makes it easy to incorporate the graphs in a workout diary/log (for those of us that like to log outside of Garmin Connect's cloud service!). The script makes use of Max Candocia's Python FIT to CSV conversion script which can be found [here](https://github.com/mcandocia/fit_processing).  
 
 - [Java Web Server](./java-mt-webserver)
 

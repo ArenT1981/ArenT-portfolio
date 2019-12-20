@@ -20,13 +20,13 @@ Portfolio of my projects and work (in alphabetical order as per file listing abo
 
 Simulates a rudimentary traffic light simulation on the Millennium board using the LEDs and button. Written in embedded **C**. Complete with extensive documentation detailing the design, implementation, and testing process/framework.  
 
-![](./img/agent-project-banner.png)
+[<img src = "./img/agent-project-banner.png">](./agent-maze-searcher)
 
 - [**Agent Maze Searcher**](./agent-maze-searcher)
 
 A program written in **Scheme/Racket** that reads in a maze/2D world input from a file, and then presents a valid solution path to the destination/treasure (if it exists). Needs refactoring.  
 
-![](./img/algorithms-banner.png)
+[<img src="./img/algorithms-banner.png">](./algorithms)
 
 - [**Algorithms**](./algorithms)
 

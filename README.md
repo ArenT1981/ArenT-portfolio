@@ -2,7 +2,7 @@
 
 ## [Learning Log](./daily-log.org) 
 
-See my [daily log](./daily-log.org) for a detailed time-tracked summary of my learning. This also reflects my attention to detail, organisation skills, and above all, work ethic/consistency.  
+See my [daily log](./daily-log.org) for a detailed time-tracked summary of my learning. This also reflects my **attention to detail**, **organisation/project management skills**, and above all, **work ethic/consistency**.  
 
 ## [Academic & (non-IT specific) Technical Writing](./Academic-and-Technical-Writing-examples)
 

@@ -8,6 +8,8 @@
 
 See my [daily log](./daily-log.org) for a detailed time-tracked summary of my learning. This also reflects my **attention to detail**, **organisation/project management skills**, and above all, **work ethic/consistency**.  
 
+[<img src="./img/academic-writing-banner.png">](./Academic-and-Technical-Writing-examples) 
+
 ## [Academic & (non-IT specific) Technical Writing](./Academic-and-Technical-Writing-examples)
 
 This contains a representative sample of the quality of my general writing and documentation ability. A detailed summary is presented in the README inside the directory. Though not IT specific, I feel it is very important to include it in this portfolio because software engineering is about *far* more than just writing code; the production of clear, high quality, and professional documents is crucial.  
@@ -64,6 +66,8 @@ A **bash** convenience wrapper/customisation script that automates multiple prof
 - [**Fit Plot Org-Mode**](./fit-plot-org-mode) 
 
 A **bash** project that automatically generates plots (Heart Rate, Power, Cadence) using [Gnuplot](http://www.gnuplot.info/) from Garmin `FIT` files that have been converted to `CSV` files. This makes it easy to incorporate the graphs in a workout diary/log (for those of us that like to log outside of Garmin Connect's cloud service!). The script makes use of Max Candocia's Python FIT to CSV conversion script which can be found [here](https://github.com/mcandocia/fit_processing).  
+
+[<img src="./img/java-web-server-banner.png">](./java-mt-webserver)
 
 - [**Java Web Server**](./java-mt-webserver)
 

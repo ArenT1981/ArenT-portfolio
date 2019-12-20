@@ -20,11 +20,11 @@ all round kitchen sink powerhouse tool!
 
 Anyone that has used Emacs before will understand what I mean... :-)
 
-*October 2019 (117 hours)*:
+*October 2019 - 117 hours*:
 
 [[./img/oct2019-time.png]]
 
-*November 2019 (111 hours)*:
+*November 2019 - 112 hours*:
 
 [[./img/nov2019-time.png]] 
 

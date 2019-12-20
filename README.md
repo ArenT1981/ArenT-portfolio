@@ -75,6 +75,8 @@ A rudimentary multi-threaded web server written in **Java** that serves static H
 
 A **bash** project that combines standard GNU `tar/gzip` with `rsync` to create an automated incremental backup solution, including a remote destination. Only three paths need to be set (local source, local destination, remote destination) and you have a fully automated backup solution all in place; no complex configuration or options required. Detailed documentation in README file in project directory.  
 
+[<img src="./img/secretary-banner.png">](./secretary)
+
 - [**Secretary**](./secretary)
 
 A **bash** shell project that automatically tidies, organises and reorders your files. It allows automated file backup/copying/filtering based on a simple input file that specifies a globbing pattern derived from either the file extension or the reported file header metadata.  

@@ -1,5 +1,7 @@
 # Aren's Development Portfolio
 
+![./img/portfolio-banner.png]
+
 ## [Learning Log](./daily-log.org) 
 
 See my [daily log](./daily-log.org) for a detailed time-tracked summary of my learning. This also reflects my **attention to detail**, **organisation/project management skills**, and above all, **work ethic/consistency**.  

@@ -1,6 +1,6 @@
 # Aren's Development Portfolio
 
-![](./img/portfolio-banner1.png)
+[<img src="./img/portfolio-banner1.png">](https://www.linkedin.com/in/aren-tyr/) 
 
 [<img src="./img/development-log-banner.png">](./daily-log.org) 
 

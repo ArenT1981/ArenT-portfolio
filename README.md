@@ -20,7 +20,7 @@ This contains a representative sample of the quality of my general writing and d
 
 My personal configuration/dotfiles for various tools I use, together with my customisations to various window managers and other usability settings.  
 
-## Development Portfolio Projects
+## [Development Portfolio Projects](./code)
 
 Portfolio of my projects and work (in alphabetical order as per file listing above). Please see each individual project page for detailed information, together with supporting documentation, images, diagrams, and other materials (such as screencasts).  
 

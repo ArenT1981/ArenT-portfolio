@@ -1,0 +1,44 @@
+Please see each individual project directory for a detailed description
+of the project.
+
+- [[./PIC-traffic-light][PIC Microcontroller Pedestrian Crossing/Traffic Light Simulator]]
+
+Traffic light simulation in =C= for PIC 16F84A development board.
+
+- [[./agent-maze-searcher][Agent Maze Searcher]]
+
+Maze searcing program written in =Scheme/Racket=.
+
+- [[./algorithms][Algorithms]]
+
+My implementation of a variety of standard/important algorithms.
+
+- [[./context-weighted-graph][Context Map/Weight Graph]]
+
+A =C= program for modelling/storing a many directed weighted graphs as a
+connected memory structure.
+
+- [[./emacs-switch-and-backup][Emacs switch & backup]]
+
+=bash= convenience wrapper for automating/easing Emacs backup/profile
+switching.
+
+- [[./fit-plot-org-mode][Fit Plot Org-mode]]
+
+A =bash= project that generates graphs from Garmin =FIT= mode files
+after converting them to =CSV=.
+ 
+- [[./java-mt-webserver][Java Multithreaded Web Server]]
+
+A basic =Java= multi-threaded web-server for handling static =HTML/MIME=
+content.
+
+- [[./rsync-incremental-backup][Rsync + tar incremental backup system]]
+
+A =bash= script that offers a fully automated incremental backup system
+using =rsync/tar=.
+
+- [[./secretary][Secretary]]
+
+= =bash= program that offers automated file copying & reorganising
+operations based on specific globbing patterns and file metadata information. 

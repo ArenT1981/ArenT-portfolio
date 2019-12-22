@@ -29,7 +29,7 @@ backup the day before (or whenever =rsync-incremental remote= was last run).
 
 * Quickstart (TL;DR)
 
-1. *[[https://github.com/ArenT1981/ArenT-portfolio/raw/master/rsync-incremental-backup/rsync-inc-1.0.tar.gz][Download and extract the script]]* (right click, "Save link as...",
+1. *[[https://github.com/ArenT1981/ArenT-portfolio/raw/master/code/rsync-incremental-backup/rsync-inc-1.0.tar.gz][Download and extract the script]]* (right click, "Save link as...",
    then =tar -zxvf rsync-inc-1.0.tar.gz=)  
 2. =cd rsync-incremental-backup=
 3. =chmod +x install.sh && chmod +x rsync-incremental.sh= 

@@ -12,7 +12,7 @@ work, that showcases my ability to produce high quality material that
 comprises detailed and precise English together with high quality
 diagrams, smart presentation, and coherent logical ordering.
 
-** [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/Academic-and-Technical-Writing-examples/Hermeneutics-algorithms.pdf][Hermeneutics Towards Autonomous Systems]]
+** [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/writing/Academic-and-Technical-Writing-examples/Hermeneutics-algorithms.pdf][Hermeneutics Towards Autonomous Systems]]
 
 Full title: 
 
@@ -33,10 +33,10 @@ affect of such technology drawing on Heidegger.
 #+END_SRC
 
 Also included are the two mind-maps used to research, structure, and
-draft this paper; [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/Academic-and-Technical-Writing-examples/Algorithms-mindmap-notes.png][one including all the quotations, and notes]], the [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/Academic-and-Technical-Writing-examples/Algorithms-mindmap.png][other]]
+draft this paper; [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/writing/Academic-and-Technical-Writing-examples/Algorithms-mindmap-notes.png][one including all the quotations, and notes]], the [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/writing/Academic-and-Technical-Writing-examples/Algorithms-mindmap.png][other]]
 omitting these. Zoom into the images as they are high resolution.
 
-** [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/Academic-and-Technical-Writing-examples/Learning-skills-reflective-journal.pdf][Learning Skills: A Reflective Journal]]
+** [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/writing/Academic-and-Technical-Writing-examples/Learning-skills-reflective-journal.pdf][Learning Skills: A Reflective Journal]]
 
 In the modern age we all need to learn at an unprecedented rate in order
 to even simply keep up with current trends within any one particular
@@ -50,13 +50,13 @@ In short, we need to /learn/ how to /learn/ first; this is a skill that
 should be revisited periodically, as it is something that can be
 improved with explicit attention, just like any other learnable skill.
 
-** [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/Academic-and-Technical-Writing-examples/Meta-learning-Learning2.pdf][Learning How To Learn]]
+** [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/writing/Academic-and-Technical-Writing-examples/Meta-learning-Learning2.pdf][Learning How To Learn]]
 
 This is an accompanying very short visual presentation that illustrates
 the huge value that effective mind-mapping brings to the learning
 process. Do you mind-map? If not, you probably should!
 
-** [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/Academic-and-Technical-Writing-examples/Second-Language-Testing.pdf][Second Language Testing]]
+** [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/writing/Academic-and-Technical-Writing-examples/Second-Language-Testing.pdf][Second Language Testing]]
 
 How do we know whether our teaching is effective, unless we have some
 metric by which to measure progress? If we are not testing, we are
@@ -77,7 +77,7 @@ not guarantee that the performance will be as expected in a real-world
 production environment! Tests must accurately represent the actual
 environment upon which the production system is to be deployed.
 
-** [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/Academic-and-Technical-Writing-examples/Teaching-Reading.pdf][Teaching Reading]] 
+** [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/writing/Academic-and-Technical-Writing-examples/Teaching-Reading.pdf][Teaching Reading]] 
 
 A vital skill is the ability to reflect both on other's work and your
 own in a critical and dispassionate manner, to evaluate its strengths
@@ -88,7 +88,7 @@ simple event.
 This piece of work examines the nature of reading, together with
 critical reflections on group observations and others work.
 
-** [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/Academic-and-Technical-Writing-examples/Teaching-Writing.pdf][Teaching Writing]]
+** [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/writing/Academic-and-Technical-Writing-examples/Teaching-Writing.pdf][Teaching Writing]]
 
 Writing itself is also an iterative strategy. Software is the art of
 both writing code and documentation; both are critical. Without one, you
@@ -99,7 +99,7 @@ interpret and abstract how it functions or is used.
 Good communicative documentation should always make use of diagrams,
 which is precisely what this document does.
 
-** [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/Academic-and-Technical-Writing-examples/Understanding-Learning-and-Teaching.pdf][Understanding Learning and Teaching]]
+** [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/writing/Academic-and-Technical-Writing-examples/Understanding-Learning-and-Teaching.pdf][Understanding Learning and Teaching]]
 
 We are all teachers, and we are all learners. The only way we can cope
 with the conceptual complexity of the world we inhabit is to pool and
@@ -121,10 +121,10 @@ valuable to their operational goals.
 The full resolution mind-maps documenting each day of this course are also
 included as separate files as an illustration of their usefulness for
 both note taking and conceptual thinking/analysis:
-[[https://github.com/ArenT1981/ArenT-portfolio/raw/master/Academic-and-Technical-Writing-examples/day1.png][Day 1]], [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/Academic-and-Technical-Writing-examples/day2a.png][Day 2 (1)]], [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/Academic-and-Technical-Writing-examples/day2b.png][Day 2 (2)]], [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/Academic-and-Technical-Writing-examples/day2c.png][Day 2 (3)]], [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/Academic-and-Technical-Writing-examples/day3.png][Day 3]], and
-[[https://github.com/ArenT1981/ArenT-portfolio/raw/master/Academic-and-Technical-Writing-examples/day4.png][Day 4]].
+[[https://github.com/ArenT1981/ArenT-portfolio/raw/master/writing/Academic-and-Technical-Writing-examples/day1.png][Day 1]], [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/writing/Academic-and-Technical-Writing-examples/day2a.png][Day 2 (1)]], [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/writing/Academic-and-Technical-Writing-examples/day2b.png][Day 2 (2)]], [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/writing/Academic-and-Technical-Writing-examples/day2c.png][Day 2 (3)]], [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/writing/Academic-and-Technical-Writing-examples/day3.png][Day 3]], and
+[[https://github.com/ArenT1981/ArenT-portfolio/raw/master/writing/Academic-and-Technical-Writing-examples/day4.png][Day 4]].
 
-** [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/Academic-and-Technical-Writing-examples/Ignite-system.pdf][A technical analysis of the Ignite retail system]]
+** [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/writing/Academic-and-Technical-Writing-examples/Ignite-system.pdf][A technical analysis of the Ignite retail system]]
 
 This is an extended white-paper that conducts a detailed analysis of the
 real-world impact of deploying a digital stock control system. There is

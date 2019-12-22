@@ -14,6 +14,12 @@ See my [daily log](./assets/daily-log.org) for a detailed time-tracked summary o
 
 This contains a representative sample of the quality of my general writing and documentation ability. A detailed summary is presented in the README inside the directory. Though not IT specific, I feel it is very important to include it in this portfolio because software engineering is about *far* more than just writing code; the production of clear, high quality, and professional documents is crucial.  
 
+[<img src="./assets/img/my-setup-banner.png">](./assets/config)
+
+## [**My Configuration/Linux Setup**](./assets/config)
+
+My personal configuration/dotfiles for various tools I use, together with my customisations to various window managers and other usability settings.  
+
 ## Development Portfolio Projects
 
 Portfolio of my projects and work (in alphabetical order as per file listing above). Please see each individual project page for detailed information, together with supporting documentation, images, diagrams, and other materials (such as screencasts).  
@@ -48,12 +54,6 @@ A variety of algorithms I have implemented:
 - [**Context Map/Weight Graph**](./code/context-weighted-graph)
 
 An unfinished program that reads in any number of definition files for a weighted directed graph (concept map) and stores them on the heap. The idea is they can then be used to represent any structured collection of "concepts" or "ideas" that exist in a weighted network. Mostly written as a learning exercise to improve my **C** coding, but thought it worthwhile to include here anyway. In practice, it would be more suited to implementing in an OO language like C++, Python, or Java.  
-
-[<img src="./assets/img/my-setup-banner.png">](./code/config)
-
-- [**My Configuration/Linux Setup**](./code/config)
-
-My personal configuration/dotfiles for various tools I use, together with my customisations to various window managers and other usability settings.  
 
 [<img src="./assets/img/emacs-switch-banner.png">](./code/emacs-switch-and-backup)
 

@@ -211,3 +211,9 @@ files are then still recoverable if you have made a mistake.
 One mistake, just one in thousands of commands, typed a bit too quickly,
 that's all it could take, and you had better hope you have a very recent
 backup... ;-)
+
+* Most important note ;-)
+
+I always use "dark mode" themes. Nothing worse than staring at a bright
+white screen all day/night, how anyone can do coding with a light editor
+theme I don't know... ;-)

@@ -575,7 +575,8 @@ different purpose. It is intended as a very handy
 file copying/moving/processing automation tool for relatively
 experienced/confident users who want a very convenient method of
 handling file system operations on particular patterns of name files or
-file types. 
+file types with an intended destination directory structure and/or date-tree
+ordered directory hierarchy. 
 
 Obviously do not use this on some enterprise, production critical system without
 extensively testing it first (and probably best not at all) :-). /That said/,
@@ -584,9 +585,9 @@ all in one go on my home computer with my intended effect, but that is
 still a very different matter compared to running it across a system
 with say 1.5 million files in some arbitrarily complex manner. I use it
 regularly and it works for me. Start small, experiment around with a few test
-files first, then on files you've already safely backed up, run the
-scripts manually a couple of times, and only when all is
-good and you understand what it is doing add any scripts as =--auto=
+files first, then on files you've already safely backed up, then run the
+scripts manually a couple of times, and only when all is still 
+good and you understand exactly what it is doing add any scripts as =--auto=
 cron jobs or use them for huge file sets etc. 
 
 ** Tweaking the date-tree directory creation  
@@ -603,7 +604,7 @@ prefix, as this ensures they appear in a nice order when you call =ls=
 on a directory, e.g.:
 
 #+BEGIN_SRC text  
---> ls -l
+$ ls -l
 total 80
 drwxrwxr-x 2 aren aren 20480 Oct 20 13:44 07-july
 drwxrwxr-x 2 aren aren 20480 Oct 20 13:44 08-august

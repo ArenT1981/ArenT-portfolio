@@ -26,64 +26,62 @@ CMD="cp -n"
 EDITCOMMAND=vim
 # ----------------
 
-showUsage() {
-	echo ""
-	echo "secretary"
-	echo ""
-	echo "A program to automatically reorganise and copy/move particular files based on"
-	echo "the file extension, MIME type, and/or creation date, to specified directories"
-	echo "according to a configuration file actions."
-	echo ""
-	echo "-----------------------------------------------------------------------------"
-	echo ""
-	echo "Usage: secretary [--auto] [configuration file]"
-	echo ""
-	echo "[configuration file (relative filename or path to file as required)]"
-	echo ""
-	echo "    Optionally supply a configuration file to use instead of the default which"
-	echo "is at ~/.secretary/secretaryrc. This is useful for scripting secretary instances,"
-	echo "or maintaining multiple secretary 'profiles' for different use-cases, i.e. a "
-	echo "config file for processing files off a digital camera, another one for sorting"
-	echo "internet dowloads, another one to sort text files, etc. E.g.:"
-	echo ""
-  echo "secretary /path/to/my/config/digitalCamera.secretary"
-  echo "secretary copyAllPngsAndPerlScripts.secretary"
-  echo "secretary ~/configs/sortOutDownloads.secretary"
-  echo "secretary \"~/My Music/autoSorter.secretary\""
-	echo ""
-	echo "[--auto]"
-	echo ""
-	echo "    Do not produce review file; automatically perform the file operations by"
-	echo "calling generated file operations script. Take care with this, as it will be "
-  echo "performing mass file operations according to your settings, with no option to"
-  echo "review the operations before proceeding. Intended for experienced users for "
-  echo "scripting or automating purposes."
-  echo ""
-  echo "Automatic operation will create a logfile showing the file transactions "
-  echo "completed at '~/.secretary/secretary-<date-time>.log' if subsequent review is "
-  echo "desired."
-  echo ""
-	echo "Most users are instead strongly recommended to REVIEW the file operations script"
-  echo "in a text editor BEFORE running it. This allows you to check that it will be "
-  echo "copying/moving files in the way that you actually want!"
-  echo ""
-  echo "\"Buyer beware\", \"You have been warned\" etc. etc... ;-) "
-  echo ""
-  echo "Simply use by prefixing in front of your configuration file, if used, or by"
-  echo "itself if you want it to automatically run the contents of"
-  echo "~/.secretary/secretaryrc e.g. "
-  echo ""
-  echo "secretary --auto                          (runs on ~/.secretary/secretaryrc)"
-  echo "secretary --auto /path/to/mySecretaryConfig.secretary"
-  echo "secretary --auto myAmazingFileArrangement.secretary"
-
-
+showUsage()
+{
+    echo ""
+    echo "secretary"
+    echo ""
+    echo "A program to automatically reorganise and copy/move particular files based on"
+    echo "the file extension, MIME type, and/or creation date, to specified directories"
+    echo "according to a configuration file actions."
+    echo ""
+    echo "-----------------------------------------------------------------------------"
+    echo ""
+    echo "Usage: secretary [--auto] [configuration file]"
+    echo ""
+    echo "[configuration file (relative filename or path to file as required)]"
+    echo ""
+    echo "    Optionally supply a configuration file to use instead of the default which"
+    echo "is at ~/.secretary/secretaryrc. This is useful for scripting secretary instances,"
+    echo "or maintaining multiple secretary 'profiles' for different use-cases, i.e. a "
+    echo "config file for processing files off a digital camera, another one for sorting"
+    echo "internet dowloads, another one to sort text files, etc. E.g.:"
+    echo ""
+    echo "secretary /path/to/my/config/digitalCamera.secretary"
+    echo "secretary copyAllPngsAndPerlScripts.secretary"
+    echo "secretary ~/configs/sortOutDownloads.secretary"
+    echo "secretary \"~/My Music/autoSorter.secretary\""
+    echo ""
+    echo "[--auto]"
+    echo ""
+    echo "    Do not produce review file; automatically perform the file operations by"
+    echo "calling generated file operations script. Take care with this, as it will be "
+    echo "performing mass file operations according to your settings, with no option to"
+    echo "review the operations before proceeding. Intended for experienced users for "
+    echo "scripting or automating purposes."
+    echo ""
+    echo "Automatic operation will create a logfile showing the file transactions "
+    echo "completed at '~/.secretary/secretary-<date-time>.log' if subsequent review is "
+    echo "desired."
+    echo ""
+    echo "Most users are instead strongly recommended to REVIEW the file operations script"
+    echo "in a text editor BEFORE running it. This allows you to check that it will be "
+    echo "copying/moving files in the way that you actually want!"
+    echo ""
+    echo "\"Buyer beware\", \"You have been warned\" etc. etc... ;-) "
+    echo ""
+    echo "Simply use by prefixing in front of your configuration file, if used, or by"
+    echo "itself if you want it to automatically run the contents of"
+    echo "~/.secretary/secretaryrc e.g. "
+    echo ""
+    echo "secretary --auto                          (runs on ~/.secretary/secretaryrc)"
+    echo "secretary --auto /path/to/mySecretaryConfig.secretary"
+    echo "secretary --auto myAmazingFileArrangement.secretary"
 }
 
 
 createNewFile()
 {
-
     echo "* Creating new secretary task file"
     echo "* Please select option:"
     echo ""
@@ -107,7 +105,6 @@ createNewFile()
 
     $EDITCOMMAND "$TASK_DIR/$FILENAME"
     # check if filename already exists and abort if it does
-
 
 }
 
@@ -200,7 +197,7 @@ if [ "$1" = "ls" ]; then
     exit 0
 fi
 
-# Show stored secretary task files
+# Show generated secretary file operation scripts
 if [ "$1" = "lso" ]; then
     lsOpsFiles
     exit 0

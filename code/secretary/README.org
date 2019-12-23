@@ -621,6 +621,18 @@ Without this, "august" would appear at the top, for example, and
 having all of the directories appear in chronological order when listed
 in a file manager/at the command line.
 
+* Command List
+
+=secretary editor= - specify your editor (default =vi=)
+=secretary new= - create a new task configuration file
+=secretary ls= - display existing task configuration file(s)
+=secretary lso= - display existing generated file operation scripts
+=secretary clean= = - delete generated file operation scripts
+=secretary edit= - edit any existing task configuration file(s)
+=secretary foo= - run the task configuration file called =foo=
+=secretary --auto foo= - automatically run =foo= non-interactively (for
+=cron= and regular scripts etc.)
+ 
 * About 
 
 GPL license. Do what you want with it. If you extend it any cool way,

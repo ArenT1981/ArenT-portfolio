@@ -13,6 +13,8 @@
 
 * Description
 
+** Overview
+
 This program allows you to define custom file operation patterns to
 automate repetitive file tasks, automatically sort and organise files,
 and extract useful files in an organised manner from various directories,
@@ -71,6 +73,8 @@ workfiles/2020/01-janauary
 workfiles/2020/02-february
 ...
 #+END_SRC
+
+** A use-case 
 
 The overall notion for this strategy is courtesy of Mark Hurst's
 excellent and concise book [[http://bitliteracy.com/][Bit Literacy]].
@@ -494,7 +498,7 @@ already present are copied. So all I need to do is run this one command
 every so often, and my new photos are neatly copied and filed onto my
 computer, all in a matter of seconds.
 
-** Clean-up
+* Clean-up
 
 You might find that over time your =~/.secretary/fileops= directory is
 getting filled up with old operations scripts (that you may have either

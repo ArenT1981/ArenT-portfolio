@@ -126,6 +126,12 @@ lsTaskFiles()
 
 }
 
+lsOpsFiles()
+{
+    ls -l "$FILE_OPS_DIR"/*.sh
+}
+
+
 cleanFileOps()
 {
     echo "* Removing all file operation scripts"
@@ -193,6 +199,13 @@ if [ "$1" = "ls" ]; then
     lsTaskFiles
     exit 0
 fi
+
+# Show stored secretary task files
+if [ "$1" = "lso" ]; then
+    lsOpsFiles
+    exit 0
+fi
+
 
 # Delete old stored secretary file operation scripts
 if [ "$1" = "clean" ]; then

@@ -521,7 +521,10 @@ already present are copied. So all I need to do is run this one command
 every so often, and my new photos are neatly copied and filed onto my
 computer, all in a matter of seconds.
 
-* Clean-up
+* Displaying file operation scripts + Automatic clean-up
+
+Call =secretary lso= to list all file operation scripts that secretary
+has generated and saved under =$FILE_OPS_DIR= (default =~/.secretary/fileops=).
 
 You might find that over time your =~/.secretary/fileops= directory is
 getting filled up with old operations scripts (that you may have either

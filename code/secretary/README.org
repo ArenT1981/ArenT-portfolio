@@ -141,6 +141,8 @@ etc.
 
 * Configuration
 
+** Preliminaries 
+
 On first use, please run:
 
 =secretary editor=
@@ -163,6 +165,8 @@ information, and inspect the resultant script /before/ running it.
 You should /*never*/ use the =--auto= option the first time you set up a new
 task configuration. Only use this when you know everything is good and
 it works as intended!
+
+** Configuration file format 
 
 The configuration file consists of the following format:
 
@@ -222,6 +226,8 @@ Would match all files ending with the extension =txt=, =png=, =gif=,
 =nfo=, =bin=, =exe=, =gz= and =zip=. Note that they are *case
 insensitive*. So =txt= will match "TXT", "txt", or "tXt" perfectly fine.
 
+** Example configuration file
+
 Here is a real world example. This is the contents of my configuration
 file that I use to effortlessly *copy* all of my latest photos (=jpg=
 extension) and video files (=mp4= extension) from my Android phone for
@@ -236,7 +242,7 @@ ext:png:/media/phone/Internal storage/Pictures/Screenshots:DATE#/home/aren/Pictu
 #
 #+END_SRC
 
-I execute this by simply typing =secretary camera_photos=.
+I execute this by simply typing =secretary phone_photos=.
 
 This results in all of the photos or video files that have, for example, a July file timestamp being stored under 
 
@@ -247,7 +253,7 @@ under:
 
 =/home/aren/Pictures/screenshots/2019/11-november=
 
-This is because the =<desintation>= path is prefixed with =DATE#=. Note
+This is because the =<destination>= path is prefixed with =DATE#=. Note
 the lack of spaces. This instructs the program to create a date based
 directory hierarchy of 
 
@@ -259,28 +265,32 @@ the files stored in a flat structure under =<directory>=.
 In this case, I preserve the timestamps (by using =--preserve=), but
 choose not to preserve any ownership/permissions, as they I want them
 created with my default =umask= settings when storing on my =ext4= home
-filesystem. =cp -nv --preserve= is therefore a good optin to use when
+filesystem. =cp -nv --preserve= is therefore a good option to use when
 backing up photos/media files and other things from your external camera, phone,
 MP3 player, whatever.
 
-As you can see, any line starting with a '#' is a comment as per
+As you can see, any line starting with a =#= is a comment as per
 standard shell scripting convention.
+
+** Important details
 
 Note also that you do /not/ escape spaces in directory paths.
 When the configuration is passed over to the program, it will
 automatically ensure to call =cp= (or =mv=, depending) with the paths
 inside quotation marks e.g.:
 
-=cp "/foo/bar/some directory/file.jpg" "/foo/bar/some directory/dest/"=
+#+BEGIN_SRC bash
+cp "/foo/bar/some directory with spaces/file.jpg" "/foo/bar/some directory with spaces/dest/" 
+#+END_SRC
 
 So just put your full path /exactly how it already is/.
 
-*Spaces should /only/ occur in two places:*
+*Spaces should only occur in these places:*
 
 1. Inside the file path, where appropriate (e.g. as in example above)
-2. As a separator between file/mime types after either =ext:= or
-   =mime:=.
-3. Within the file operation command at the end of the line, e.g. =cp
+2. As a separator between the different file extensions/mime types to
+   glob after either the =ext:= or =mime:= prefix.
+3. Within the file operation command(s) at the end of the line, e.g. =cp
    -nv --preserve=.
 
 The =ext= *or* =mime= is separated from first (source) path by a colon (=:=). The
@@ -291,6 +301,8 @@ date-tree sub-directory organising. The file operation command is
 separated from the destination path with a colon. The line should be
 terminated with a final =#= immediately after the full command you wish
 to execute (e.g. =mv -bv#=.
+
+** Create a configuration file
 
 To *create* a new configuration file, simply run:
 
@@ -303,6 +315,10 @@ Add your line(s), save and exit.
 
 This will create =my-documents-sort= (or whatever) with the =.secretary=
 extension inside =$TASK_DIR= (default: =~/.secretary/tasks=).
+
+You can of course manually use a text editor and save a file (no spaces
+in filename) ending in the =.secretary= extension in the above directory
+if you prefer.
 
 * Usage
 
@@ -327,8 +343,8 @@ extension inside =$TASK_DIR= (default: =~/.secretary/tasks=).
    presumably you don't want to run exactly the same file copying
    operation on exactly the same files all over again). 
 
-If you have a file in your current directory with the extension
-=.secretary=, you can also simply run it by calling secretary then
+If you have a file in your /current working directory/ with the extension
+=.secretary=, you can also simply run it by calling =secretary= then
 passing that filename as an argument. The program will always look in
 the current directory first. E.g. if you have a task file called
 =copy-work-files.secretary= in your current directory, you can simply
@@ -364,12 +380,13 @@ camera copying task file with:
 And a few seconds later all the newest photos that don't currently exist
 backed up on my computer have been copied. As mentioned before, you
 should not do this on first run as it doesn't give you a chance to look
-through the proposed copying script first; it just runs it.
+through the proposed copying script first; it just creates and runs the
+operations script, and then deletes it after it is done. 
 
 Note that this is also the option you would use if you want to run
 secretary from within a cron job, as this runs it non-interactively.
 
-Auto mode scripts will generate a log file with all the results of the
+Auto mode scripts will however generate a log file with all the results of the
 file copying/moving/operations stored in a time-stamp named =.log= file
 in =$TASK_DIR= which you can view if you wish to see the results of an
 automatically run script. 
@@ -466,6 +483,9 @@ cp -nv --preserve=timestamps "/media/camera/DCIM/102_PANA/P1020389.MP4" "/home/a
 
 #+END_SRC
 
+You can see in this example the script was generated at 16:23 on the 3rd
+November, 2019.
+
 Periodically, whenever I want to backup my photos from my camera, I
 mount the camera then simply run =secretary --auto camera_photos=
 and it will automatically generate and execute something similar to the
@@ -473,8 +493,19 @@ above, and the =-n= flag to =cp= ensures that only new files that are not
 already present are copied. So all I need to do is run this one command
 every so often, and my new photos are neatly copied and filed onto my
 computer, all in a matter of seconds.
+
+** Clean-up
+
+You might find that over time your =~/.secretary/fileops= directory is
+getting filled up with old operations scripts (that you may have either
+subsequently run, or perhaps you decided not to), and you want to get
+rid of them. To save having to manually type =rm -f
+~/.secretary/fileops/*.secretary= every time (and possibly risk a nasty
+typo), just type =secretary clean= and it will do it for you.
  
 * Notes
+
+** Use appropriate flags to =cp= and =mv= etc.
 
 It is strongly recommend you use either the =-n= or =-u= options with
 =cp= or (particularly) =mv=, since that way you are not going to
@@ -485,14 +516,20 @@ accidentally trash something. You could also consider using =-b= for
 manually delete the source files if desired when dealing with really
 critical stuff).
 
-I've tried to make it as hard as possible to shoot yourself in the foot,
-which is why this program generates a script that you look through
+In fact I would strongly recommend familiarising yourself with the =man=
+pages for both =cp= and =mv= if you do not already use their various
+options on a regular basis. They have some surprisingly powerful options available.
+
+I have tried to make protect the user from destructive accidental
+errors, which is why this program generates a script that you look through
 /first/, by default. That way you have only yourself to blame if you run
 it and something bad happens to your files - after all, you had a chance to look
 through everything in detail first /before/ running it...
 
+** Start small, test first, check manually with new configurations
+
 I keep repeating this because I do not want someone messaging me to
-complain they've trashed their files. If that has happened, it is
+complain they have trashed their files. If that has happened, it is
 because you have told the program that is what you want it to do. /Inspect/
 the proposed script first. Do not run it if anything looks incorrect. /Never/ use
 =--auto= on a first-run scenario. Make sure it works reliably/as
@@ -500,10 +537,10 @@ intended first. If you're copying 5000 files, then sure, you'll have 5K
 of lines to look through. Wouldn't you rather spend a few minutes
 browsing through first though? Those few minutes are going to be as
 nothing compared to how long it would take you to manually sort this
-number of files.
+number of files. Buyer beware, caveat emptor, don't cry over spilt milk etc :-)
 
-Only use =--auto= if you know what you're using. If you're not sure,
-then you probably don't, and you probably shouldn't. 
+Only use =--auto= if you know what you're doing. If you're not sure
+whether you do, then you probably don't, and you probably shouldn't... 
 
 This program in not intended as a substitute or replacement for a much
 more robust and complex backup program like =rsync=. It serves a
@@ -513,16 +550,22 @@ experienced/confident users who want a very convenient method of
 handling file system operations on particular patterns of name files or
 file types. 
 
-Do not use this on some enterprise, production critical system without
-extensively testing it first (and probably not at all) :-). /That said/,
-I *have* used it with great success to copy approximately 20,000 files
-all in one go on my home computer as intended, but that is
+Obviously do not use this on some enterprise, production critical system without
+extensively testing it first (and probably best not at all) :-). /That said/,
+I *have* used it with great success to copy/reorganise approximately 20,000 files
+all in one go on my home computer with my intended effect, but that is
 still a very different matter compared to running it across a system
 with say 1.5 million files in some arbitrarily complex manner. I use it
-regularly and it works for me. 
+regularly and it works for me. Start small, experiment around with a few test
+files first, then on files you've already safely backed up, run the
+scripts manually a couple of times, and only when all is
+good and you understand what it is doing add any scripts as =--auto=
+cron jobs or use them for huge file sets etc. 
 
-Q. *"I don't like the names of the directories generated by =DATE#=. I
-   want them to be =08-Aug= or =August= etc."*
+** Tweaking the date-tree directory creation  
+
+Q. "I don't like the names of the directories generated by =DATE#=. I
+   want them to be =08-Aug= or =August= etc."
 
 Then simply edit =file-date-handler.sh=. You will see the relevant
 =switch= command there and it should be obvious which little bit of text

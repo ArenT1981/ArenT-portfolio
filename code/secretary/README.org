@@ -345,7 +345,8 @@ destination, of course), since it will just create them as needed.
 
 * Usage
 
-1. Create at least one task configuration file as per above.
+1. Create at least one task configuration file as per above (i.e. use
+   =secretary new= after calling =secretary editor=, if first use).
 2. Run your task file by calling =secretary <file>= where <file> is the
    name of your task-file. Make sure to view it in an editor on first
    run to make everything is what you actually what to happen (the

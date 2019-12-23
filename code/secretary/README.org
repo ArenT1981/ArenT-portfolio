@@ -1,6 +1,6 @@
 * Quickstart (TL;DR)
 
-1. Clone the script files.
+1. Clone the script files, and add them into your =$PATH=.
 2. /Optionally/ edit =$CONF_DIR= and =$TASK_DIR= if for some reason you
    want your configuration files stored elsewhere than =~/.secretary=.
 3. Set your chosen editor by running =secretary editor=
@@ -434,8 +434,9 @@ ext:jpg mp4:/media/camera/DCIM/102_PANA:DATE#/home/aren/Pictures:cp -nv --preser
 #
 #+END_SRC
 
-And here is the resultant executable script it generates for importing/backing-up
-the latest tranche of photos from my camera: 
+And after issuing =secretary camera_photos=, here is the resultant
+executable script it generates for importing/backing-up the latest
+tranche of photos from my camera: 
 
 =secretary-file-operations-2019-11-03-16_23.sh=:
 #+BEGIN_SRC bash

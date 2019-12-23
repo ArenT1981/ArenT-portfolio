@@ -12,7 +12,7 @@
 # Please review the generated operation file before telling it to copy/move
 # your files. You could potentially do a lot of damage to your system otherwise!
 
-# --- Globals ---:w
+# --- Globals ---
 AUTO="NO"
 FILE_ARG="false"
 CONF_DIR=$HOME/.secretary
@@ -46,7 +46,7 @@ showUsage() {
 	echo "config file for processing files off a digital camera, another one for sorting"
 	echo "internet dowloads, another one to sort text files, etc. E.g.:"
 	echo ""
-	echo "secretary /path/to/my/config/digitalCamera.secretary"
+  echo "secretary /path/to/my/config/digitalCamera.secretary"
   echo "secretary copyAllPngsAndPerlScripts.secretary"
   echo "secretary ~/configs/sortOutDownloads.secretary"
   echo "secretary \"~/My Music/autoSorter.secretary\""
@@ -126,6 +126,11 @@ lsTaskFiles()
 
 }
 
+cleanFileOps()
+{
+    echo "* Removing all file operation scripts"
+    rm -i "$FILE_OPS_DIR"/*.sh
+}
 
 editTaskFile()
 {
@@ -189,17 +194,25 @@ if [ "$1" = "ls" ]; then
     exit 0
 fi
 
+# Delete old stored secretary file operation scripts
+if [ "$1" = "clean" ]; then
+    cleanFileOps
+    exit 0
+fi
 
+# Create a new configuration file
 if [ "$1" = "new" ]; then
     createNewFile
     exit 0
 fi
 
+# Edit an existing configuration file
 if [ "$1" = "edit" ]; then
     editTaskFile
     exit 0
 fi
 
+# Change the editor/viewer
 if [ "$1" = "editor" ]; then
     setEditor
     exit 0

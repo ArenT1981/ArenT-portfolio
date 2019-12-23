@@ -625,6 +625,9 @@ e-mail me :-)
 
 * Plans
 
-I would like to get round to adding either a GTK or QT front-end to it
+Add a collection of useful pre-defined templates for a variety of use
+cases/scenarios, to speed up the inputting of valid configurations.
+
+I would also like to get round to adding either a GTK or QT front-end to it
 at some point to make it a bit more user friendly for novice/less
 experienced users.

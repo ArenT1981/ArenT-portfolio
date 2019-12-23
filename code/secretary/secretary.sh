@@ -128,7 +128,7 @@ lsTaskFiles()
 
 lsOpsFiles()
 {
-    ls -l "$FILE_OPS_DIR"/*.sh
+    ls -l "$FILE_OPS_DIR"/*.sh 2>/dev/null
 }
 
 

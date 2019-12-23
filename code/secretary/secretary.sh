@@ -129,7 +129,7 @@ lsTaskFiles()
 cleanFileOps()
 {
     echo "* Removing all file operation scripts"
-    rm -i "$FILE_OPS_DIR"/*.sh
+    rm "$FILE_OPS_DIR"/*.sh
 }
 
 editTaskFile()

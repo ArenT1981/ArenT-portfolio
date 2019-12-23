@@ -324,6 +324,24 @@ You can of course manually use a text editor and save a file (no spaces
 in filename) ending in the =.secretary= extension in the above directory
 if you prefer.
 
+** Directories
+
+Note that destination directories specified in the configuration file do
+*not* need to already exist. The program will create them as needed.
+
+e.g. 
+
+#+BEGIN_SRC text  
+ext:txt:/foo:/bar/some/really/long/path/dest:cp -nv --preserve=timestamps#
+#+END_SRC
+
+Will copy any =*.txt= files from =/foo= and put them in 
+
+=/bar/some/really/long/path/dest= regardless of whether some or indeed
+any of those directories exist (assuming the program has the necessary
+access permissions to the destination, of course), since it will just
+create them as needed.
+
 * Usage
 
 1. Create at least one task configuration file as per above.

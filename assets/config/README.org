@@ -56,6 +56,14 @@ and work from there.
 I use a wide range of FOSS; here is a shortlist of my most commonly used
 applications.
 
+I prefer to use [[https://www.firefox.org][Firefox]] as my main web-browser, with [[https://wiki.mozilla.org/Trusted_Recursive_Resolver][Trusted
+Recursive Resolver]] enabled for DNS-over-HTTPS, Firefox's maximum tracking
+protection enabled, and with [[https://addons.mozilla.org/en-US/firefox/addon/umatrix/][umatrix]], [[https://addons.mozilla.org/en-US/firefox/addon/https-everywhere][HTTPS everywhere]], [[https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/][uBlock Origin]] and [[https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17/][Privacy
+Badger]] add-ons enabled.
+
+I also occasionally use [[https://www.chromium.org/Home][Chromium]] as some sites play better with Blink
+engine based browsers.
+
 ** Editors
 
 - [[https://www.gnu.org/software/emacs/][Emacs]] or more specifically, [[https://www.spacemacs.org/][Spacemacs]] (with evil-mode/vi enabled). An
@@ -95,7 +103,6 @@ Sublime editor is proprietary hence why it is not one of my preferred
 options, though by all accounts it is like Atom but addresses its
 performance issues since it is a native C++ application.
 
-
 ** File Management
 
 I alternate between [[https://kde.org/plasma-desktop][KDE Plasma]] and [[https://xmonad.org][Xmonad]] as my main desktop/WM (Xmonad
@@ -131,7 +138,7 @@ production of most documents from a plain-text basis. However:
   much prefer it to Microsoft Office anyway; I don't see what it is
   lacking compared to any commercial rival. Fantastic program.
 
-- [[https://www.latex-project.org/][LaTeX]] offers unparalleled quality of typesetting/outputting, though
+- [[https://www.latex-project.org/][LaTeX]] offers unparalleled quality of typesetting/output, though
   again, my go-to these days would be to type as much as possible/most of
   it in =org-mode=, then export to LaTeX, and only do final adjustments
   (as necessary) then, since the LaTeX syntax is not very pleasant to

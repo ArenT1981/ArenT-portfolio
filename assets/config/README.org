@@ -131,6 +131,15 @@ production of most documents from a plain-text basis. However:
   much prefer it to Microsoft Office anyway; I don't see what it is
   lacking compared to any commercial rival. Fantastic program.
 
+- [[https://www.latex-project.org/][LaTeX]] offers unparalleled quality of typesetting/outputting, though
+  again, my go-to these days would be to type as much as possible/most of
+  it in =org-mode=, then export to LaTeX, and only do final adjustments
+  (as necessary) then, since the LaTeX syntax is not very pleasant to
+  write in and involves a lot of boilerplate code for even basic
+  documents. Fortunately the LaTeX export engine from org-mode is
+  exceptionally good. This gives you virtually all of the benefits of
+  LaTeX whilst also giving you plain-text minimal =org-mode= markup.
+
 - [[http://freeplane.sourceforge.net/][Freeplane]] is also one of my all-time favourite programs. It is
   an incredibly powerful mind-mapping application. Mindmaps have
   advantages that no linear notes have, and I quite frequently use

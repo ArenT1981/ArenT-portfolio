@@ -337,10 +337,11 @@ ext:txt:/foo:/bar/some/really/long/path/dest:cp -nv --preserve=timestamps#
 
 Will copy any =*.txt= files from =/foo= and put them in 
 
-=/bar/some/really/long/path/dest= regardless of whether some or indeed
-any of those directories exist (assuming the program has the necessary
-access permissions to the destination, of course), since it will just
-create them as needed.
+=/bar/some/really/long/path/dest= 
+
+regardless of whether some or indeed any of those directories exist
+(assuming the program has the necessary access permissions to the
+destination, of course), since it will just create them as needed.
 
 * Usage
 

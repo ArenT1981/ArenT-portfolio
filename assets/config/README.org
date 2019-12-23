@@ -216,4 +216,10 @@ backup... ;-)
 
 I always use "dark mode" themes. Nothing worse than staring at a bright
 white screen all day/night, how anyone can do coding with a light editor
-theme I don't know... ;-)
+theme I don't know... ;-) 
+
+It is a pity that the stock =org=/=markdown= rendering engine used on GitHub
+does not offer a dark theme (?)...  
+
+...Though you can always use the Firefox [[https://addons.mozilla.org/en-US/firefox/addon/darkreader/][Dark Reader]] add-on as a
+workaround of course ;-)...

@@ -1,17 +1,18 @@
 #!/bin/bash
 # Author: Aren Tyr
-# Date: 2019-10-03
-# aren.tyr AT yandex.com
+# Date: 2019-12-23
+# aren.unix@yandex.com
 #
 # Secretary: A command line program to help automatically reorganise your files
 #
-# Configuration is done by editing/creating a configuration file in
-# ~/.secretary/secretaryrc
+# Configuration is done by editing/creating a configuration file 
+# using "secretary new". If you want everything stored at somewhere other than
+# ~/.secretary, then edit "CONF_DIR" below.
 #
 # Please review the generated operation file before telling it to copy/move
 # your files. You could potentially do a lot of damage to your system otherwise!
 
-# --- Globals ---
+# --- Globals ---:w
 AUTO="NO"
 FILE_ARG="false"
 CONF_DIR=$HOME/.secretary

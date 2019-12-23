@@ -362,10 +362,10 @@ destination, of course), since it will just create them as needed.
    directory at a later time. Make sure you run your intended one. They
    are all time/date stamped in the filename.
 7. Run =secretary clean= to delete all your existing file operations
-   scripts (not your configuration files, don't worry :-) ). By default,
-   after you run a script, it is automatically deleted anyway (since
+   scripts (not your configuration files, don't worry :-) ). Note that
+   if you use =--auto= mode, the script is automatically deleted (since
    presumably you don't want to run exactly the same file copying
-   operation on exactly the same files all over again). 
+   operation on exactly the same files all over again).
 
 If you have a file in your /current working directory/ with the extension
 =.secretary=, you can also simply run it by calling =secretary= then

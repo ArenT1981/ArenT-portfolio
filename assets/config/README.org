@@ -6,10 +6,10 @@
  
 I use [[http://releases.ubuntu.com/18.04/][Ubuntu 18.04 LTS]] as my primary development/work desktop of my main
 computer, as my principle concern is stability and reliability rather
-than bleeding edge software releases - my computer is my work-tool, I do
+than bleeding edge software releases - my computer is my work-tool. I do
 not have the time to waste fixing broken configuration packages after a
-system update and have better things to do on my work machine. At the
-moment I am using the proprietary Radeon graphics drivers as the
+system update and have more important things to do on my work machine...
+At the moment I am using the proprietary Radeon graphics drivers as the
 open-source drivers for the 5700XT are still pretty bleeding edge at the
 moment (December 2019), but hope to migrate to the full open stack next
 year (probably will have happened by the time Ubuntu migrates to 19.04

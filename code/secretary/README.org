@@ -3,13 +3,15 @@
 1. Clone the script files, and add them into your =$PATH=.
 2. /Optionally/ edit =$CONF_DIR= and =$TASK_DIR= if for some reason you
    want your configuration files stored elsewhere than =~/.secretary=.
-3. Set your chosen editor by running =secretary editor=
+3. Set your chosen editor by running =secretary editor=.
 4. Setup a new secretary task file /foo/ by running =secretary new=. 
 5. Run your newly created task file by calling =secretary foo=.
 6. Verify your newly created proposed task operations script by viewing
-   it in editor (strongly recommended).
+   it in your specified editor (strongly recommended).
 7. Execute the task operations script by calling the script. Your files
-   will now be copied/moved as per your options. 
+   will now be copied/moved as per your options. You can now manually
+   delete the operations script or call =secretary clean=. To perform
+   /foo/ afresh at some later date, simply call =secretary foo= again. 
 
 * Description
 
@@ -116,8 +118,8 @@ and other files, which were semi-organised but had various discrepancies/files i
 wrong place (unsurprising after collecting/transferring files from
 computer to computer over 15+ years!). I ran the program, generated the
 operation script, spent a couple of minutes checking I was happy with
-the proposed script, then ran it. It took less than five minutes to
-organise approximately 20,000 files.
+the proposed script, then ran it. It took about five minutes to
+*organise approximately 20,000 files*.
 
 Another example.
 

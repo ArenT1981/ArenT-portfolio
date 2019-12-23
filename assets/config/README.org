@@ -21,12 +21,13 @@ you get to an 'industry standard' in terms of Linux desktop computing
 and software support.
 
 I tend to use [[https://www.archlinux.org/][Arch Linux]] on my laptops due to the cleanliness and
-efficiency of the =pacman= package manager, though the rolling release
+efficiency of the =pacman= package manager, quality of the
+documentation, and minimalism of the entire system, though the rolling release
 nature of the distribution is somewhat annoying for machines that are
 only used infrequently as so many packages change even within a short
 period of time. I have also installed the [[https://archlinuxarm.org/][ARM architecture]] version of
 Arch Linux on my old Chromebook running off an SD card which makes that
-device 1000 times more usable than in it's default stock state, limited
+device 1000 times more usable than in its default stock state, limited
 as a Google thin-client device. In fact, the completely fanless/silent
 nature of the device, together with its full ALSA support for external
 USB DAC audio device, means that it makes a brilliant high-end audio
@@ -57,13 +58,15 @@ applications.
 
 ** Editors
 
-- [[https://www.gnu.org/software/emacs/][Emacs]] or more specifically, [[https://www.spacemacs.org/][Spacemacs]] (with evil-mode/vi enabled).
-
-An absolutely essential tool; I use org-mode for organising, planning,
-my calendar, for documentation, and document production; I use emacs for
-coding, as my IDE, and also for file management. The emacs window
-manager [[https://github.com/ch11ng/exwm][EXWM]] is also brilliant, though I tend to use [[https://xmonad.org/][Xmonad]] as my daily
-driver.
+- [[https://www.gnu.org/software/emacs/][Emacs]] or more specifically, [[https://www.spacemacs.org/][Spacemacs]] (with evil-mode/vi enabled). An
+  absolutely essential tool; I use org-mode for organising, planning, my
+  calendar, for documentation, and document production; I use emacs for
+  coding, as my IDE, and also for file management. Spacemacs just
+  bundles this altogether in a very conveient bundle, though Emacs
+  purists may object and want to write their own config file from
+  scratch... ;-)  The Emacs window manager [[https://github.com/ch11ng/exwm][EXWM]] is also brilliant,
+  though I tend to use [[https://xmonad.org/][Xmonad]] as my
+  daily driver.
 
 - [[https://www.vim.org/][Vim]], [[https://neovim.io/vim][Neovim]], are my goto's, though in effect I use them within Emacs.
   [[https://spacevim.org/][Spacevim]] is also a blazingly fast and impressive lean IDE.
@@ -89,7 +92,7 @@ driver.
   exceptional editor.
 
 Sublime editor is proprietary hence why it is not one of my preferred
-options, though by all accounts it is like Atom but addresses it's
+options, though by all accounts it is like Atom but addresses its
 performance issues since it is a native C++ application.
 
 
@@ -97,8 +100,8 @@ performance issues since it is a native C++ application.
 
 I alternate between [[https://kde.org/plasma-desktop][KDE Plasma]] and [[https://xmonad.org][Xmonad]] as my main desktop/WM (Xmonad
 most of the time, KDE when I fancy a bit of eye-candy), so consequently
-I will sometimes use the Dolphin, the Plasma default, but a lot of time
-I prefer to work from the terminal. For serious tasks I usually use
+I will sometimes use Dolphin, the Plasma default, but a lot of time I
+prefer to work from the terminal. For serious tasks I usually use
 [[https://doublecmd.sourceforge.io/][Double Commander]], and I have come to prefer [[https://vifm.info/][Vifm]] (Vi file manager) over
 its fellow =vi= inspired "competitor" [[https://ranger.github.io/][Ranger]].
 
@@ -114,6 +117,10 @@ its fellow =vi= inspired "competitor" [[https://ranger.github.io/][Ranger]].
 - [[http://kolourpaint.org/][Kolourpaint]] and [[http://mtpaint.sourceforge.net/][mtpaint]] are extremely convenient for quick and simple
   edits, for which Gimp represents overkill.
 
+- I intend to get back into playing around with 3D rendering using
+  [[https://www.blender.org/][Blender]] sometime. Probably one of the most impressive open source
+  applications ever created.
+
 ** Office & Productivity
 
 As mentioned above, I prefer to use [[https://orgmode.org/][Org-mode]] within Emacs for the
@@ -122,7 +129,7 @@ production of most documents from a plain-text basis. However:
 - I use [[https://www.libreoffice.org/][LibreOffice]] as my mainstay office application for presentations
   and spreadsheets etc. Apart from the fact that it is FOSS, I actually
   much prefer it to Microsoft Office anyway; I don't see what it is
-  lacking compared to any commercial rival.
+  lacking compared to any commercial rival. Fantastic program.
 
 - [[http://freeplane.sourceforge.net/][Freeplane]] is also one of my all-time favourite programs. It is
   an incredibly powerful mind-mapping application. Mindmaps have
@@ -130,23 +137,23 @@ production of most documents from a plain-text basis. However:
   mind-mapping for the production of complex notes or thinking.
 
 - I used to use [[https://www.mindforger.com/][Mindforger]] a lot, until eventually org-mode took
-  over that role and is ultimately a fully integrated solution. But
+  over that role since it is ultimately a fully integrated solution. But
   Mindforger is a brilliant and easy to use non-linear note taking app
-  with a gentle learning curve.
+  with a gentle learning curve and very fast interface.
 
 - A similar case exists for [[https://www.taskcoach.org/][Task Coach]], a very handy time tracking
   and project management/to-do application; but once again, ultimately
   org-mode replaced it.
 
-** System & utilties
+** System & utilities
 
 As mentioned before, I tend to use my own heavily customised Xmonad
 setup with very "vi" keybindings and various custom shortcuts as my
 window manager (and with a custom drop-down terminal), or KDE Plasma
-(with [[https://kde.org/applications/system/org.kde.yakuake][Yakuake]] drop-down terminal). I also like [[https://cinnamon-spices.linuxmint.com/][Cinnmamon]], for its
+(with [[https://kde.org/applications/system/org.kde.yakuake][Yakuake]] drop-down terminal). I also like [[https://cinnamon-spices.linuxmint.com/][Cinnamon]], for its
 simplicity, [[https://www.gnome.org/][GNOME]] for its quirkiness/minimalism, and [[https://joewing.net/projects/jwm/][JWM]] for its
-staggering light footprint (brilliant for weaker hardware/limited RAM
-setups; Xmonad is also incredibly memory efficient) and brilliant
+staggeringly light footprint (brilliant for weaker hardware/limited RAM
+setups; Xmonad is also incredibly memory efficient) and intuitive 
 configurability via a straightforward XML file (Xmonad is definitely not
 so straightforward with its Haskell based configuration). [[https://xfce.org/][XFCE]] has also
 turned into a nice and very efficient desktop too. But Xmonad (mainly)
@@ -178,7 +185,7 @@ slip with =rm -fr= and you could put yourself in serious difficulties!
 (i.e. if you accidentally type =rm =fr /home/foo/* . tar.gz= you will
 end up destroying /everything/ under =/home/foo= rather than just
 deleting all the =tar.gz= files, due to the unintended space inserted
-after the *...). By using suitable aliases in your =.bashrc= you soon
+after the =*=...). By using suitable aliases in your =.bashrc= you soon
 get into the habit of using =trash-put= to delete files instead. The
 files are then still recoverable if you have made a mistake.
 =trash-empty= removes them forever.
@@ -186,4 +193,5 @@ files are then still recoverable if you have made a mistake.
 "I am careful... It has never happened to me."
 
 One mistake, just one in thousands of commands, typed a bit too quickly,
-that's all it could take... :-)
+that's all it could take, and you had better hope you have a very recent
+backup... ;-)

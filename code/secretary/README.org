@@ -15,7 +15,7 @@
 
 This program allows you to define custom file operation patterns to
 automate repetitive file tasks, automatically sort and organise files,
-and extract useful files in an organised manner from various archives,
+and extract useful files in an organised manner from various directories,
 repositories and devices. 
 
 This is more easily explained through the use of an example/use-case.
@@ -81,8 +81,8 @@ Returning back to our example then, what we do is this:
 2. Issue *one single command*, whereupon:
  - (a) All new image files of our specified type (png, jpg, gif, whatever)...
  - (b) ...In whichever search (source) directories...
- - (c) ...Are copied (or moved, or any file operation) to our computer...
- - (d) ...In our specified (desination) directory locations (could be one, could be
+ - (c) ...Are copied (or moved, or any file operation) to the computer...
+ - (d) ...In the specified (desination) directory locations (could be one, could be
    many)...
  - (e) ...And are (optionally) further stored under a date-tree file structure
 
@@ -108,7 +108,7 @@ I currently use it on a regular basis for several standardised tasks:
 3. Copying/backing up =FIT= workout files from my Garmin
 
 I have also used it to mass-organise years worth of backed-up photos
-and other files,which were semi-organised but had various discrepancies/files in the
+and other files, which were semi-organised but had various discrepancies/files in the
 wrong place (unsurprising after collecting/transferring files from
 computer to computer over 15+ years!). I ran the program, generated the
 operation script, spent a couple of minutes checking I was happy with
@@ -126,8 +126,8 @@ especially so if this is something you're going to do semi-regularly;
 recurrent tasks lend themselves to this program).
 
 Crucially, the program is also built around a safety-first principle: it
-will first generation a proposed operation script, so you can look
-through this first before running it, ensuring that you're not
+will generate an operation script, so you can look through this first
+before executing it, ensuring that you're not incorrectly
 copying/clobbering files due to an error/typo on your part. (And
 meanwhile, if you have known-good configurations that you want to
 automate, use as =cron= jobs, etc., you can simply run the program with
@@ -160,13 +160,13 @@ program potentially allows you to mass file copy/move thousands of
 files, so it pays to make certain you have entered the correct
 information, and inspect the resultant script /before/ running it. 
 
-You should */never/* use the =--auto= option the first time you set up a new
+You should /*never*/ use the =--auto= option the first time you set up a new
 task configuration. Only use this when you know everything is good and
 it works as intended!
 
 The configuration file consists of the following format:
 
-=<ext>|<mime>:<file extensions>:<source directory>:[DATE#]<destination
+=<ext>|<mime>:<file extensions|mime types>:<source directory>:[DATE#]<destination
 directory>:<file operation>#=
 
 Here, the =|= symbol indicates *OR*, and the square bracketed *[DATE#]*
@@ -175,31 +175,52 @@ a '#' symbol (and it is good practice the end the file with a '#' line
 too).
 
 An individual configuration file can have as many of these lines as you
-like, so you can specify as many directory pairs as you like. End each
-line with the '#' symbol. End the file with one additional '#' on a
-separate line.
+like, so you can specify as many directory pairs as you need to
+accomplish your task. End each line with the '#' symbol. End the file
+with one additional line starting with '#'.
 
 If you start with =ext:= then file extensions should follow. If you
-start with =mime:= then a MIME globbing pattern should follow; just use
-the latter part. e.g. to match =html= files, just use:
+start with =mime:= then a MIME globbing pattern should follow; but just use
+the latter part returned after the colon from the =file= command. 
 
-=mime:html:/foo:/bar:cp -nvp#=
+e.g. to match =bash= shell scripts, you would use:
+
+=mime:Bourne:/foo:/bar:cp -nvp#=
 
 This line tells secretary that you want to copy all files that have MIME
-type identification of =text/html= from =/foo= to =/bar=, and do so with
+type identification of =bash= shell scripts from =/foo= to =/bar=, and do so with
 the command =cp -nvp= which tells Linux to (=-n=) avoid
 clobbering/overwriting any destination file, (=-v=) be verbose about
 each operation, and (=-p=) preserve all file ownership, permissions, and
 timestamp information.
 
-You can put as many different extensions (or mime types) in the second
+We know that we should use 'Bourne' here, since, for example:
+
+#+BEGIN_SRC bash 
+$ file secretary.sh 
+secretary.sh: Bourne-Again shell script, ASCII text executable
+#+END_SRC
+
+(Using the glob 'Bourne-Again' (without the quotes) should also work.)
+
+For binary files you would use =ELF=. Again, because:
+
+#+BEGIN_SRC bash 
+$ file /bin/cp
+/bin/cp: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/l, for GNU/Linux 3.2.0, BuildID[sha1]=9720743c3b9fbf61b6f38b7568c10a6dbed05a61, stripped
+#+END_SRC
+
+So you can always verify which glob pattern you should use by calling =file= on your
+intended type of file you want to match by MIME type.
+
+You can put as many different extensions/mime types in the second
 field as you want, separated with a single space. e.g.:
 
 =ext:txt jpg png gif nfo bin exe gz zip=
 
-Would match all files ending with =txt=, =png=, =gif=, =nfo=, =bin=,
-=exe=, =gz= and =zip=. Note that they are *case insensitive*. So =txt=
-will match "TXT", "txt", or "tXt" perfectly fine.
+Would match all files ending with the extension =txt=, =png=, =gif=,
+=nfo=, =bin=, =exe=, =gz= and =zip=. Note that they are *case
+insensitive*. So =txt= will match "TXT", "txt", or "tXt" perfectly fine.
 
 Here is a real world example. This is the contents of my configuration
 file that I use to effortlessly *copy* all of my latest photos (=jpg=

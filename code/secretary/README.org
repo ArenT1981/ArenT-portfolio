@@ -181,13 +181,13 @@ directory>:<file operation>#=
 
 Here, the =|= symbol indicates *OR*, and the square bracketed *[DATE#]*
 indicates this is optional. Note that the line should be terminated with
-a '#' symbol (and it is good practice the end the file with a '#' line
+a =#= symbol (and it is good practice the end the file with a =#= line
 too).
 
 An individual configuration file can have as many of these lines as you
 like, so you can specify as many directory pairs as you need to
-accomplish your task. End each line with the '#' symbol. End the file
-with one additional line starting with '#'.
+accomplish your task. End each line with the =#= symbol. End the file
+with one additional line starting with =#=.
 
 If you start with =ext:= then file extensions should follow. If you
 start with =mime:= then a MIME globbing pattern should follow; but just use

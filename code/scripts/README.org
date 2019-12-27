@@ -11,6 +11,13 @@ numbers and special characters as well.
 
 A recent installation of =ruby=.
 
+** Installation
+
+1. Put it somewhere in your =PATH= or alias it. 
+2. =ln -s ruby-password-gen.rb ruby-password-gen= or =mv
+   ruby-password-gen.rb ruby-password-gen=.
+3. Make executable: =chmod +x ruby-password-gen.rb=.
+
 ** Usage
 
 Can be used either interactively or with command line arguments.
@@ -20,6 +27,77 @@ of 5-500 characters, and then ask whether you want the generated
 password to include either or both numbers and symbols.
 
 It will then output your generated password to =stdout=.
+
+Used with arguments, you simply call with either just the length of the
+desired output:
+
+#+BEGIN_SRC bash 
+$ ./ruby-password-gen.rb 125 
+#+END_SRC
+
+Which would generate a 125 character length password including numbers
+and symbols as well as the upper/lower case letters.
+
+Or with three arguments, where arguments 2 and 3 are simply 'y' or 'n'
+to indicate whether you want to generate numbers and/or symbols as well:
+
+#+BEGIN_SRC bash 
+$ ./ruby-password-gen.rb 50 n y 
+#+END_SRC
+
+Generates a password of length 50 that has letters and symbols, but no
+numbers.
+
+Interactive example:
+
+#+BEGIN_SRC text  
+$ ruby ruby-password-gen.rb 
+Enter length of desired password [5-500]: 75
+Use numbers? [y/n]: y
+Use special symbols? [y/n]: n
+ 
+------------------- 
+Generated Password: 
+------------------- 
+ 
+QR84xogp72YP74yxjF802NGWKWA27F4XkKzeH8k4UYwHpYMpsr4mh53WXrRhF1nKsXsc60h351f
+ 
+------------------- 
+#+END_SRC
+
+Example of error handling/usage information:
+
+#+BEGIN_SRC text  
+$ ruby ruby-password-gen.rb faf 8 8
+'faf' -> Invalid input.
+Please specify a integer to indicate length of password between 5 and 500
+ 
+------ USAGE -------
+Either specify 0 arguments (interactive input), 1 argument (password length)
+or 3 arguments (length & generation options): 
+ 
+<password length> <numbers (y/n)> <symbols (y/n)>
+ 
+-> Length input or argument must be a number between 5-500
+-> Numbers input or argument must be either 'y' or 'n' (no quotes!)
+-> Symbols input or argument must be either 'y' or 'n' (no quotes!)
+ 
+Examples:
+ 
+$ ruby-password-gen 125
+This instructs to generate a password of length 125, including numbers and symbols.
+$ ruby-password-gen 40 n n
+This instructs to generate a password of length 40, only using upper/lower case characters.
+$ ruby-password-gen 80 y n
+This instructs to generate a password of length 80, including numbers, but not including
+special symbols.
+$ ruby-password-gen 55 y y
+This instructs to generate a password of length 55, including both numbers and symbols.
+'ruby-password-gen 55' would have the same effect.
+--------------------
+#+END_SRC
+
+
 
 ** Technical notes 
 

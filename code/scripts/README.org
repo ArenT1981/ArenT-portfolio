@@ -1,0 +1,46 @@
+* [[./rubypwdgen][Ruby Password Generator (=ruby-password-gen.rb=)]]
+
+** Description
+
+A simple =ruby= script that generates a password of your desired length.
+
+The password can simply be letters only, or can include either or both
+numbers and special characters as well.
+
+** Prerequisites
+
+A recent installation of =ruby=.
+
+** Usage
+
+Can be used either interactively or with command line arguments.
+
+Called interactively, it will prompt you for a desired password length
+of 5-500 characters, and then ask whether you want the generated
+password to include either or both numbers and symbols.
+
+It will then output your generated password to =stdout=.
+
+** Technical notes 
+
+It makes use of the Ruby =securerandom= library. To increase the
+entropy further, it initially generates a password of length 10000 with
+your desired options, then randomly selects 5000 of these characters,
+then finally reduces it down to a password of <= 500 characters as per your
+specified length.
+
+See the commented [[./rubypwdgen/ruby-password-gen.rb][source code]] for further details.
+
+** About 
+
+This project was created for my submission for the *eduonix DevOps
+E-degree Scripting Basics*, and as an opportunity to code with *Ruby*; I
+have never used it before, though I am pretty familiar with *Python* and
+*Bash*.
+
+GPL license, feel free to make use of it if it is useful. I don't claim
+to be a cryptographic expert so make no guarantees about the absolute
+quality of the resultant passwords. That being said, the =securerandom=
+library should be pretty rigorously implemented, and the resultant passes
+I iterate through in this sure do seem to generate what appears to be an
+extremely random set of passwords, so I am confident the quality is decent.

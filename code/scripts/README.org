@@ -32,7 +32,7 @@ Used with arguments, you simply call with either just the length of the
 desired output:
 
 #+BEGIN_SRC bash 
-$ ./ruby-password-gen.rb 125 
+$ ./ruby-password-gen 125 
 #+END_SRC
 
 Which would generate a 125 character length password including numbers
@@ -42,7 +42,7 @@ Or with three arguments, where arguments 2 and 3 are simply 'y' or 'n'
 to indicate whether you want to generate numbers and/or symbols as well:
 
 #+BEGIN_SRC bash 
-$ ./ruby-password-gen.rb 50 n y 
+$ ./ruby-password-gen 50 n y 
 #+END_SRC
 
 Generates a password of length 50 that has letters and symbols, but no
@@ -51,7 +51,7 @@ numbers.
 Interactive example:
 
 #+BEGIN_SRC text  
-$ ruby ruby-password-gen.rb 
+$ ruby ruby-password-gen 
 Enter length of desired password [5-500]: 75
 Use numbers? [y/n]: y
 Use special symbols? [y/n]: n
@@ -121,4 +121,8 @@ to be a cryptographic expert so make no guarantees about the absolute
 quality of the resultant passwords. That being said, the =securerandom=
 library should be pretty rigorously implemented, and the resultant passes
 I iterate through in this sure do seem to generate what appears to be an
-extremely random set of passwords, so I am confident the quality is decent.
+extremely random set of passwords, so I am confident the quality is
+decent. Try generating a bunch of huge 500 character passwords and see
+for yourself.
+
+

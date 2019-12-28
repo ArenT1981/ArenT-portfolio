@@ -1,3 +1,7 @@
+* Video
+
+[[https://www.youtube.com/watch?v=Py6tDjUyGKk][file:../../assets/img/secretary-youtube.png]] 
+
 * Quickstart (TL;DR)
 
 1. Clone the script files, and add them into your =$PATH=.
@@ -631,7 +635,7 @@ in a file manager/at the command line.
 
 =secretary lso= - display existing generated file operation scripts
 
-=secretary clean= = - delete generated file operation scripts
+=secretary clean= - delete generated file operation scripts
 
 =secretary edit= - edit any existing task configuration file(s)
 

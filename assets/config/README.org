@@ -140,6 +140,8 @@ its fellow =vi= inspired "competitor" [[https://ranger.github.io/][Ranger]].
 
 ** Office & Productivity
 
+[[../img/wmaker-900px.png]]
+
 As mentioned above, I prefer to use [[https://orgmode.org/][Org-mode]] within Emacs for the
 production of most documents from a plain-text basis. However:
 
@@ -209,6 +211,8 @@ its associated application with just a few keystrokes from anywhere in
 the desktop; much faster than using a "Start" menu or equivalent. KDE
 has krunner built-in, but it still doesn't match synapse in overall
 power.
+
+[[../img/cinnamon-900px.png]] 
 
 For terminals, I use konsole when under KDE, but my favourite option is
 the "power users" favourite, [[http://software.schmorp.de/pkg/rxvt-unicode.html][urxvt]] (i.e. rxvt-unicode) specifically

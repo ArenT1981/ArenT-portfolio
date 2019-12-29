@@ -53,6 +53,8 @@ I am also very impressed with the latest release of the [[https://getfedora.org/
 Workstation]], in particular its =dnf= package manager, and may possibly
 switch at some point, and will probably choose a minimal custom install
 and work from there.
+
+[[../img/virtualbox.png]] 
  
 * Open Source Software
 
@@ -61,8 +63,8 @@ applications.
 
 I prefer to use [[https://www.firefox.org][Firefox]] as my main web-browser, with [[https://wiki.mozilla.org/Trusted_Recursive_Resolver][Trusted
 Recursive Resolver]] enabled for DNS-over-HTTPS, Firefox's maximum tracking
-protection enabled, and with [[https://addons.mozilla.org/en-US/firefox/addon/umatrix/][umatrix]], [[https://addons.mozilla.org/en-US/firefox/addon/https-everywhere][HTTPS everywhere]], [[https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/][uBlock Origin]] and [[https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17/][Privacy
-Badger]] add-ons enabled.
+protection enabled, and with [[https://addons.mozilla.org/en-US/firefox/addon/umatrix/][umatrix]], [[https://addons.mozilla.org/en-US/firefox/addon/https-everywhere][HTTPS everywhere]], [[https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/][uBlock Origin]]
+and [[https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17/][Privacy Badger]] add-ons enabled.
 
 I also occasionally use [[https://www.chromium.org/Home][Chromium]] as some sites play better with Blink
 engine based browsers.
@@ -154,7 +156,7 @@ production of most documents from a plain-text basis. However:
   advantages that no linear notes have, and I quite frequently use
   mind-mapping for the production of complex notes or thinking.
 
-- I used to use [[https://www.mindforger.com/][Mindforger]] a lot, until eventually org-mode took
+- I used to use [[https://www.mindforger.com/][Mindforger]] a lot, until eventually Emacs/org-mode took
   over that role since it is ultimately a fully integrated solution. But
   Mindforger is a brilliant and easy to use non-linear note taking app
   with a gentle learning curve and very fast interface.
@@ -163,7 +165,12 @@ production of most documents from a plain-text basis. However:
   and project management/to-do application; but once again, ultimately
   org-mode replaced it.
 
+[[../img/mindforger-pascal-screenshot.png]]
+
 ** System & utilities
+
+[[../img/kde-900px-vert.png]]
+[[../img/kde-full-res.png][3840x4320px (2 x 4K) full resolution image]]
 
 As mentioned before, I tend to use my own heavily customised Xmonad
 setup with very "vi" keybindings and various custom shortcuts as my
@@ -219,6 +226,8 @@ files are then still recoverable if you have made a mistake.
 One mistake, just one in thousands of commands, typed a bit too quickly,
 that's all it could take, and you had better hope you have a very recent
 backup... ;-)
+
+[[../img/synapse.png]] 
 
 * Most important note ;-)
 

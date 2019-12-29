@@ -2,7 +2,7 @@
 
 This program implements a full simulation of a pedestrian crossing
 system on the =PIC 16F84A= Millennium development board and is written
-in =C= (embedded =C=).
+in *C* (embedded C).
 
 It produces this simulation on the board using the inbuilt lights, buzzer and
 buttons. It implements the standard light sequence used by
@@ -16,9 +16,9 @@ design* with *modelled data flows and state transitions*, together with
 subsequent iterations of the source code (originally outside =git=).
 
 Fully illustrated complete *documentation* (overview; design; testing;
-codebase) is provided in the project *[[https://github.com/ArenT1981/ArenT-portfolio/raw/master/PIC-traffic-light/PIC-traffic-light.pdf][PDF]]* file, and the complete source
+codebase) is provided in the project *[[https://github.com/ArenT1981/ArenT-portfolio/raw/master/code/PIC-traffic-light/PIC-traffic-light.pdf][PDF]]* file, and the complete source
 code is provided in the [[./src][src]] directory. Some sample images from the
-documentation are show below; view the PDF for the full elaboration.
+documentation are shown below; view the PDF for the full elaboration.
 
 * About
 

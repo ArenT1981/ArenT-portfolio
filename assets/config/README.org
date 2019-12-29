@@ -1,7 +1,7 @@
 #+STARTUP: indent content 
 * My Configuration / Tools I use
 
-[[./img/xmonad-900px-vert.png]]
+[[../img/xmonad-900px-vert.png]]
 
 * OS
  

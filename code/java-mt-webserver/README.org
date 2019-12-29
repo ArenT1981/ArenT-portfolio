@@ -1,0 +1,27 @@
+* Description
+
+This program implements a basic multi-threaded web server written in
+=Java=. 
+
+It makes uses of =Thread= and =ServerSocket= from the Java API to
+output a chunked transfer stream to negotiate the basic HTTP protocol
+and serve up static webpages.
+
+The project makes use of *iterative development*, structured *Object
+Orientated program design*, and a specifically developed test-client to
+test whether it handles spawning off threads correctly.
+
+Fully illustrated complete *documentation* (overview; design; testing;
+codebase) is provided in the project *[[https://github.com/ArenT1981/ArenT-portfolio/raw/master/code/java-mt-webserver/Java-mt-server.pdf][PDF]]* file, and the complete source
+code is provided in the [[./src][src]] directory (together with the example basic
+test page/site). Some sample images from the documentation are shown
+below; view the PDF for the full elaboration.
+
+* About
+
+This project came about whilst experimenting with basic network
+programming in Java and developing a client-server pair.
+
+GPL license.
+
+[[./img/website-test-page.png]]

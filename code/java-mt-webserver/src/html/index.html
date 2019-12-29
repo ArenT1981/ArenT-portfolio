@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 6.0.7.3 (Linux)"/>
+	<meta name="created" content="2019-12-29T13:06:02.810592625"/>
+	<meta name="changed" content="2019-12-29T13:22:35.001448564"/>
+	<style type="text/css">
+		@page { margin: 2cm }
+		p { margin-bottom: 0.25cm; line-height: 115% }
+		a:link { so-language: zxx }
+	</style>
+</head>
+<body lang="en-GB" dir="ltr">
+<p align="center" style="margin-bottom: 0cm; line-height: 100%"><font size="4" style="font-size: 16pt"><b>Java
+Mulithreaded Webserver Test Page</b></font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p align="center" style="margin-bottom: 0cm; line-height: 100%"><img src="index_html_6ad845b73d23748b.gif" name="Image1" align="bottom" width="643" height="549" border="0"/>
+</p>
+<p align="center" style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%">When a web browser
+attempts to connect to any given server, it issues at GET request for
+the named resource. The Server will read in the request, and then
+deliver the response. If you telnet to port 80 on any web server, and
+issue, for example <font face="FreeMono, monospace">&quot;GET
+/index.html&quot;</font>, then assuming the page exists, the web
+browser will return the page preceded by a HTTP protocol header. 
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Whilst I had some
+familiarity with this header, I was not sure of the exact details, so
+looked up the explicit technical details from the W3C2 consortium's
+web page. The RFC documents on their site, although terse, are both
+comprehensive and exact. 
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%">One important detail
+of the header specification is that each line must be terminated by a
+carriage return line feed, <font face="FreeMono, monospace">CrLF
+(\n\r)</font>. Any given web client expects this when differentiating
+the lines of the HTTP header that defines the HTTP protocol. Perhaps
+the most important insight I had was to use the header line
+&quot;Content-encoding:chunked&quot;, since this makes the
+&quot;Content-length:&quot; field unnecessary - otherwise, you have
+to specify the exact length (in bytes) of the document you're sending
+to the client - which is tiresome and awkward. 
+</p>
+</body>
+</html>

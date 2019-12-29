@@ -3,6 +3,8 @@
 
 [[../img/xmonad-900px-vert.png]]
 
+[[../img/xmonad-full-res.png][3840x4320px (2 x 4K) full resolution image]]
+
 * OS
  
 I use [[http://releases.ubuntu.com/18.04/][Ubuntu 18.04 LTS]] as my primary development/work desktop of my main

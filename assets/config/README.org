@@ -71,6 +71,8 @@ engine based browsers.
 
 ** Editors
 
+[[../img/svim.png]]
+
 - [[https://www.gnu.org/software/emacs/][Emacs]] or more specifically, [[https://www.spacemacs.org/][Spacemacs]] (with evil-mode/vi enabled). An
   absolutely essential tool; I use org-mode for organising, planning, my
   calendar, for documentation, and document production; I use emacs for
@@ -117,7 +119,11 @@ prefer to work from the terminal. For serious tasks I usually use
 [[https://doublecmd.sourceforge.io/][Double Commander]], and I have come to prefer [[https://vifm.info/][Vifm]] (Vi file manager) over
 its fellow =vi= inspired "competitor" [[https://ranger.github.io/][Ranger]].
 
+[[../img/vifm.png]]
+
 ** Graphics
+
+[[../img/dia.png]] 
 
 - I have been using [[http://dia-installer.de/][Dia]] for a very long time. Essential and very easy to
   use vector editor for all manner of diagrams and flowcharts etc.
@@ -169,9 +175,6 @@ production of most documents from a plain-text basis. However:
 
 ** System & utilities
 
-[[../img/kde-900px-vert.png]]
-[[../img/kde-full-res.png][3840x4320px (2 x 4K) full resolution image]]
-
 As mentioned before, I tend to use my own heavily customised Xmonad
 setup with very "vi" keybindings and various custom shortcuts as my
 window manager (and with a custom drop-down terminal), or KDE Plasma
@@ -188,7 +191,11 @@ Because I really like the original BeOS colour scheme, I use that as a
 clean setup for WindowMaker, and I also created a custom theme with
 almost identical themes for JWM. 
 
-Links to my dotiles/configuration files are provided. 
+[[../img/kde-900px-vert.png]]
+
+[[../img/kde-full-res.png][3840x4320px (2 x 4K) full resolution image]]
+
+I have included my dotfiles/configuration files in this directory. 
 
 I use [[https://bluesabre.org/projects/catfish/][Catfish]] for its powerful but very easy file searching, and [[https://github.com/BurntSushi/ripgrep][ripgrep]]
 and [[https://github.com/junegunn/fzf][fzf]] for their powerful console based fuzzy finding capabilities.

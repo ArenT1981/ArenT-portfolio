@@ -7,8 +7,8 @@ It makes uses of =Thread= and =ServerSocket= from the Java API to
 output a chunked transfer stream to negotiate the basic HTTP protocol
 and serve up static webpages.
 
-The project makes use of *iterative development*, structured *Object
-Orientated program design*, and a specifically developed test-client to
+The project makes use of *iterative development*, structured *object
+orientated program design*, and a specifically developed test-client to
 test whether it handles spawning off threads correctly.
 
 Fully illustrated complete *documentation* (overview; design; testing;
@@ -17,11 +17,14 @@ code is provided in the [[./src][src]] directory (together with the example basi
 test page/site). Some sample images from the documentation are shown
 below; view the PDF for the full elaboration.
 
+[[./img/code-screenshot.png]] 
+
+[[./img/website-test-page.png]]
+
 * About
 
 This project came about whilst experimenting with basic network
 programming in Java and developing a client-server pair.
 
-GPL license.
+*GPL* license.
 
-[[./img/website-test-page.png]]

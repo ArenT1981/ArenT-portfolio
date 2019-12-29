@@ -110,6 +110,8 @@ Sublime editor is proprietary hence why it is not one of my preferred
 options, though by all accounts it is like Atom but addresses its
 performance issues since it is a native C++ application.
 
+[[../img/eclipse.png]]
+
 ** File Management
 
 I alternate between [[https://kde.org/plasma-desktop][KDE Plasma]] and [[https://xmonad.org][Xmonad]] as my main desktop/WM (Xmonad

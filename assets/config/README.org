@@ -1,6 +1,7 @@
 #+STARTUP: indent content 
 * My Configuration / Tools I use
 
+[[./img/xmonad-900px-vert.png]]
 
 * OS
  
@@ -112,7 +113,6 @@ prefer to work from the terminal. For serious tasks I usually use
 [[https://doublecmd.sourceforge.io/][Double Commander]], and I have come to prefer [[https://vifm.info/][Vifm]] (Vi file manager) over
 its fellow =vi= inspired "competitor" [[https://ranger.github.io/][Ranger]].
 
-
 ** Graphics
 
 - I have been using [[http://dia-installer.de/][Dia]] for a very long time. Essential and very easy to
@@ -173,7 +173,13 @@ setups; Xmonad is also incredibly memory efficient) and intuitive
 configurability via a straightforward XML file (Xmonad is definitely not
 so straightforward with its Haskell based configuration). [[https://xfce.org/][XFCE]] has also
 turned into a nice and very efficient desktop too. But Xmonad (mainly)
-and KDE are my mainstays.
+and KDE are my mainstays. [[https://www.windowmaker.org/][Windowmaker]] is old-school, but very fast, very
+efficient, and I just love its completely different design orientation.
+Because I really like the original BeOS colour scheme, I use that as a
+clean setup for WindowMaker, and I also created a custom theme with
+almost identical themes for JWM. 
+
+Links to my dotiles/configuration files are provided. 
 
 I use [[https://bluesabre.org/projects/catfish/][Catfish]] for its powerful but very easy file searching, and [[https://github.com/BurntSushi/ripgrep][ripgrep]]
 and [[https://github.com/junegunn/fzf][fzf]] for their powerful console based fuzzy finding capabilities.
@@ -214,9 +220,9 @@ backup... ;-)
 
 * Most important note ;-)
 
-I always use "dark mode" themes. Nothing worse than staring at a bright
-white screen all day/night, how anyone can do coding with a light editor
-theme I don't know... ;-) 
+I always use "dark mode" themes (everywhere). Nothing worse than staring
+at a bright white screen all day/night, how anyone can do coding with a
+light editor theme burning into their retinas I don't know... ;-) 
 
 It is a pity that the stock =org= / =markdown= rendering engine used on GitHub
 does not offer a dark theme (?)...  

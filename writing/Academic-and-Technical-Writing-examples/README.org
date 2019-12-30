@@ -67,9 +67,16 @@ not teach people /how/ to learn. Yet it precisely the set of practices
 and skills that a person adopts in approaching learning that directly
 relate to how well they actually accomplish that learning. 
 
-In short, we need to /learn/ how to /learn/ first; this is a skill that
+In short, we need to /learn how to learn/ first; this is a skill that
 should be revisited periodically, as it is something that can be
 improved with explicit attention, just like any other learnable skill.
+
+It is an assumption made that every reasonably well educated person
+knows /how/ to learn. Yet even highly educated people can often have
+extremely sub-optimal learning habits; in short, by upgrading their
+meta-cognitive learning skills, they would be able to achieve even
+better learning in less time with less overall effort. Therefore it is
+something we should all look into and seek to 'upgrade'.
 
 *** [[https://github.com/ArenT1981/ArenT-portfolio/raw/master/writing/Academic-and-Technical-Writing-examples/Meta-learning-Learning2.pdf][Learning How To Learn]]
 

@@ -86,14 +86,18 @@ guessing!
 Yet successful testing, whether it is for second language acquisition or
 any other skill, is not so straightforward. 
 
-Tests need to be extremely well designed and actually test what they
+This document explores some of the statistical analysis mechanisms by
+which we can ascertain whether our testing strategy is effective and
+well-balanced. 
+
+Tests need to be extremely well designed to actually test what they
 purport to test. This may seem obvious, but the fact remains that many
-tests do not in fact /actually/ test the skill we are primarily interested in
-testing, but rather test something different, which we erroneously
+tests do /not/ in fact actually test the skill we are primarily interested in
+testing, but rather test something /different/, yet which we erroneously
 believe to be testing our intended skill. 
 
 This applies equally to software engineering: Just because the software
-works find with your small dataset or expected set of test inputs, does
+works fine with your small dataset or expected set of test inputs, does
 not guarantee that the performance will be as expected in a real-world
 production environment! Tests must accurately represent the actual
 environment upon which the production system is to be deployed.

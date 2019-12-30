@@ -1,6 +1,6 @@
 * Academic and Technical Writing
 
-[[../assets/img/academic-header.png]] 
+[[../../assets/img/academic-header.png]] 
 
 One of the key qualities of being a successful software or system
 engineer is the ability to communicate complex information effectively

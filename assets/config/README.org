@@ -169,7 +169,9 @@ production of most documents from a plain-text basis. However:
 - I used to use [[https://www.mindforger.com/][Mindforger]] a lot, until eventually Emacs/org-mode took
   over that role since it is ultimately a fully integrated solution. But
   Mindforger is a brilliant and easy to use non-linear note taking app
-  with a gentle learning curve and very fast interface.
+  with a gentle learning curve and very fast interface. In fact the
+  interface is so nice that I like to export finished =org= documents to
+  =markdown= just for viewing/browsing them via this application.
 
 - A similar case exists for [[https://www.taskcoach.org/][Task Coach]], a very handy time tracking
   and project management/to-do application; but once again, ultimately
@@ -183,7 +185,7 @@ As mentioned before, I tend to use my own heavily customised Xmonad
 setup with very "vi" keybindings and various custom shortcuts as my
 window manager (and with a custom drop-down terminal), or KDE Plasma
 (with [[https://kde.org/applications/system/org.kde.yakuake][Yakuake]] drop-down terminal). I also like [[https://cinnamon-spices.linuxmint.com/][Cinnamon]], for its
-simplicity, [[https://www.gnome.org/][GNOME]] for its quirkiness/minimalism, and [[https://joewing.net/projects/jwm/][JWM]] for its
+simplicity, and [[https://joewing.net/projects/jwm/][JWM]] for its
 staggeringly light footprint (brilliant for weaker hardware/limited RAM
 setups; Xmonad is also incredibly memory efficient) and intuitive 
 configurability via a straightforward XML file (Xmonad is definitely not
@@ -199,7 +201,13 @@ almost identical themes for JWM.
 
 [[../img/kde-full-res.png][3840x4320px (2 x 4K) full resolution image]]
 
-I have included my dotfiles/configuration files in this directory. 
+Recently I have been using and been impressed by [[https://www.gnome.org/][GNOME]] desktop. Its
+apparent quirkiness and minimalism actually disguises a lot of power,
+particularly once you have added various extensions.
+ 
+[[../img/gnome-desktop-800px.png]]
+
+I have included some of my dotfiles/configuration files in this directory. 
 
 I use [[https://bluesabre.org/projects/catfish/][Catfish]] for its powerful but very easy file searching, and [[https://github.com/BurntSushi/ripgrep][ripgrep]]
 and [[https://github.com/junegunn/fzf][fzf]] for their powerful console based fuzzy finding capabilities.

@@ -1,3 +1,5 @@
+[[../../assets/img/agent-project-banner.png]] 
+
 * Description 
 
 Maze searching program implemented in =Scheme/Racket=.

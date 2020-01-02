@@ -1,3 +1,5 @@
+[[../../assets/img/pic-project-banner.png]] 
+
 * Description
 
 This program implements a full simulation of a pedestrian crossing

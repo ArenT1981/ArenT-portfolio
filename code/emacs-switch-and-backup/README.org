@@ -1,3 +1,5 @@
+[[../../assets/img/emacs-switch-banner.png]] 
+
 * Description
 
 A =bash= convenience wrapper/customisation script for [[https://www.gnu.org/software/emacs/][Emacs]] that automates

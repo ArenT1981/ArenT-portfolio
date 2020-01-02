@@ -1,3 +1,5 @@
+[[../../assets/img/algorithms-banner.png]] 
+
 * Algorithms
 
 Please view the individual source files for further information.

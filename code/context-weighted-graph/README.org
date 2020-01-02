@@ -1,3 +1,5 @@
+[[../../assets/img/concept-map-banner.png]] 
+
 * Description 
 
 The initial aim of this program is to implement storing a library of "context
@@ -66,9 +68,10 @@ The above map graphically corresponds to the following diagram:
 
 The program generates the following output:
 
-#+BEGIN_SRC text 
-* ACTION: *** Parsing context files in... ***
-* ACTION: Parsing in context files
+#+BEGIN_SRC text
+ 
+ * ACTION: *** Parsing context files in... ***
+ * ACTION: Parsing in context files
   -> UPDATE: Parsing file: fish.map
   -> UPDATE: Valid map line definition detected.
   -> UPDATE: Valid node line definition detected. Node total: 1
@@ -82,7 +85,7 @@ The program generates the following output:
   -> UPDATE: Valid node connection definition detected. Connection total: 4
   -> UPDATE: Valid node connection definition detected. Connection total: 5
   -> UPDATE: Valid node connection definition detected. Connection total: 6
-* ACTION: Map successfully added: fish
+ * ACTION: Map successfully added: fish
   -> UPDATE: Node successfully added: gourami
   -> UPDATE: Node successfully added: tetra
   -> UPDATE: Node successfully added: minnow
@@ -94,7 +97,7 @@ The program generates the following output:
   -> UPDATE: Connection successfully created from node: tetra
   -> UPDATE: Connection successfully created from node: shark
   -> UPDATE: Connection successfully created from node: gourami
-* ACTION: *** File input complete. ***
+ * ACTION: *** File input complete. ***
 
 Context maps stored: 
 --------------------

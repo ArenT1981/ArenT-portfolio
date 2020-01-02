@@ -1,4 +1,6 @@
 #+STARTUP: indent
+[[../../assets/img/rsync-banner.png]] 
+
 * Description
 
 This program implements a simple scripted backup strategy after

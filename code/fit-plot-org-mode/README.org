@@ -1,3 +1,5 @@
+[[../../assets/img/fit-plot-org-mode.png]] 
+
 * Description
 
 The objective of this script is to fully automate converting Garmin

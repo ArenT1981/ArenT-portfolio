@@ -1,7 +1,9 @@
+[[../../assets/img/java-web-server-banner.png]] 
+
 * Description
 
 This program implements a basic multi-threaded web server written in
-=Java=. 
+*Java*. 
 
 It makes uses of =Thread= and =ServerSocket= from the Java API to
 output a chunked transfer stream to negotiate the basic HTTP protocol

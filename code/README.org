@@ -42,5 +42,5 @@ using =rsync/tar=.
 
 - [[./secretary][Secretary]]
 
-= =bash= program that offers automated file copying & reorganising
+=bash= program that offers automated file copying & reorganising
 operations based on specific globbing patterns and file metadata information. 

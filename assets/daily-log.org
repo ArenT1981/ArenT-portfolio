@@ -30,7 +30,11 @@ Anyone that has used Emacs before will understand what I mean... :-)
 
 *December 2019 - 144 hours*:
 
-[[./img/dec2019-time.png]] 
+[[./img/dec2019-time.png]]
+
+*January 2020 - 97 hours:*
+
+[[./img/jan2020-time.png]] 
 
 * Diary/Daily Log                                         :ossu:learninglog:
 ** *Monday September 23rd:*

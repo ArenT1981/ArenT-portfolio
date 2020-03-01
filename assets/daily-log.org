@@ -36,6 +36,10 @@ Anyone that has used Emacs before will understand what I mean... :-)
 
 [[./img/jan2020-time.png]] 
 
+*February 2020 - 94 hours:*
+
+[[./img/feb2020-time.png]] 
+
 * Diary/Daily Log                                         :ossu:learninglog:
 
 *2019* 
@@ -478,3 +482,11 @@ Anyone that has used Emacs before will understand what I mean... :-)
 - IBM Data Science (Python Programming; IBM DB2)
 ** *Wednesday February 26th*:
 - GitHub portfolio update
+** *Thursday February 27th*:
+- IBM Data Science (Python data wrangling)
+** *Friday February 28th*:
+- IBM Data Science (Python regression models)
+** *Saturday February 29th*:
+- IBM Data Science (Python polynomial regression and pipelines)
+** *Sunday March 1st*:
+- IBM Data Science (Python model refinement; fitting; ridge regression)

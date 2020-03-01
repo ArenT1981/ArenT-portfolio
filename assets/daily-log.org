@@ -15,10 +15,27 @@ The charts below are courtesy of the wonderful [[https://github.com/rksm/clj-org
 program that generates some extremely useful and very attractive
 interactive charts in your web-browser based on the time tracking
 information stored in Emacs [[https://orgmode.org][org-mode]] files. Emacs is my essential
-organisation, non-linear notetaking, life management, editor/IDE, and
+organisation, non-linear note-taking, life management, editor/IDE, and
 all round kitchen sink powerhouse tool! 
 
 Anyone that has used Emacs before will understand what I mean... :-)
+
+Update: 
+
+In January I switched to the excellent open source program [[http://rachota.sourceforge.net/en/index.html][Rachota]] for
+my time tracking, as it has all of the flexibility of being able to log
+by project/task, export to CSV, generate HTML reports, etc., and also
+has a more convenient interface for reviewing precisely what you did
+each day. Additionally, the daily "target" hours live progress bar when
+you're working on a task is highly motivating. From a data integrity
+point of view, it stores it all in XML format. 
+
+It is a free, open source, cross platform Java application. Highly
+recommended! 
+
+Emacs is brilliant but I have been gradually diversifying to a suite of
+separate applications which overall are more flexible and convenient in
+each of their respective domains.
 
 *October 2019 - 117 hours*:
 

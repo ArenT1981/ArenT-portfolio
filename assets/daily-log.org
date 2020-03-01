@@ -20,7 +20,7 @@ all round kitchen sink powerhouse tool!
 
 Anyone that has used Emacs before will understand what I mean... :-)
 
-Update: 
+*Update 2020:* 
 
 In January I switched to the excellent open source program [[http://rachota.sourceforge.net/en/index.html][Rachota]] for
 my time tracking, as it has all of the flexibility of being able to log

@@ -1,6 +1,10 @@
 #+STARTUP: indent
 * Daily Study/Work/Development Log
 
+*Total Hours (as of Sunday 1st March): 723.5*
+
+(159.5 hours logged prior to October 2019, not graphed).
+
 I track my time rigorously; if you are serious about applying yourself
 properly to learning/study it is /no different/ to working in a
 full-time job. More precisely, the study /is/ your full-time job if you

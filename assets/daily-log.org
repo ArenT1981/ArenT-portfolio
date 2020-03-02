@@ -1,7 +1,7 @@
 #+STARTUP: indent
 * Daily Study/Work/Development Log
 
-*Total Hours (as of Sunday 1st March): 723.5*
+** *Total Hours (as of Sunday 1st March): 723.5*
 
 (159.5 hours logged prior to October 2019, not graphed).
 

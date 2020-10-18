@@ -10,7 +10,7 @@ See my [daily log](./assets/daily-log.org) for a detailed time-tracked summary o
 
 [<img src="./assets/img/academic-writing-banner.png">](./writing/Academic-and-Technical-Writing-examples) 
 
-## [Academic & (non-IT specific) Technical Writing](./writing/Academic-and-Technical-Writing-examples)
+## [Academic & Technical Writing](./writing/Academic-and-Technical-Writing-examples)
 
 This contains a representative sample of the quality of my general writing and documentation ability. A detailed summary is presented in the README inside the directory. Though not IT specific, I feel it is very important to include it in this portfolio because software engineering is about *far* more than just writing code; the production of clear, high quality, and professional documents is crucial.  
 
@@ -19,6 +19,20 @@ This contains a representative sample of the quality of my general writing and d
 ## [**My Configuration/Linux Setup**](./assets/config)
 
 My personal configuration/dotfiles for various tools I use, together with my customisations to various window managers and other usability settings.  
+
+## Highlighted Projects
+
+[<img src = "https://raw.githubusercontent.com/ArenT1981/CSV2OrgSchema/master/assets/logo.png">](https://github.com/ArenT1981/CSV2OrgSchema)
+
+- [**CSV to Org Schema: Apex Code Generator written in Java**](https://github.com/ArenT1981/CSV2OrgSchema)
+
+A Java project that programmatically generates self-contained Salesforce Apex code utilising the Metadata API to fully generate/populate a Salesforce org with custom objects and fields, entirely bypassing the inefficient web interface and providing an easily automated solution. 
+
+[<img src= "https://raw.githubusercontent.com/ArenT1981/bsa_constraint_validation_assign1/master/assets/img/logo.png">](https://github.com/ArenT1981/bsa_constraint_validation_assign1)
+
+- [**NHS BSA Assignment**](https://github.com/ArenT1981/bsa_constraint_validation_assign1)
+
+A Java project that implements a JSR-303 ConstraintValidator Java Bean for checking/validating input values. Complete with full test classes, detailed documentation, full Javadoc and near 100% code coverage via JaCaco.
 
 ## [Development Portfolio Projects](./code)
 

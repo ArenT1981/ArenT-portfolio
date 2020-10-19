@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: Aren Tyr
-# Date: 2019-12-23
+# Date: 2020-02-29
 # aren.unix@yandex.com
 #
 # Secretary: A command line program to help automatically reorganise your files
@@ -15,7 +15,7 @@
 # --- Globals ---
 AUTO="NO"
 FILE_ARG="false"
-CONF_DIR=$HOME/.secretary
+CONF_DIR=$HOME/.config/secretary
 TASK_DIR=$CONF_DIR/tasks
 CONF_FILE=$CONF_DIR/secretaryrc
 MASTER_LIST=$CONF_DIR/master
@@ -42,7 +42,7 @@ showUsage()
     echo "[configuration file (relative filename or path to file as required)]"
     echo ""
     echo "    Optionally supply a configuration file to use instead of the default which"
-    echo "is at ~/.secretary/secretaryrc. This is useful for scripting secretary instances,"
+    echo "is at ~/.config/secretary/secretaryrc. Useful for scripting secretary instances,"
     echo "or maintaining multiple secretary 'profiles' for different use-cases, i.e. a "
     echo "config file for processing files off a digital camera, another one for sorting"
     echo "internet dowloads, another one to sort text files, etc. E.g.:"
@@ -74,7 +74,7 @@ showUsage()
     echo "itself if you want it to automatically run the contents of"
     echo "~/.secretary/secretaryrc e.g. "
     echo ""
-    echo "secretary --auto                          (runs on ~/.secretary/secretaryrc)"
+    echo "secretary --auto                    (runs on ~/.config/secretary/secretaryrc)"
     echo "secretary --auto /path/to/mySecretaryConfig.secretary"
     echo "secretary --auto myAmazingFileArrangement.secretary"
 }
@@ -146,7 +146,7 @@ editTaskFile()
     FILENAME="`head -n $CHOICE $TASK_DIR/.taskfilelist | tail -n 1`"
     echo "F: $FILENAME"
 
-    vim "$TASK_DIR/$FILENAME".secretary
+    "$EDITCOMMAND" "$TASK_DIR/$FILENAME".secretary
 
 }
 
@@ -164,15 +164,15 @@ setEditor()
 }
 
 if [ ! -z "$EDITOR" ]; then
-    EDIT_VIEW="$EDITOR"
+    EDITCOMMAND="$EDITOR"
 else
-    EDIT_VIEW="vi"
+    EDITCOMMAND="vi"
 fi
 
 # Use graphical editor if running under X and they've set $VISUAL
 if [ ! -z "$DISPLAY" ]; then # Are we running under X?
     if [ ! -z "$VISUAL" ]; then
-        EDIT_VIEW="$VISUAL"
+        EDITCOMMAND="$VISUAL"
     fi
 fi
 
@@ -279,14 +279,14 @@ do
   CMD="cp -n"
   DATE_MODE="DISABLE"
 
-	COMMENT_HASH="`echo $LINE | cut -c 1`"
-	[ "$COMMENT_HASH" = "#" ] && continue
+  COMMENT_HASH="`echo $LINE | cut -c 1`"
+  [ "$COMMENT_HASH" = "#" ] && continue
 
-	TYPE_FIELD="`echo $LINE | cut -d ':' -f 1`"
-	EXT_FIELD="`echo $LINE | cut -d ':' -f 2`"
+  TYPE_FIELD="`echo $LINE | cut -d ':' -f 1`"
+  EXT_FIELD="`echo $LINE | cut -d ':' -f 2`"
   SOURCE_FIELD="`echo $LINE | cut -d ':' -f 3`"
-	DEST_FIELD="`echo $LINE | cut -d ':' -f 4`"
-	DATE_CHECK="`echo $DEST_FIELD | grep ".*DATE#.*" -`"
+  DEST_FIELD="`echo $LINE | cut -d ':' -f 4`"
+  DATE_CHECK="`echo $DEST_FIELD | grep ".*DATE#.*" -`"
 
   FILE_CMD="`echo $LINE | cut -d ':' -f 5 | cut -d '#' -f 1`"
 
@@ -312,7 +312,7 @@ do
 				# Fork off the hierarchical date script
 				find "$SOURCE_FIELD" -type f  -iregex \
 					".*/*\.$EXT$" \
-					-exec secretary-date-handler.sh {} "$SOURCE_FIELD" "$DEST_FIELD" "$CONF_DIR/datemode-$COUNTER-$EXT.files" "$CONF_DIR/datemode-$COUNTER-$EXT.dirlist" "$CMD" \;
+					-exec "$CONF_DIR"/secretary-date-handler.sh {} "$SOURCE_FIELD" "$DEST_FIELD" "$CONF_DIR/datemode-$COUNTER-$EXT.files" "$CONF_DIR/datemode-$COUNTER-$EXT.dirlist" "$CMD" \;
 
         # Insert header or remove empty filelist 
         if [ -s "$CONF_DIR/datemode-$COUNTER-$EXT.files" ]; then
@@ -379,7 +379,7 @@ do
                 MIME_DEST="`echo $MIMELINE | cut -d ':' -f 2`"
 
                # Fork off date script
-                secretary-date-handler.sh "$MIME_FILE" "$MIME_SRC" "$DEST_FIELD" "$CONF_DIR/datemode-$COUNTER-$MIME.files" "$CONF_DIR/datemode-$COUNTER-$MIME.dirlist" "$CMD"
+                "$CONF_DIR"/secretary-date-handler.sh "$MIME_FILE" "$MIME_SRC" "$DEST_FIELD" "$CONF_DIR/datemode-$COUNTER-$MIME.files" "$CONF_DIR/datemode-$COUNTER-$MIME.dirlist" "$CMD"
                 done < $CONF_DIR/filelist-$COUNTER-$MIME.files
 
                 # Add header if results found, otherwise purge file 
@@ -404,8 +404,6 @@ do
 			       | cut -d ':' -f 1 \
 			       | awk -v b="\"" -v a="$DEST_FIELD" -v c="$CMD" '/$/{ print c":"b$0b":"b a b }' \
 			             >> "$CONF_DIR/filelist-$COUNTER-$MIME.files"
-
-         #cp $CONF_DIR/filelist-$COUNTER-$MIME.files arse-$COUNTER.poo
 
             if [ -s "$CONF_DIR/filelist-$COUNTER-$MIME.files" ]; then
                 sed -i "1i# -> [ $MIME files from $SOURCE_FIELD to $DEST_FIELD ]" "$CONF_DIR/filelist-$COUNTER-$MIME.files"
@@ -459,9 +457,9 @@ sed -i "19i# $ $CONF_DIR/fileops/secretary-file-operations-$TIMESTAMP.sh" "$FILE
 
 # Gather together the directory creation and throw away duplicate mkdir -pv commands
 # for aesthetic and clarity purposes (would still run OK with them all in though)
-cat $CONF_DIR/filelist-*.dirlist >> $CONF_DIR/tmp-master.dirlist
-cat $CONF_DIR/datemode-*.dirlist >> $CONF_DIR/tmp-master.dirlist
-cat $CONF_DIR/tmp-master.dirlist | sort | uniq >> $CONF_DIR/master.dirlist
+cat $CONF_DIR/filelist-*.dirlist >> $CONF_DIR/tmp-master.dirlist 2>/dev/null
+cat $CONF_DIR/datemode-*.dirlist >> $CONF_DIR/tmp-master.dirlist 2>/dev/null
+cat $CONF_DIR/tmp-master.dirlist | sort | uniq >> $CONF_DIR/master.dirlist 2>/dev/null
 
 # Add these directories to the work script
 sed -i '1i# -> [ Create necessary directories for subsequent file copying/moving operations ]\n' "$CONF_DIR/master.dirlist"
@@ -526,6 +524,7 @@ do
 	fi
 done
 
+sleep 0.5
 # Put footer information at bottom of work script with summary data
 OPERATIONS=`egrep -v '^#|^mkdir|^$' "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh" | wc -l`
 DIRS=`grep '^mkdir' "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh" | wc -l`
@@ -551,7 +550,7 @@ if [ "$AUTO" = "YES" ]; then
     echo ""
 	  echo "* Running in AUTO mode, will now execute the file operations..."
 	  sleep 1
-    bash "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh" | tee secretary-$TIMESTAMP.log
+    bash "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh" | tee "$FILE_OPS_DIR/secretary-$TIMESTAMP.log"
     echo ""
     echo "* Complete. File transactions finished."
     echo "* Logfile showing operations performed created at:"
@@ -581,7 +580,7 @@ else
     read CHOICE
 
     if [ "$CHOICE" = "e" ]; then
-            "$EDIT_VIEW" "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
+            "$EDITCOMMAND" "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
             chmod u+x "$FILE_OPS_DIR/secretary-file-operations-$TIMESTAMP.sh"
             exit 0
     fi

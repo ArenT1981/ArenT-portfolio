@@ -1,6 +1,10 @@
 #+STARTUP: indent
 * Daily Study/Work/Development Log
 
+** *Total Hours (as of Sunday 1st March): 723.5*
+
+(159.5 hours logged prior to October 2019, not graphed).
+
 I track my time rigorously; if you are serious about applying yourself
 properly to learning/study it is /no different/ to working in a
 full-time job. More precisely, the study /is/ your full-time job if you
@@ -15,10 +19,27 @@ The charts below are courtesy of the wonderful [[https://github.com/rksm/clj-org
 program that generates some extremely useful and very attractive
 interactive charts in your web-browser based on the time tracking
 information stored in Emacs [[https://orgmode.org][org-mode]] files. Emacs is my essential
-organisation, non-linear notetaking, life management, editor/IDE, and
+organisation, non-linear note-taking, life management, editor/IDE, and
 all round kitchen sink powerhouse tool! 
 
 Anyone that has used Emacs before will understand what I mean... :-)
+
+*Update 2020:* 
+
+In January I switched to the excellent open source program [[http://rachota.sourceforge.net/en/index.html][Rachota]] for
+my time tracking, as it has all of the flexibility of being able to log
+by project/task, export to CSV, generate HTML reports, etc., and also
+has a more convenient interface for reviewing precisely what you did
+each day. Additionally, the daily "target" hours live progress bar when
+you're working on a task is highly motivating. From a data integrity
+point of view, it stores it all in XML format. 
+
+It is a free, open source, cross platform Java application. Highly
+recommended! 
+
+Emacs is brilliant but I have been gradually diversifying to a suite of
+separate applications which overall are more flexible and convenient in
+each of their respective domains.
 
 *October 2019 - 117 hours*:
 
@@ -36,7 +57,14 @@ Anyone that has used Emacs before will understand what I mean... :-)
 
 [[./img/jan2020-time.png]] 
 
+*February 2020 - 94 hours:*
+
+[[./img/feb2020-time.png]] 
+
 * Diary/Daily Log                                         :ossu:learninglog:
+
+*2019* 
+
 ** *Monday September 23rd:*
   -  Basic Probability Theory
   -  Galton Board
@@ -333,3 +361,153 @@ Anyone that has used Emacs before will understand what I mean... :-)
 ** *Thursday December 19th*:
 - Apache Cassandra nodeJS interface/simple web application
 - Additional portfolio presentation work
+** *Friday December 20th*:
+- Apache Cassandra nodeJS web application
+- Emacs backup/helper script
+** *Saturday December 21st*:
+- Disjoint sets & UpTrees
+- Java EE using Maven/Spring Boot/JPA
+** *Sunday December 22nd*: 
+- Documentation/GitHub presentation
+** *Monday December 23rd*:
+- "Secretary" auto-filing/sorting bash script 
+- GitHub presentation
+** *Tuesday December 24th*:
+- Graph implementions in C++
+** *Wednesday December 25th*:
+- Graph traversal algorithms in C++
+** *Thursday December 26th*:
+- Dijkstra/Landmark path algorithms
+** *Friday December 27th:*
+- GitHub presentation/graphics/documentation
+** *Saturday December 28th:*
+- GitHub presentation/graphics/documentation
+** *Sunday December 29th:*
+- GitHub presentation/graphics/documentation
+** *Monday December 30th:*
+- GitHub presentation/graphics/documentation
+
+*2020*
+
+** *Wednesday January 1st:*
+- GitHub presentation/graphics/documentation
+** *Friday January 3rd:*
+- Relational database systems
+- Requirements engineering overview
+** *Saturday January 4th*:
+- Requirements engineering/risk analysis
+** *Sunday January 5th*:
+- Requirements engineering/risk analysis
+** *Monday January 6th*:
+- Requirements engineering; artefact & stakeholder analysis
+- Requirements engineering; requirements elicitation
+** *Wednesday January 8th*:
+- Requirements engineering; artefact & stakeholder analysis
+- Requirements engineering; goals & conflict analysis
+** *Thursday January 9th*:
+- Requirements engineering: SRS documentation
+- Requirements engineering: risk analysis
+** *Friday January 10th*:
+- Requirements engineering: SRS documentation
+** *Saturday January 11th*:
+- Data Science introduction/overview
+** *Sunday January 12th*:
+- Data Science; business intelligence, analytics, machine learning overview
+- Agile Scrum framework
+** *Monday January 13th*:
+- Data Science: probability
+** *Tuesday January 14th*:
+- Data Science: probability
+** *Wednesday January 15th*:
+- Agile Scrum framework
+- Data Science: combinatorics
+** *Thursday January 17th*:
+- Data Science: Bayesian inference
+** *Monday January 20th*:
+- Data Science: Distributions
+** *Tuesday January 21st*:
+- Agile Scrum framework; full project overview
+** *Wednesday January 22nd*:
+- Database theory/SQL/MySQL
+** *Thursday January 23rd*:
+- Agile Scrum framework; JIRA/Trello
+** *Friday January 24th*:
+- Database theory/SQL/MySQL
+- GitHub presentation/graphics/documentation
+** *Saturday January 25th*:
+- Database theory/SQL/MySQL
+- Functional Programming (using Standard ML)
+** *Sunday January 26th*:
+- Database theory/SQL/MySQL
+- Functional Programming (using Standard ML)
+** *Monday January 27th*:
+- AWS overview/practice
+- Functional Programming (using Standard ML); bindings, REPL
+** *Tuesday January 28th*:
+- Functional Programming (using Standard ML); Lists, Tuples
+** *Wednesday January 29th*:
+- Functional Programming (using Standard ML); Nested Functions, Optins 
+** *Thursday January 30th*:
+- Functional Programming (using Standard ML); Compound Types, Pattern Matching
+** *Friday January 31st*:
+- Functional Programming (using Standard ML); Lexical Scope, Map & Filter
+** *Saturday February 1st*:
+- Data science: descriptive statistics, standard deviation, distributions
+** *Tuesday February 4th*:
+- Functional Programming (using Standard ML); Polymorphism
+** *Wednesday February 5th*:
+- Functional Programming (using Standard ML); Closures, Standard Library
+** *Thursday February 6th*:
+- Functional Programming (using Standard ML); Modules & Signatures
+** *Friday February 7th*:
+- Functional Programming (using Standard ML); Equivalent functions; Tail Recursion
+** *Saturday February 8th*:
+- Functional Programming (using Standard ML); Currying, Mutual Recursion, Namespace management  
+** *Sunday February 9th*:
+- Functional Programming (using Standard ML) 
+- Scala reading 
+** *Monday February 10th*:
+- Functional Programming (using Standard ML) 
+** *Tuesday February 11th*:
+- Functional Programming (using Standard ML)  
+** *Wednesday February 12th*:
+- Functional Programming (using Standard ML)
+- Scala reading
+** *Thursday February 13th*:
+- Functional Programming (using Standard ML)
+** *Friday February 14th*:
+- Functional Programming (using Standard ML)
+- IBM Data Science
+** *Saturday February 15th*:
+- IBM Data Science
+** *Sunday February 16th*:
+- IBM Data Science
+- Functional Programming (using Standard ML)
+** *Monday February 17th*:
+- IBM Data Science (SQL/Databases)
+- Functional Programming (using Standard ML)
+** *Tuesday February 18th*:
+- Programming in Python (large scale random dice algorithm)
+- IBM Data Science (SQL/Databases)
+** *Wednesday February 19th*:
+- IBM Data Science (Python Programming)
+- Functional Programming (using Racket; dynamic typing)
+** *Thursday February 20th*:
+- IBM Data Science (Python Programming)
+- Functional Programming (using Racket; dynamic typing)
+** *Saturday February 22nd*:
+- IBM Data Science (Python Programming)
+** *Monday February 24th*: 
+- IBM Data Science (Python Programming)
+** *Tuesday February 25th*:
+- IBM Data Science (Python Programming; IBM DB2)
+** *Wednesday February 26th*:
+- GitHub portfolio update
+** *Thursday February 27th*:
+- IBM Data Science (Python data wrangling)
+** *Friday February 28th*:
+- IBM Data Science (Python regression models)
+** *Saturday February 29th*:
+- IBM Data Science (Python polynomial regression and pipelines)
+** *Sunday March 1st*:
+- IBM Data Science (Python model refinement; fitting; ridge regression)

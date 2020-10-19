@@ -1,7 +1,7 @@
 #+STARTUP: indent
 * Daily Study/Work/Development Log
 
-** *Total Hours (as of Sunday 1st March): 723.5*
+** *Total Hours (as of Sunday 18th October 2020): 1157*
 
 (159.5 hours logged prior to October 2019, not graphed).
 
@@ -24,7 +24,7 @@ all round kitchen sink powerhouse tool!
 
 Anyone that has used Emacs before will understand what I mean... :-)
 
-*Update 2020:* 
+*Update #1 2020:* 
 
 In January I switched to the excellent open source program [[http://rachota.sourceforge.net/en/index.html][Rachota]] for
 my time tracking, as it has all of the flexibility of being able to log
@@ -40,6 +40,17 @@ recommended!
 Emacs is brilliant but I have been gradually diversifying to a suite of
 separate applications which overall are more flexible and convenient in
 each of their respective domains.
+
+*Update #2 March 2020:* 
+
+For various complications due to Covid things have been interrupted and
+disrupted somewhat, so no full logging data during March/April.
+
+*Update #2 May 2020:*
+
+Since May I have been doing most of my development in a commercial context so
+the emphasis switched from formal study to actually building commercial
+software on a flexi to full-time basis.
 
 *October 2019 - 117 hours*:
 
@@ -60,6 +71,40 @@ each of their respective domains.
 *February 2020 - 94 hours:*
 
 [[./img/feb2020-time.png]] 
+
+*March 2020:*
+
+Interruption/disruption due to Covid-19.
+
+*April 2020:*
+
+Interruption/disruption due to Covid-19.
+
+*May 2020: - 72 hours:* 
+
+Resuming after Covid-19 disruptions.
+
+[[./img/may2020-time.png]]
+
+*June 2020 - 67 hours:*
+
+[[./img/june2020-time.png]]
+
+*July 2020 - 68 hours:*
+
+[[./img/july2020-time.png]]
+
+*August 2020 - 73 hours:*
+
+[[./img/august2020-time.png]]
+
+*September 2020 - 57 hours:*
+
+[[./img/sept2020-time.png]]
+
+*October 2020 (up to 19th October) - 96 hours*
+
+[[./img/oct2020-time-partial.png]]
 
 * Diary/Daily Log                                         :ossu:learninglog:
 

@@ -1,7 +1,7 @@
 #+STARTUP: indent
 * Daily Study/Work/Development Log
 
-** *Total Hours (as of Sunday 18th October 2020): 1157*
+** *Total Hours (as of Sunday 18th October 2020): 1357*
 
 (159.5 hours logged prior to October 2019, not graphed).
 
@@ -86,7 +86,7 @@ Resuming after Covid-19 disruptions.
 
 [[./img/may2020-time.png]]
 
-*June 2020 - 67 hours:*
+*June 2020 - 167 hours:*
 
 [[./img/june2020-time.png]]
 
@@ -98,7 +98,7 @@ Resuming after Covid-19 disruptions.
 
 [[./img/august2020-time.png]]
 
-*September 2020 - 57 hours:*
+*September 2020 - 157 hours:*
 
 [[./img/sept2020-time.png]]
 
